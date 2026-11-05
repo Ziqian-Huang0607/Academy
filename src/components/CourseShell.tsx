@@ -12,7 +12,6 @@ import {
   NotebookTabs,
   BarChart3,
   BookOpen,
-  ListChecks,
   Bell,
   UserRound,
   Target,
@@ -51,14 +50,14 @@ export interface CourseTab {
   to: string
 }
 
+// 'What you know' (/course/know) and 'Study plan' (/course/plan) are hidden from
+// the rail for now; their routes and pages still exist.
 const STUDENT_NAV: CourseNavItem[] = [
   { key: 'courses', label: 'Courses', to: '/courses', icon: <LayoutGrid size={16} /> },
   { key: 'chat', label: 'Chat', to: '/course/chat', icon: <MessageSquare size={16} /> },
   { key: 'notes', label: 'Notes', to: '/course/notes', icon: <NotebookTabs size={16} /> },
-  { key: 'know', label: 'What you know', to: '/course/know', icon: <BarChart3 size={16} /> },
   { key: 'questions', label: 'Question Base', to: '/course/questions', icon: <BookOpen size={16} /> },
   { key: 'mock-tests', label: 'Mock Tests', to: '/course/mock-tests', icon: <FileStack size={16} /> },
-  { key: 'plan', label: 'Study plan', to: '/course/plan', icon: <ListChecks size={16} /> },
   { key: 'notifications', label: 'Notifications', to: '/notifications', icon: <Bell size={16} /> },
   { key: 'profile', label: 'Profile', to: '/profile', icon: <UserRound size={16} /> },
 ]
@@ -203,8 +202,8 @@ export default function CourseShell({
           <button
             type="button"
             onClick={() => navigate('/courses')}
-            aria-label={`Change course. Current course: ${activeCourse.code}`}
-            title={collapsed ? `Change course · ${activeCourse.code}` : 'Change course'}
+            aria-label={`Change course. Current course: ${activeCourse.displayName}`}
+            title={collapsed ? `Change course · ${activeCourse.displayName}` : 'Change course'}
             className={`${collapsed ? 'flex justify-center' : 'flex items-center gap-2.5'} w-full rounded-control text-left hover:bg-white/10 transition-colors duration-[120ms] ease-out`}
           >
             <span
@@ -214,7 +213,7 @@ export default function CourseShell({
             </span>
             {!collapsed ? (
               <div className="min-w-0 flex-1">
-                <div className="text-[14px] font-medium leading-tight truncate">{activeCourse.code}</div>
+                <div className="text-[14px] font-medium leading-tight truncate">{activeCourse.displayName}</div>
                 <div className="text-[12px] text-paper/60 truncate">{activeCourse.context}</div>
               </div>
             ) : null}
