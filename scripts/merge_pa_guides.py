@@ -41,6 +41,37 @@ def summary_of(body: str) -> str:
     return re.sub(r"\s+", " ", prose).strip()[:200]
 
 
+def open_first_section(body: str, title: str) -> str:
+    """Give content that precedes any `##` heading a section of its own.
+
+    parseNote() only renders blocks that sit inside a section; anything between
+    the `#` title and the first `##` is dropped, including the writers' credit.
+    Many guides start straight into prose, so without this they render empty.
+    """
+    lines = body.split("\n")
+    i = 1  # past the "# code title" line
+    while i < len(lines) and not lines[i].strip():
+        i += 1
+    # The credit callout counts as content: it has to sit inside a section too,
+    # or the writers' names never reach the page.
+    if i >= len(lines) or re.match(r"^#{2,4}\s", lines[i]):
+        return body
+    return "\n".join(lines[:i] + [f"## {title}", ""] + lines[i:])
+
+
+def defuse_stray_titles(body: str) -> str:
+    """A later `# …` line (a Python comment in a CS guide) would be read as the
+    note's title. Outside code fences, drop the space so it stays plain text."""
+    out, fenced = [], False
+    for n, line in enumerate(body.split("\n")):
+        if line.startswith("```"):
+            fenced = not fenced
+        elif n > 0 and not fenced and re.match(r"^#\s", line):
+            line = "#" + line[1:].lstrip()
+        out.append(line)
+    return "\n".join(out)
+
+
 def load_guides():
     notes = []
     if not GUIDES.is_dir():
@@ -55,6 +86,7 @@ def load_guides():
             print(f"  ! {path.relative_to(ROOT)} has no '# <code> <title>' heading; skipped")
             continue
         code, title = heading.group(1), heading.group(2).strip()
+        body = open_first_section(defuse_stray_titles(body), title)
         notes.append({
             "id": f"pa-{course}-{level or 'all'}-{code}",
             "courseId": course,

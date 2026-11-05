@@ -10,6 +10,13 @@ export interface ActiveCourse {
   symbol: string
   /** Catalogue subject. Mock papers are shared per subject, not per course. */
   subject: string
+  /** How the course is named to the student: `G10-AP Music Theory`. */
+  displayName: string
+}
+
+/** `[Grade]-[Title]`, e.g. `G10-AP Music Theory`; just the title with no grade. */
+export function courseDisplayName(title: string, grade: number | null | undefined) {
+  return grade ? `G${grade}-${title}` : title
 }
 
 /** The seeded demo courses predate the catalogue, so they carry no subject. */
@@ -52,6 +59,7 @@ export function getAvailableCourses(): ActiveCourse[] {
           .join(' · '),
         symbol: courseSymbol(course.code),
         subject: course.subject,
+        displayName: courseDisplayName(course.title, grade),
       }))
     }
   } catch {
@@ -65,6 +73,7 @@ export function getAvailableCourses(): ActiveCourse[] {
     context: course.unit,
     symbol: courseSymbol(course.code),
     subject: SEED_SUBJECTS[course.id] ?? 'Mathematics',
+    displayName: course.code,
   }))
 }
 
