@@ -59,6 +59,9 @@ const ID_ALIASES: Record<string, string> = {
   'ap-literature-and-composition': 'ap-english-lit',
   'ap-microeconomics': 'ap-economics',
   'ap-world-history': 'ap-world-history',
+  // Grade 10's "AP Calculus 10" teaches the AB syllabus (limits through
+  // applications of derivatives), so it reads the AB notes.
+  'ap-calculus': 'ap-calculus-ab',
 }
 
 /** These two are not streamed by grade in this app, so they carry no suffix. */

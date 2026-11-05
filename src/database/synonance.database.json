@@ -177,6 +177,7 @@
       "title": "AP Calculus AB",
       "subject": "Mathematics",
       "grades": [
+        10,
         11,
         12
       ]
@@ -221,6 +222,7 @@
       "title": "AP Microeconomics and Macroeconomics",
       "subject": "Humanities",
       "grades": [
+        10,
         11,
         12
       ]
@@ -598,6 +600,7 @@
       "title": "AP World History: Modern",
       "subject": "Humanities",
       "grades": [
+        10,
         11,
         12
       ]
@@ -609,6 +612,29 @@
       "title": "AP Precalculus",
       "subject": "Mathematics",
       "grades": [
+        10,
+        11,
+        12
+      ]
+    },
+    {
+      "id": "ap-computer-science-principles",
+      "pathway": "AP",
+      "code": "AP COMPUTER SCIENCE PRINCIPLES",
+      "title": "AP Computer Science Principles",
+      "subject": "Technology",
+      "grades": [
+        10
+      ]
+    },
+    {
+      "id": "ap-music-theory",
+      "pathway": "AP",
+      "code": "AP MUSIC THEORY",
+      "title": "AP Music Theory",
+      "subject": "Arts",
+      "grades": [
+        10,
         11,
         12
       ]

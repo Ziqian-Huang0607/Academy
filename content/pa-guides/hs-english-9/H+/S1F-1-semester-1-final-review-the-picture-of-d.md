@@ -1,0 +1,409 @@
+# S1F-1 Semester 1 Final review: “The Picture of Dorian Grey” & “The Strange Case of Dr. Jekyll an
+
+> From the Grade 9 Resource Department's Semester 1 Final English H+ review guide (PA). Writers: Leo Kong. Editor: Echo Huang. Range: “The Picture of Dorian Grey” & “The Strange Case of Dr. Jekyll and Mr. Hyde”. Student-made reference material: where it differs from class, follow class.
+
+**“The Mask” - William Butler Yeats**
+
+**Characters**
+
+- The Speaker - Demands that the wearer take off the mask
+  - Wants the truth
+- The Wearer - Tries to keep the mask on
+
+**Stanza Analysis**
+
+- Stanza 1
+  - The mask: Described as being made of “burning gold” and “emerald eyes” - Described as being beautiful and enticing
+  - Wearer says that the speaker is “bold” for trying to see their “heart”
+    - Heart described as being a mix of "wild and wise, / And yet not cold."
+    - Suggests that the truth behind the mask is less appealing
+- Stanza 2
+  - The speaker wants to know whether it’s “Love or deceit”
+  - The wearer argues that the beautiful illusion is what made you interested ("engaged your mind") and excited ("set your heart to beat")
+- Stanza 3
+  - Speaker nervously asks, “What if you're my enemy?"
+    - The truth can be dangerous
+
+**“Nothing Gold Can Stay”**
+
+- Title
+  - Gold is a symbol for beauty and youth
+  - Youth will always fade with time
+- Literary Techniques
+  - Symbolism of gold - Youth and beauty
+  - Personification of Nature to a feminine figure
+  - Metaphor of changing seasons, comparing to chronological process of life
+    - “First green” of spring to winter
+  - Hyperbole of flower only blooming for an hour
+    - Beauty is lost quickly
+  - Allusion - Garden of Eden (Perfect, wonderful place)
+  - Alliteration-Lines1-2
+
+**“The Picture of Dorian Grey”**
+
+**Versions of the Book**
+
+- The Original Typeset
+- 1890: Edited Version of the Original Typeset
+- 1891: Expanded and Edited Version of the 1890 Version
+  - Rewritten to make it “less controversial”
+  - Adds chapters 3, 5, 15, 16, 17 & 18, chapter 13 expanded to become chapters 19-20
+      - **Victorian Era Context**
+- Victorian Era
+  - High value on honor, duty, moral seriousness, sexual property
+  - 1836-1901
+  - Agrarian to industrial society
+  - Middle Class Created
+- Power and the British Empire
+  - Richest nation (first industrialized)
+  - Most powerful
+    - Unchallenged military supremecy
+    - 1/4 of Earth’s surface
+  - Pseudo-science->inferiority of darker skin
+  - Millions in poverty
+    - Inadequate housing->illness
+    - Dangerous working condtiions
+- Society Values and Culture
+  - Domesticity-home and family is center of British religious, cultural, and emotional life
+    - Men--public zones
+    - Women--private zones
+    - Working class women still worked though
+- Gender Roles
+  - Women supposed to be “Angel in the House”
+  - Not eligible for school
+    - Most worked
+    - no voting rights
+  - Husband+wife=seen as one (marriage law)
+  - Husband-can’t be sued, can use force, absolute authority
+  - The word “Homosexual” enters in 1880s into English language
+    - Illegal between men, punishable by death
+    - Wilde was homosexual
+    - Put on trial for homsexuality, with the Picture of Dorian Gray as evidence (which was why he edited it later on)
+- Technology and Progress
+  - Steam engine, locomotives
+    - Coal, textile, tourism, heavy metals, printing press, etc.
+
+**Literary Movements**
+
+- Romanticism
+  - Senses & Emotion > Reason & Intellect
+  - Romantic paintings depict the feeling toward Earth & life> The exact way it actually appears
+- Realism
+  - Reflect daily habit, desires, and aspirations of the reader
+  - Everyday experiences, morla progress, inner struggles, etc.
+  - Literature to represent reader’s lives
+  - Literature to offer moral and ethical guidance
+  - Seeks to preserve real authenticity
+  - Real & actual > Imagined reality
+  - Enraged many upper and middle class patrons by subject matter
+    - Not completely embraced in France and Victorian England
+- Pre-Raphaelites
+  - Founded in 1848
+  - Glorifies values of a simple but more beautiful part
+  - Thought that since Raphael (1483-1520) art had degenerated and lost its ties with nature
+  - Thought that Raphael had technical perfection but cynical disregard for spiritual feeling
+  - Opposition to technical skill without inspiration
+  - Aimed at “Truth to Nature” - representing nature in a realistic way
+  - Wanted to return to the abundant detail and intense colors of 15th century Italian art
+  - Paintings rich in symbolism
+  - 4 Doctrines
+    - To have genuine ideas
+    - To study nature attentively so as to know how to express them
+    - Sympathize with direct and heartfelt
+    - Produce good pictures and statues
+- Aestheticism
+  - Literary and cultural movement of the 19th century
+  - Emphasis on aesthetic values more thann social-political themes (“literature of decadence”)
+  - Linked to immorality
+  - Main features
+    - Language of the senses.
+    - Attention to the self
+    - Hedonistic attitude
+    - Perversity in subject matter
+    - Disenchantment with contemporary society
+    - Absence of moral aim
+    - Image heavy
+    - Sensory elements
+    - Sentimentality
+    - Interest in medieval fables, legends
+    - More realistic than Romanticist works
+
+**Chapter Analysis**
+
+- Chapter 1
+  - “What odd chaps you painters are!”
+    - Lord Henry: Arrogant & Condescending
+      - Follower of aestheticism
+      - Cynical about social institutions (i.e. Marriage)
+    - Basil Hallward: Earnest & Genuine
+      - Disappearance - “Public excitement and gave rise to so many conjectures”
+      - Victorian Society’s outward image (Reserved, gentlemanly) vs. Internal Reality (Sensationalism)
+  - “An artist should create beautiful things, but should not put anyhting of his own life into them.” - Intro to Aestheticism
+- Chapter 2
+  - The Faustian Bargain - To exchange one’s soul for wealth, knowledge, worldly goods or pleasures
+    - Dorian gives up his morality (soul) for eternal youth and beauty
+    - Tied to aestheticism
+  - Narcissism
+    - Dorian realizes his own beauty fhrough the portrait, just as how Narcissus fell in love with is reflection in the pond water
+  - The Fall of Man
+    - Adam and Eve eats the apple and loses their innocence, just as how Lord Henry’s Hedonistic views and Dorian’s realization of beauty makes him lose his idle innocence as well.
+  - Fop - Describes a man overly obsessed with his clothes / appearance
+    - “Finely-curved scarlet lips, his frank blue eyes, his crisp gold hair...”
+    - Foreshadows Dorian’s use of youth and beauty to get away with immorality later on
+  - Lord Henry’s views
+    - Paradoxical use of logic to twist Dorian’s sense of right and wrong
+    - Tempter and Devil figure
+      - “Some day when you are old and wrinkled and ugly...”
+      - Tells Dorian about his fading youth and pushes him towards aestheticism
+    - Quotes
+      - “I like persons better than principles, and I like persons with no principles better than anything in the world.”
+      - “The only way to get rid of a temptation is to yield to it”
+- Chapter 3
+  - Dorian’s upbringing
+    - Dorian’s mother was a rich woman but married a poor man
+    - Dorian’s grandfather arranged to have her husband killed
+- Chapter 4
+  - Dorian begins to embrace Aestheticism
+  - He immediately falls in love and gets engaged with Sybil Vane, an actress
+    - Does not reveal to Sybil his real name and prefers to be called Prince Charming
+    - Lord Henry maintains cynical view of love
+  - Lord Henry’s views
+    - “I always hear Henry’s views from his friends:
+    - Lord Henry and his wife aren’t close--a loveless marriage-->connects to Lord Henry’s cynical views on marriage “Never marry at all, Dorian.”(p.46)
+    - Henry is reluctant to share his outrageous views at home
+    - Lord Henry’s influence over Dorian grows
+- Chapter 5
+  - The Vane Family
+    - Sybil raves about her love for Dorian and gets scolded by her mother
+    - Irony - Sybil acting Juliet when Dorian falls in love with her
+- Chapter 6
+  - Dorian’s engagement
+    - Basil has a skeptical reaction
+    - Henry informs Basil of the engagement - shows his close relationship with and influence over Dorian
+    - “I have had the arms of Rosalind around me, and kissed Juliet on the mouth”
+      - Art and love vs. Real life becomes blurred for Dorian
+      - Shows how Dorian loves only the art of Sybil but not Sybil Vane the actor
+  - Lord Henry
+    - “The real drawback to marriage is that it makes one unselfish. And unselfish people are colorless”
+      - People cannot be self-centered in marriage
+      - Irony & Mundane diction, critique of marriage
+    - “Discord is to be forced to be in harmony with others ... I consider that for any man of culture to accept the standard of his age is a form of the grossest immorality”
+      - Sees social trends and values as performative
+      - Aestheticism - Focus on the individual
+- Chapters 7 & 8
+  - Epigrams - Short, concise sayings
+    - The basis for optimism is sheer terror.”
+  - Satire: using humor to soften a harsh statement
+    - “If you want to tell people the truth, make them laugh, otherwise they will kill you.”
+  - The Death of Sybil Vane
+    - Dorian berates Sybil for acting badly and dumps her - Emphasizes beauty over morality
+      - Dorian loves not Sybil, but Rosalind, Juliet, Ophelia and the heroines that Sybil plays
+      - So once Sybil lost her art, he dumps her
+    - Sybil commits suicide the day after
+      - Her death becomes an aesthetic object rather than a human being - art > morality
+    - “It seems to me to be simply a wonderful ending to a wonderful play”
+      - Nonchalant tone suggests that Sybil is insignificant
+      - Cold, detached, removed as a result of Lord Henry’s influence
+      - Criticize loss of morality
+      - A lack of guilt or redemption, which is why the portrait got a bit crueler (symbolism)
+    - “There is something to me quite beautiful about her death... They make one believe in the reality of the things we all play with”
+- Chapters 9 & 10
+  - Basil’s reaction: “Dorian, this is horrible!”
+    - Basil is disappointed and frightened at the change in Dorian
+    - Dorian lives for art on new sensations
+      - “Out of sight, out of mind”
+  - Dorian conceals the portrait to commit immoral deeds
+    - Portrait indicates moral decay
+    - Life of freedom -> Corruption & Deception
+- Chapter 11 & 12 & 13
+  - Over a decade has passed
+    - Dorian pretends to not see Basil
+    - Basil remains a reminder of the morals Dorian abandoned
+  - Basil goes to visit and talk to Dorian
+    - Waits years to do so - Victorian morality and culture
+    - “I don’t believe these rumors at all... I can’t believe anything against you”
+      - Dorian’s beauty as a mask: Conceals his sins--“Sin is a thing that writes itself across a man’s face” (Wilde 152)
+      - Dorian’s beauty as a weapon: Uses face and aesthetic appeal to influence others and escape situations
+    - Dorian murders Basil in a fit of rage and blackmails Alan Campbell to dispose of the body
+- Chapters 14 & 15
+  - “A thing to be driven out of the mind”
+    - Dorian starts a hedonistic treadmill - Tries to outrun guilt over Basil with sensory stimulation
+  - Escapism
+    - “Felt keenly the terrible pleasure of a double life” (Oxymoron)
+    - Imagery juxtaposition: Angelic appearance vs. Corrupted private life
+    - Dramatic irony: Victorian England prioritizes appearance > Morality
+  - Lord Henry: “More than enough is as good as a feast”
+    - Play on “Enough is as good as a feast”
+    - Encourages Dorian to seek for more than moderation
+- Chapters 16 & 17
+  - “To cure the soul by means of the senses, and the senses by means of the soul” - Circular reasoning
+  - Escapism - Opium: Cheap, momentary satisfaction, artificial happiness
+  - Connection to “The Harlot’s House” - Condemns the pursuit of superficial lust
+  - Pleasure vs. Happiness
+    - Pleasure=short-term superficial satisfaction
+    - Happiness=long-term, more meaningful, more wholesome joy
+- Chapters 17 & 18
+  - Dorian pretends to become moral again when James Vane comes to seek revenge
+  - Miraculous, false pardon with James is killed in an accident
+    - Reveals Dorian’s “morality” to be performative
+    - Also the death of something that is somewhat untamed and wild but also quite natural and pure within the superficial society
+- Chapters 19 & 20
+  - Morality: A singular act?
+    - Wilde argues that it is consistent and unconscious
+    - Dorian constantly brags about his morality and goodness to Lord Henry - Performative mask of goodness
+  - Lord Henry
+    - “All crime is vulgar, all vulgarity is crime”
+    - Enjoys the artistic and beautiful but doesn’t go as far as Dorian to the point that he mixes art and reality
+    - Says that Dorian’s youthful appearance means that he cannot commit a murder
+      - Implies that art can’t engage with crime
+  - Dorian returns home and tries to destroy the portrait with a knife
+    - Still thinks that Alan Campbell’s suicide, Basil’s death, and all of his wrongdoings can be justified, and hopes that his pretense acts of morality can repair his soul
+    - However, the portrait is still cruel and ugly
+    - Blames portrait for his sins and flaws
+    - Destroys the portrait--The easy and most direct way to eliminate his sins
+  - Dies and painting reassumes the beautiful image it initially was
+
+**“Dr. Jekyll & Mr. Hyde”**
+
+**Monsters and horror**
+
+- Monster and Latin:
+  - Monstrare-“to show”
+  - Monere-“to warn”
+  - Monstrum-“that from which we learn”
+- Monsters in mythlogy
+  - Monsters exist in every mythology throughout the world
+  - Representfears of a particular culture
+- Monsters serve a purpose
+  - Often to teach, warn, show
+  - Something about human weaknesses
+- Human flaws in Monsters
+  - Vampires-humanity’s weakness for the foreign/sensuality
+  - Werewolves-humanity’s fear of our own animalistic nature
+  - Wizards-fear of corruption of mental power
+  - Giants-fear of corruption of physical power
+- Freud and the Uncanny
+  - A fear generated by things that are not unfamiliar to us
+    - E.g. dolls, clowns, human-like robots
+- The Uncanny and You
+  - Seeing your double (the doppelgänger effect)
+  - Thoughts appearing to have an effect in the real world
+  - Seeing something hauntingly familiar to specifically you (childhood rhymes etc.)
+
+**Robert Louis Stevenson Introduction**
+
+- Childhood
+  - Born 1850 in Scotland
+  - Suffered from tuberculosis
+  - Odd-looking, ill, and eccentric, so had difficulty fitting in at school, and therefore dedicated himself to writing stories and poetry.
+- Adulthood
+  - Father wanted Stevenson to follow his footsteps and become a lighthouse engineer
+  - Entered the University of Edinburgh to study engineering, but disliked it
+  - Traveled around to inspect lighthouses due to family business
+  - Enjoyed these opportunities-offered him material for poems and stories
+  - 1871: announced to his father that he would pursue a career as a writer
+- Travels
+  - Lived all over the world because
+    - A desire for adventure and experience
+    - To find a climate suitable for his ill health
+  - Spent time in California, Colorado, Adirondack Mountains of New York, England, French Riveria, South Pacific
+- Writing
+  - Famous for “thriller” novels, short stories, and travel writing
+  - Works included Treasure Island (1883), A Child’s Garden of Verses (1885), Kidnapped (1886), The Strange Case of Dr. Jekyll and Mr. Hyde (1886)
+  - Despite fame, always had trouble with money
+- Death
+  - Died in Samoa
+  - Supposedly suddenly cried out to his wife “What’s the matter with me, what is this strangeness, has my face changed?” before falling on the floor, then died from a burst blood vessel in his brain, according to a biography of him
+- The Strange Case of Dr. Jekyll and Mr. Hyde
+  - Novella
+  - Wrote first draft in 3 days, while intensely ill, writing and revising “roused and cheered him”
+  - Immediate best-selling success
+
+**Psychoanalytical Criticism**
+
+- Sigmund Freud (1856-1939)
+  - Responsible for describing the Oedipus Complex (a child's unconscious desire for the opposite-sex parent and rivalry with the same-sex parent)
+  - Author of the structural model of personality
+  - 3 parts: the ego, the superego, and the id
+- Critics explore how the 3 parts influence a person as a whole
+- In The Strange Case of Dr. Jekyll and Mr. Hyde, however, it is possible to view individual characters as representing individual personality structures
+- Ego
+  - Conscious
+  - Reality Principle
+  - Medirator between Id and Superego
+  - Balance between impluse and conscience
+  - Responsible for meeting Id’s needs while being aware and alert of the harms
+- Superego
+  - Preconscious
+  - Conscience, moral parts of us
+  - Moral and ethical restraints, placed on us by caregivers
+  - Dictates our beliefs in right and wrong
+  - Moral principle
+  - Rules, morals, and norms
+- Id
+  - Unconscious
+  - Pleasure principle
+  - Immediate gratification
+  - Satisfaction of basic needs
+  - Primitive impulse such as thirst, anger, hunger, and desire for instant gratification
+      - **Chapter Analysis**
+- Chapter 1 Story of the Door
+  - Mr. Utterson
+    - A dull person->more reliable to the reader
+    - A narrator with limied knowledge->creates a feeling of mystery
+  - Contrasts and Symbolism
+    - Storefronts, brightly-liy, printed industries of prosperous London
+    - Versus
+    - Solitary, dark alley, black doors with tramps
+    - Symbolism of doors: the conscious and the unconscious parts of the mind
+  - Secrecy: the first chapter is written to invoke a sense of mystery and secrecy
+    - Who was Hyde?
+    - Why is he so rich?
+    - Who’s name was on the cheque?
+- Chapter 2&3
+  - Dr. Jekyll:
+    - Kind, benevolent--described with adjectives with positive connotations at first
+    - Sharply, blackness, pale, etc.--suddenly described with adjectives with negative connotations when the topic of Hyde and the will is brought up--got weird and impatient->adds to a suspenseful feeling of secrecy about the secret between Jekyll and Hyde
+  - Lanyon:
+    - Friend of Utterson and used to be friend of Jekyll
+    - Disagrees with Jekyll on scientific research--claims for Jekyll’s research to be non-scientific
+- Chapter 4
+  - A year later, a maid witnesses Hyde brutally murduring a polite and loving old man, jumping on him til his bones break
+  - Hyde:
+    - Antithesis of the peaceful and patient Crew
+    - “ill-contained peace”
+  - Fear and emotional reaction of the maid--heighten the sense of horror at the crime
+  - Purity, innocence and respectability of Carew--stand for everything that Hyde is not
+  - Setting and Atmosphere:
+    - Fog during Utterson’s journey
+      - Fog had been a big problem in 19th century London, smoke and pollution from coal fires made it worse
+      - Dismal brown smog created--people needed to light candles at day and health issues arose
+    - As the cab drew up...
+      - Depicts a scene of the lower rungs of society-”blackguardedly”, “ragged”, “dingy”
+      - “Jekyll’s favourite”--ironic and weird choice of words-->depicts the irony and oddness of how such a terrible person as Hyde is Jekyll’s heir
+    - Internal rooms of Hyde
+      - Luxurious
+      - Contrasts with terrible outside
+  - Duality of the Housekeeper:
+    - Excellent manners but evil disposition
+    - “flash of odious joy”--not loyal to Hyde despite being paid by him
+- Chapter 5
+  - The Laboratory
+    - Jekyll: “deathly sick”
+    - Jekyll does chemical experiments
+  - Letter from Hyde--saying that he will escape the country--some suspicious parts:
+    - Jekyll supposedly burnt the envelope but kept the letter
+    - No letter arrived according to Poole
+    - Same handwriting as Jekyll, according to Mr. Guest
+      - Represents duality of human nature:
+      - Same handwriting, different slope (probably due to difference in height)
+      - Different perspectives of a same person
+- Chapter 6
+  - Jekyll recovers
+    - Open and brighten
+    - But then...suddenly he started to have “saw no one”
+    - Solitary again
+    - Starting a life of extreme seclusion
+  - Lanyon
+    - Oddly sickly and deathly
+    - Gives Utterson a letter with mysterious and specific requirements for when to oepn.

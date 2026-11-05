@@ -1,0 +1,177 @@
+# S1M-3 Unit 4: Transoceanic Interconnections
+
+> From the Grade 10 Resource Department's Semester 1 Midterm History AP review guide (PA). Writers: Echo Huang 10-11, Mengling Cao 10-7. Editor: Apple 10-7. Range: Unit 1-4. Student-made reference material: where it differs from class, follow class.
+
+- **4.1: Long-Distance Trade Technology**
+- Classical world knowledge was preserved in the world of Islam and spread to Europe.
+  - House of Wisdom translated Greco-Roman texts into Arabic.
+  - Works by Aristotle, Euclid, Ptolemy, Galen, and Archimedes entered the Islamic intellectual tradition this way.
+  - Islamic knowledge of classics spread to Europe through translation in Spain and Sicily.
+    - Translated from Arabic to Latin.
+    - Helped start of modern science during early Renaissance.
+- Islamic world was vital in spreading knowledge to Europe.
+  - Spread local Islamic knowledge mostly in Mathematics/Astronomy.
+    - Introduction of Hindu-Arabic decimal place value system.
+    - Translation of Ibn al-Haytham’s Astronomy and Astronomical Charts.
+    - Popular use of Lateen sails from Indian Ocean and Arabs led to European usage.
+  - Islamic world helped spread Asian technological innovations to Europe.
+    - Magnetic Compass invented in Song Dynasty and spread to Christian Europe in 1200s.
+    - Papermaking invented in Han Dynasty and spread to Islamic Spain.
+    - Adapted Chinese gunpowder for military purposes.
+    - Movable type based on Chinese woodblock printing.
+- New long-distance trade tools were invented on the basis of such knowledge.
+  - Mariner’s Astrolabe was a result of Portugal improving Islamic terrestrial astrolabe.
+  - Usage of quadrants derived from Islamic astronomy but applied in maritime navigation.
+- Ship design was improved:
+  - Caravel: Combined lateen sails with square sails for both speed and manoeuvrability.
+  - Carrack: Larger vessels fully capable of long-range oceanic voyages.
+  - Fluyt: Cost-efficient transoceanic trade ships made to maximise cargo load.
+- **4.2: Cause and Events of Exploration**
+- Maritime exploration occurred under the support of European states.
+- Portugal:
+  - Prince Henry the Navigator:
+    - Funded voyages along West Africa.
+    - Tried to find sea routes to reach Asia as to avoid Muslim middlemen on land trade.
+    - Sponsored and supported navigation schools
+  - Established trading posts to control sea trade routes.
+  - Bartolomeu Dias rounded Cape of Good Hope in 1488.
+  - Vasco de Gama reached India in 1498.
+  - Connected trade networks between Atlantic Ocean, Indian Ocean, and South China Sea.
+    - First to establish global trading network.
+- Spain:
+  - Ferdinand and Isabella sponsored Columbus’ voyages that ultimately discovered Americas.
+    - Spain established colonies in the Caribbean following 1492.
+    - Influx of American gold/silver impacted European and Asian markets.
+  - Magellan’s crew circumnavigated the globe in 1522 (Magellan died 1521 in Philippines, Elcano completed it in 1522)
+    - Proved trade route was existent directly between Americas and Asia.
+    - Led to trans-Pacific silver trade.
+  - Treaty of Tordesillas:
+    - Signed between Castile and Portugal.
+    - Drew a north-south demarcation line that gave Portugal east and Spain west.
+    - 1493 papal bulls (Inter caetera) set earlier line; 1494 Treaty of Tordesillas shifted it
+- English, French, and Dutch:
+  - Both England and France attempted to find a Northwest Passage but didn’t succeed.
+  - Dutch Merchants discovered Cape Horn to create trade route that bypassed Strait of Magellan.
+- **4.3: Columbian Exchange**
+- Began after Columbus’ voyages to the Americas.
+- The transaction between Eastern and Western hemisphere of plants, animals, and diseases.
+  - Native Americans had no resistance to the diseases and up to 90% of the population was killed.
+    - Eg. Smallpox, measles, malaria.
+  - Colonisation caused transfer of disease vectors such as mosquitoes and rats.
+- New World crops were often grown as staple crops and often drove population growth.
+  - Eg. Corn, Potatoes, Tomatoes, Beans, etc.
+- Cash crops were grown in plantations from coerced labour and export to Europe/Middle East.
+  - Eg. Tobacco, Sugarcane, Coffee, etc.
+  - Enslavement of Africans and Trans-Atlantic Slave Trade.
+- Both Europeans and Africans brought old world goods and animals to America.
+  - Horses, cattle, pigs, sheep, dogs that are not chihuahuas, etc.
+  - African enslaved people brought Okra, Watermelon, and rice.
+- **4.4: Establishment of Maritime Empires**
+- Europeans established new trading posts in Africa and Asia.
+  - Highly profitable for European merchants and local rulers.
+- Maritime Empires: Driven by political, religious, and economic rivalries.
+  - Portugal:
+    - Trading posts in Africa, India, and East Asia.
+    - Control over Brazil after redrafting Treaty of Tordesillas.
+  - Spain:
+    - Claimed lands in the Pacific.
+    - Focused on colonies in Americas.
+    - Silver mining and trade.
+  - Netherlands:
+    - One small colony — “New Netherland”
+    - Colonised much of East Indies gave control of trade between East Indies and Europe.
+  - France:
+    - Established outpost in India due to their wish of having trade in the East Indies.
+    - Established Quebec in Canada.
+  - England:
+    - Set outposts in the Caribbean and India.
+    - Set colony on Roanoke Island. Supply ship set out.
+    - When the supply ship returned, they found the colony abandoned.
+    - Jamestown, Virginia: First successful English colony in America.
+- Participation in global trade networks increased influence of some African states.
+  - Eg. Asante and Kingdom of the Kongo.
+- Some policies were made to limit disruptive economic/cultural effects of European trade.
+  - Ming China: Restricted trade policies mostly to prevent pirates.
+  - Further acted upon in Qing dynasty, deforming into avoidance of foreign influence.
+  - Tokugawa Japan: Isolationist policies.
+- Indian Ocean trade continued between Asian states as well.
+  - Existing trade networks continued to flourish despite European arrival.
+  - Included intra-Asian trade and Asian merchants.
+    - Maritime trade with Chinese junks that went to Philippines and Borneo.
+- American colonial economies and labor systems relied largely on agriculture.
+- African Slavery still existed in traditional household forms.
+  - Slaves were exported to Americas for trade in manufactured goods.
+- Utilised existing labor systems:
+  - Incan mit’a (adapted by Spanish for mining/labor).
+    - Mit’a system: Rotational forced labour system where labour was like a form of tax.
+- Introduced new labor systems.
+  - Chattel slavery: Slaves are treated as moveable personal property and legally equivalent to goods.
+  - Indentured servitude: Servant is bound by contract to work for set amount of time.
+  - Encomienda and hacienda systems:
+    - Encomienda: Right to extract indigenous population for labour with protection.
+    - Encomienda system declined along with indigenous population decline.
+    - Hacienda: Legal ownership of an estate and controlled the labour force of the estate.
+- Plantation economy led to larger African population sent to Americas.
+  - Increased demand for enslaved labor in the Americas.
+  - Led to significant demographic, social, and cultural changes in the Americas.
+- **4.5: Development of Maritime Empires**
+- Mercantilist policies were used by European rulers to expand and control economies.
+  - Mercantilism: Belief that by increasing exports and reducing imports, a nation could gain wealth and therefore political power. Its belief in a stagnant total of wealth led to aggressively competitive mindsets between nations.
+  - Aimed to gain overseas territories and maximize national wealth.
+    - Colonies manufactured raw goods that benefited the “mother country”.
+- Joint-stock companies: Companies where different people took a share of the company’s stocks.
+  - Used by rulers and merchants to finance exploration.
+  - Allowed rulers to compete against one another in global trade.
+  - Lessened individual risk within financial management.
+- Economic disputes from mercantilism beliefs caused constant conflicts between states.
+  - Muslim–European rivalry in the Indian Ocean.
+  - Moroccan conflict with the Songhai Empire.
+- The Atlantic Trading System involved the movement of goods, wealth, and labor.
+  - Facilitated by chartered European monopoly companies.
+  - Facilitated by global flow of silver from Americas to Asia.
+    - Ming dynasty’s bimetallic system caused a large demand of silver in East Asia.
+- Regional markets continued to flourish in Afro-Eurasia.
+  - Relied on established commercial practices such as promissory notes as a form of credit.
+  - Utilised new transoceanic and regional shipping services developed by Europeans.
+    - Eg. Flow of silver from new world to old world.
+- Labor systems largely intensified due to increasing demand of consumer goods.
+  - Western Europe traded wool and linen across Flanders to Italian markets.
+  - India had growing demand for cotton from trade.
+- Society and culture also changed in both the Americas and Afro-Eurasia.
+  - Slavery caused extreme imbalance in gender ratios in Africa, causing polygyny.
+  - Women’s roles in West Africa became more prominent due to distorted demographics.
+- Trade and transport of labour caused cultural synthesis, most prominently in America.
+  - Mix of African, American, and European cultures and peoples.
+- Existing religions often sought to expand reach towards new world.
+  - Often caused to religious conflicts.
+  - Led to development of syncretic belief systems and practices.
+  - Pilgrims: English colonists who set up in Massachusetts to escape religious prosecution.
+- **4.6: Challenges to Governance**
+- State expansion and centralisation often caused resistance of rule.
+  - Pueblo Revolts (1680): Indigenous uprising against Spanish colonisers.
+  - Fronde (1648–1653): French nobles and magistrates rebelling against royal absolutism (Cardinal Mazarin/Louis XIV).
+  - Cossack revolts: Peasant and warrior uprisings against Russian serfdom and state centralisation
+  - Maratha conflict with Mughals: Hindu warrior group resisting Mughal imperial expansion and religious policies in India.
+    - Mughal government was Sunni Islam, but most of the population was Hindu.
+  - Ana Nzinga’s resistance: Ruler of Ndongo and Matamba (Somewhere in Africa) who fought Portuguese slave raiders and colonisation.
+  - King Philip’s War (1675–1676): Native American uprising against English colonial expansion in New England.
+- Enslaved persons challenged existing authorities in the Americas through organised resistance.
+  - Preservation of African culture in secret.
+  - Maroon societies: Independent, self-governing communities of escaped enslaved people.
+  - Resistance in North America: Organised rebellions and resistance.
+- **4.7: Changes in Social Hierarchies**
+- Many but not all states adopted practices to accommodate ethnic and religious diversity.
+  - Utilised the economic, political, and military contributions of different social groups.
+  - Eg. Millet System in Ottoman Empire granted religious minorities autonomy.
+  - Eg. Expulsion of Jews from Spain and Portugal (1492/1497).
+  - Restrictive policies weds made against the Han Chinese in Qing China.
+    - Restrictions on intermarriage between Manchu and Han.
+    - Exclusion of Han from top government positions.
+- New elites were formed from both conquest and global trade.
+  - New Manchu elite that ruled with Han Chinese bureaucrats through Qing conquest of Ming.
+  - The rise of the Casta system created new social hierarchies in Americas based on racial mixing.
+    - Peninsulares > Creoles > Mestizos > Mulattoes.
+- The power of existing political and economic elites fluctuated.
+  - Ottoman timars lost power as the empire shifted to tax farming and a salaried standing army.
+  - Russian nobility lost power to rising autocracy of the Tsars
+  - European nobility were challenged by centralising monarchs and the rise of wealthy merchant classes due to global trade.

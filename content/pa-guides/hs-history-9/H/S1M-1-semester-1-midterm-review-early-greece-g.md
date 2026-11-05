@@ -1,0 +1,91 @@
+# S1M-1 Semester 1 Midterm review: Early Greece, Greek city-states, Classical Greece, Macedonia an
+
+> From the Grade 9 Resource Department's Semester 1 Midterm History H review guide (PA). Writers: Isabel Lin 9-6. Editor: Annike Heilemann 9-3. Range: Early Greece, Greek city-states, Classical Greece, Macedonia and Alexander, The Hellenistic World, Early Rome and the Republic, Decline and Fall of the Republic, Roman Empire at its height, Crisis and the Late Empire, The Development of Christianity, Roman and Han Empires. Student-made reference material: where it differs from class, follow class.
+
+- **Early Greece: Geography and Origins (c. 1900–750 BCE)**
+  - **Geography's Impact**
+    - Politics: Mountainous terrain led to the development of independent, fiercely competitive city-states (poleis)
+    - Military/Economy: Long coastline with natural harbors made the Greeks seafarers, avid traders, powerful colonizers, and develop strong navy.
+    - Minoan & Mycenaean Civilizations: Bronze Age civilizations on Crete (Minoan) and the mainland (Mycenaean) were early forerunners. The Mycenaean culture collapsed around 1100 BCE, leading to a "Dark Age."
+  - **Homer**
+    - Author of the Iliad and Odyssey. His works, celebrating heroic values like Arete (excellence), became the foundation for Greek education and instilled a shared aristocratic ideal.
+- **The Greek City-States (Polis) (c. 750–500 BCE)**
+  - **The Polis**: The central institution of Greek life: a community of citizens focused on political, social, and religious activities. Citizenship involved in both rights and responsibilities.
+  - **Sparta:** A militaristic state that conquered Messenia, enslaving the population (they became helots). Life was rigidly controlled to maintain order, creating a powerful army and an oligarchic government.
+  - **Athens:** Evolved from aristocracy toward democracy through reforms:
+    - **Solon (594 BCE)**: Canceled debts, outlawed debt slavery, and opened political participation to the wealthy non-aristocrats.
+    - **Cleisthenes (508 BCE)**: Created the Council of 500 and strengthened the citizen assembly, laid the foundation for Athenian democracy.
+  - **Colonization & Trade:** Population growth and trade led to widespread Greek colonization around the Mediterranean, spreading Greek culture and fostering a stronger Panhellenic (all-Greek) identity.
+- **Classical Greece (c. 500–338 BCE)**
+  - **Persian Wars (490–479 BCE):**
+    - A defining conflict seen as a struggle between Greek freedom and Persian despotism(tyranny).
+    - Key Greek victories at Marathon, Salamis, and Plataea preserved Greek independence and confirmed Athenian power.
+  - **Athenian Empire & Democracy:**
+    - Athens formed the Delian League for defense but transformed it into an Athenian Empire.
+    - Under Pericles, Athens developed a direct democracy where male citizens voted in the assembly, served on juries, and held office (often chosen by lot).
+  - **Peloponnesian War (431–404 BCE):**
+    - A devastating conflict between the Athenian Empire and the Spartan-led Peloponnesian League.
+    - Sparta's victory ended the Athenian Empire and left the Greek city-states weakened and divided.
+  - **Classical Culture:**
+    - Philosophy: Socrates (Socratic method), Plato (Theory of Forms, The Republic), and Aristotle (empirical observation, logic): established the foundations of Western philosophy.
+    - Drama & History: Tragedies by Aeschylus, Sophocles, and Euripides explored human nature. Herodotus and Thucydides pioneered the writing of history.
+    - Art & Architecture: Emphasized the Classical ideal of balance, harmony, and ideal beauty (e.g., the Parthenon).
+- **The Rise of Macedonia and Alexander (338–323 BCE)**
+  - Philip II of Macedon built a powerful army and conquered a divided Greece after the Battle of Chaeronea (338 BCE).
+  - Alexander the Great, a military genius, invaded and conquered the Persian Empire through decisive victories at Issus and Gaugamela. He pushed east into India before his troops rebelled.
+  - **Alexander's Legacy:**
+    - Political: His empire fractured after his death into several Hellenistic kingdoms (Seleucid, Ptolemaic, Antigonid), establishing a model of large, autocratic monarchies.
+    - Cultural: He ushered in the Hellenistic Age, a period of widespread diffusion of Greek culture throughout the Middle East and its fusion with Eastern traditions (Hellenization: adoption of Greek culture).
+- **The Hellenistic World (323–c. 100 BCE)**
+  - Politics & Society: The Hellenistic kingdoms were ruled by a Greco-Macedonian elite. The period saw the growth of large, cosmopolitan cities like Alexandria and increased, though still limited, opportunities for some women.
+  - Culture & Science:
+    - Philosophy: New schools focused on individual happiness: Epicureanism (pursuit of modest pleasure and peace of mind) and Stoicism (living in harmony with divine will to achieve inner peace).
+    - Science: Major advances in astronomy (Aristarchus's heliocentric theory), mathematics (Euclid's geometry), and engineering (Archimedes).
+    - Religion: Traditional Greek religion declined, while Eastern mysterious religions (e.g., cult of Isis)- which promised salvation and eternal life- grew in popularity.
+- **Early Rome and the Republic (c. 753–133 BCE)**
+  - **Geography & Origins**: Rome's central location in Italy with fertile plains and the Tiber River aided its growth. Founded by 753 BCE, it was influenced by the Etruscans. The Republic began in 509 BCE.
+  - **Conquest of Italy**: Through persistent warfare and shrewd diplomacy, Rome unified Italy. The Roman Confederation (338 BCE) integrated conquered peoples by offering citizenship and allies' rights.
+  - **Republican Government**: Power was shared among two Consuls (executives), the Senate (aristocratic council), and popular Assemblies. The Struggle of the Orders between patricians and plebeians led to greater political equality for commoners by 287 BCE, though an oligarchy remained.
+  - **Mediterranean Expansion**: The Punic Wars (264-146 BCE) against Carthage gave Rome control of the western Mediterranean. It then expanded east, conquering Macedonia, Greece, and Pergamum (modern-day Turkey).
+- **Decline and Fall of the Republic (133–31 BCE)**
+  - **Causes of Decline:**
+    - Economic Stress: The rise of large, slave-run estates (latifundia) displaced small farmers, creating an urban poor and shrinking the military recruitment base.
+    - Political Violence: The Gracchus brothers' attempts at land reform ended in their murders, revealing the Senate's intolerance of change.
+    - Military Reform: Marius recruited volunteers from the poor, creating professional armies loyal to their generals over the state.
+  - **Civil Wars:** Rival generals (Marius vs. Sulla, Pompey vs. Caesar) used their armies to seize power.
+  - **End of the Republic**
+    - The First Triumvirate (Crassus, Pompey, Caesar) dominated politics.
+    - After Caesar's victory in civil war and subsequent assassination (44 BCE), a final struggle ended with Octavian's victory over Mark Antony at Actium (31 BCE).
+- **The Roman Empire at Its Height (31 BCE–180 CE)**
+  - **The Augustan Age**: Augustus (Octavian) became the first emperor, creating a centralized state behind a republican facade and establishing the Pax Romana (Roman Peace).
+  - **The Early Empire**: The reigns of the Five Good Emperors (96-180 CE) marked a golden age of stability, prosperity, and capable administration. The empire reached its greatest extent but then adopted a defensive frontier policy (e.g., Hadrian's Wall).
+  - **Economy & Society**:
+    - The Pax Romana enabled extensive trade (e.g., the Silk Road with China).
+    - Agriculture was the economic base, with a vast gap between rich and poor.
+    - Slavery was widespread; revolts like that of Spartacus were brutally suppressed.
+  - **Culture & Life:**
+    - Literature & Law: A "Golden Age" produced writers like Virgil (Aeneid). Rome developed a sophisticated legal system with enduring principles.
+    - Engineering: Romans excelled with arches, vaults, domes, and concrete (e.g., the Pantheon, aqueducts, roads).
+    - Society: The male head ruled the family, though upper-class women gained independence. Gladiatorial games were held for entertainment and pacified the public.
+- **Crisis and the Late Empire (3rd–5th Centuries CE)**
+  - **Crises of the 3rd Century:**
+    - Military Anarchy: The "Barracks Emperors" era featured rapid, violent turnover.
+    - Invasions: The empire was attacked by Sassanid Persians in the east and Germanic tribes in the north.
+    - Economic Collapse: Plague, famine, debased coinage, and inflation crippled the economy.
+  - **Reforms of Diocletian & Constantine:**
+    - They restored order by creating a tetrarchy, enlarging the army/bureaucracy, and moving the capital to Constantinople.
+    - Their authoritarian economic reforms imposed a rigid, hereditary system to ensure taxes and food, which stifled long-term vitality.
+  - **Fall of the Western Empire:**
+    - Pressured by the Huns, Germanic tribes (e.g., Visigoths) flooded the empire. The Visigoths won at Adrianople (378) and sacked Rome (410).
+    - By 476 CE, the Germanic general Odoacer deposed the last western emperor. The Eastern (Byzantine) Empire survived.
+- **The Development of Christianity**
+  - **Origins**: Emerged from Judaism with the teachings of Jesus of Nazareth, who emphasized love, humility, and salvation.
+  - **Spread**: Paul of Tarsus preached to Gentiles (non-Jews). Despite persecution, it grew through tight-knit communities and texts (Gospels, Epistles).
+  - **Success & Triumph**: Christianity offered salvation, community, and purpose, appealing to all classes. After Constantine's Edict of Milan (313) granted toleration, it became the official state religion under Theodosius by the late 4th century.
+- **Comparison of the Roman and Han Empires**
+  - **Similarities:**
+    - Both were large, centralized empires with efficient administrations, vast road systems, agricultural economies, and patriarchal families. Both faced overexpansion and nomadic invasions.
+  - **Differences:**
+    - Origins & Politics: Rome evolved from a republic; China had an imperial tradition, leading to greater political stability.
+    - Society: Social mobility was greater in Rome.
+    - Legacy: The Chinese imperial system survived its dynasty's collapse, while the Western Roman Empire collapsed entirely, leaving only a cultural and ideological legacy.
