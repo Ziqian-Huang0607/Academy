@@ -1,0 +1,234 @@
+# S1M-3 Unit 4: Ecosystems and Communities
+
+> From the Grade 9 Resource Department's Semester 1 Midterm Biology H review guide (PA). Writers: Leo Kong 9-7, Angela Ying 9-7. Editor: Chloe Yu 9-7. Range: 2.2, 3.1-4.5. Student-made reference material: where it differs from class, follow class.
+
+**4.1:** **Climate**
+
+  - Weather and Climate
+    - Weather: day to day condition of Earth's atmosphere
+    - Climate: average conditions over long period, defined by yearly patterns of temperature and precipitation
+    - Environmental conditions vary over small distances -> microclimates
+    - Weather factors
+      - Solar energy trapped in biosphere, latitude, transport of heat by winds, ocean currents
+  - Solar Energy and Greenhouse Effect
+    - Greenhouse effect
+      - Solar energy strikes surface, some absorbed and converted to heat, some radiated back, some trapped by gases (GHG)
+      - Maintains Earth's average temperature
+    - GHG = CO2, CH4 (methane), water vapor, N2O
+      - Human activities add CO2, CH4, N2O
+  - Latitude and Solar Energy
+    - Polar areas receive less intense solar energy
+    - Solar powers intense near equator
+    - Tropical zone, temperate zone, polar zone separated by latitudes 23.5 and 66.5 degrees
+  - Heat Transport in Biosphere
+    - The Coriolis effect: rotation of Earth causes wind to move at an angle
+      - Northern hemisphere: air currents move clockwise
+      - Southern hemisphere: air currents move counter-clockwise
+    - Ocean currents: surface currents affect weather and climate of landmasses
+    - Warm air: less dense and rises, expands out and later sinks
+    - Air over warm currents: add moisture and heat to air
+    - Air over cool currents: cool the air above
+    - Deep ocean currents caused by cold water near poles sinking and flowing along ocean floor
+    - Upwelling: water rises in warmer regions
+      - Wind drags surface water away, water beneath goes up to substitute, temperature decreases near surface
+
+**4.2: Niches and Community Interactions**
+
+  - Tolerance
+    - The ability to survive and reproduce under a range of environmental circumstances
+    - Species have different tolerance for different environmental gradients
+  - Habitat: place where an organism lives
+    - Determined by range of tolerance
+  - Niche
+    - Role/position that an organism has in its environment
+    - i.e. where it lives, how it interacts with factors in the environment, role it plays
+    - Physical and biological aspects, resource
+  - Competition
+    - When organisms try to use the same limited ecological resource in the same place at the same time
+    - Intraspecific competition (within same species), interspecific competition (between different species)
+    - Help shape communities
+      - Determine number and kinds of species in community
+      - Determining the niche each species occupies
+      - Divide resources
+    - Competitive Exclusion Principle: No two species can occupy exactly the same niche in the same habitat at the exactly same time for long. If two species attempt to occupy the same niche, one species will be better at competing for limited reosurces and will eventually exclude the other species.
+  - Predation, Herbivory, Keystone Species
+    - Predator-Prey relationships
+      - Interaction; feeing (capture and feeding)
+    - Herbivore-Plant relationships
+      - One animal feeds on producers
+      - Can affect size and distribution of plant in community
+      - Determine places that certain plants can survive and grow
+    - Keystone Species
+      - Population of keystone species decrease affects an entire ecosystem
+      - i.e. kelp -> sea urchins -> sea otters
+      - sea otters are the only species that feed on sea urchins, they are the keystone species in this example
+  - Symbioses
+    - Symbiotic relationship: close relationship when more than or equal to two species live together
+    - Mutualism
+      - Both organisms are benefitted
+      - i.e. sea anemone and clownfish, rhino and tickbirds
+    - Parasitism
+      - Parasite lives inside or on the host and harms the host
+      - i.e. Tapeworms (in host's intestines, absorb host's food)
+      - i.e. Dodders, Fleas, Ticks, Lice, Leech, Mosquito (on the host)
+    - Commensalism
+      - One benefitted, another not helped or harmed
+      - i.e. Barnacles and Gray Whales
+  - Coral Bleaching
+    - Coral Reefs are a symbiotic relationship between algae and coral polyps
+    - Temperature increases, coral polyps will expel the algae and lose color
+
+**4.3: Succession**
+
+  - Ecological Succession
+    - Series of predictable changes in a community over time
+    - Ecosystems change over time after disturbances
+  - Primary Succession
+    - Establishment of community in area of exposed rock that has no topsoil, slow at first
+    - Bare rock -> lichens -> small annual plants, lichens -> perennial herbs, grasses -> grasses, shrubs, shade-intolerant trees -> shade tolerant trees
+    - Stages: Pioneer Stages -> Intermediate Stages -> Climax Community
+  - Pioneer Species
+    - First organisms to appear, grow on rocks
+    - Fix atmospheric N, break down rocks, add organic material and create soil
+  - Secondary Succession
+    - Where existing communities are not completely destroyed by disturbances, with soil
+    - Faster than primary
+    - E.g. Fire -> annual plants (1~2 years) -> grasses and perennials (3~4 years) -> grasses, shrubs, pines, young oak and hickory (5~150 years) -> mature oak and hickory forest (150+ years)
+    - Often follows wildfire, hurricane/natural disturbance, logging and farming
+    - Primary vs. Secondary: no life and no soil vs. follows removal of existing biota and soil present, new area vs. old area, lichen and mosses vs. seeds already present, biomass low vs. biomass high
+  - Climax Communities
+    - Ecological community in final stage of succession, species composition relatively stable until disturbance occurs
+    - Highest biodiversity
+    - Secondary Succession in the ecosystems may or may not recover from extensive human-induced disturbances
+
+**4.4: Biomes**
+
+  - Biomes
+    - Terrestrial ecosystems classified into groups of regional climate communities
+    - Described by abiotic factors (climate and soil type etc.), biotic factors (plant animal life)
+    - Each has seasonal pattern of temperature and precipitation
+    - Animals have adaptations -> can reproduce
+    - Wildlife often varies, caused by differences in exposure, elevation/local soil conditions (may be changed by human activity)
+  - Tropical Rain Forest
+    - Very diverse organisms, at least 2m of rain per year
+    - Canopy: tall trees form a dense, leafy covering
+    - Canopy shades layer of shorter trees and vines (understory)
+    - Abiotic Factors: hot and wet, thin nutrient-poor soils subject to erosion
+    - Biotic Factors
+      - Plant Life: understory plants have large leaves to compete for limited light
+      - Animal Life: active all year, camouflage
+  - Tropical Dry Forest
+    - Alternative rainy and dry seasons
+    - Abiotic Factors: warm, period of rain followed with long period of drought
+    - Biotic Factors
+      - Plant Life: (deciduous) plants lose leaves to survive dry season
+      - Animal Life: estivation (similar to hibernation)-inactive during dry season
+  - Tropical Grassland/Savanna/Shrubland
+    - More seasonal rainfall than deserts less than tropical dry forests
+    - Mostly grass, isolated trees, small groves of trees and shrubs
+    - Abiotic Factors: warm, seasonal rainfall, compact soil, fires
+    - Biotic Factors
+      - Plant Life: adaptions-waxy leaf covering, seasonal plant loss
+      - Animal Life: migrate in dry season, smaller animals burrow and remain inactive
+  - Desert
+    - Abiotic Factors: low precipitation, extreme varying temperatures
+    - Biotic Factors
+      - Plant Life: store water in tissues, minimize leaf surface area
+      - Animal Life: get water from food, active at night
+  - Temperate Grassland
+    - Mostly grasses, maintained by fire and grazing
+    - Fertile soil, ideal for agriculture
+    - Abiotic Factors: warm to hot summers, cold winters, moderate precipitation, occasional fires
+    - Biotic Factors
+      - Plant Life: resistant to grazing and fire
+      - Animal Life: predation=threat because of open environment; camouflage and burrowing
+  - Temperate Woodland and Shrubland
+    - Large areas of grasses, wildflowers mixed with trees
+    - Abiotic Factors: hot dry summers, cool moist winters, thin nutrient-poor soil, periodic fires
+    - Biotic Factors
+      - Plant Life: adapted to fraught, tough waxy leaves
+      - Animal Life: browsers that eat a variety of vegetation
+  - Temperate Forest
+    - Deciduous and evergreen coniferous trees
+    - Fertile soil rich in humus-material formed from decaying leaves and organic matter
+    - Abiotic Factor: cold to moderate winters, warm summers, year-round precipitation, fertile soils
+    - Biotic Factor
+      - Plant Life: drop leaves in autumn, dormant in winter
+      - Animal Life: must cope with changing weather
+  - Northwestern Coniferous Forest
+    - Variety of conifers, flowering trees, shrubs
+    - Moss covering trunks and forest floor
+    - AKA Temperate Rain Forest because of lush vegetation
+    - Abiotic Factors: mild temperatures, abundant precipitation in spring, fall, winter, cool dry summers
+    - Biotic Factors
+      - Plant Life: less diverse, water and nutrients->lush dense plants, tallest trees
+      - Animal Life: camouflage
+  - Boreal Forest
+    - AKA Taiga, dense forests of coniferous evergreens
+    - Northern edge of temperate zone
+    - Abiotic Factors: long cold winters, short mild summers, moderate precipitation, high humidity, acidic nutrient-poor soils
+    - Biotic Factors
+      - Plant Life: shed snow, wax-covered needlelike leaves reduce water loss
+      - Animal Life: small limbs and ears, fat feathers for insulation
+  - Tundra
+    - Permafrost, layer of permanently frozen subsoil
+    - Summer, ground thaws a bit->soggy
+    - Abiotic Factors: strong winds, low precipitation, long cold winters, short soggy summers, permafrost, humus-poor soil
+    - Biotic Factors
+      - Plant Life: mosses and plants low-growing, avoid strong wind
+      - Animal Life: migrate/adaptations such as natural antifreeze
+  - Other Land Areas
+    - Mountain Ranges
+      - All continents and biomes, temperature and precipitation vary with elevation
+      - Exposure to winds increases, organisms change as elevation changes
+      - Top, strong winds, open fields, stunted vegetation resembles Tundra, glaciers at peaks
+    - Polar Ice Caps
+      - Border Tundra, cold year-long
+      - Few plants, some algae, marine mammals, insects, mites
+      - North, sea ice and polar bears, South, penguins, ice 5km thick
+
+**4.5: Aquatic Ecosystems**
+
+  - Conditions Underwater
+    - Factors: water depth, temperature, flow, amount of dissolved nutrients, distance from shore (maybe)
+      - Photic Zone
+      - Sunlit region near surface, has photosynthesis, phytoplankton and zooplankton
+      - Aphotic Zone
+      - Below photic, dark, no photosynthesis, deep sea fish
+      - Benthic Zone
+      - Many organisms live on or in rocks and sediments on bottoms of lakes, streams, oceans called benthos
+      - Shellfish and algae/chemosynthesis autotrophs
+      - Temperature pattern
+      - Warmer near equator, colder near poles, temperature decreases with water depth
+      - Current impact
+      - Currents carry water that is warmer/colder than normal for given region
+      - Essential: O, N, K, P (dissolved in water)
+      - Type and availability vary -> influencing the types of organisms that can survive there
+  - Freshwater Ecosystems
+    - Rivers and Streams
+      - Underground sources in mountains or hills
+      - High-dissolved oxygen near sources but little plant life
+      - Sediments build up downstream, animals rely for food and survival
+    - Lakes and Ponds
+      - Water circulates seasonally to distribute heat, oxygen, nutrients, food webs based on plankton, attached plants
+    - Freshwater Wetlands
+      - Water covers soil/close to surface for at least part of the year
+      - Nutrient-rich, highly productive, purify water (filter pollutants), prevent flooding
+      - Reeds and waterfowl (breeding grounds)
+  - Estuaries
+    - Special wetland where river meets sea, mixture of fresh and slt water, affected by tidal cycles
+    - Most are shallow, sunlight reaches benthic zone -> photosynthesis
+    - Spawning and nursery grounds for fish and shellfish, support fishing industry
+    - Salt Marshes: Temperate regions, salt-tolerant grasses
+    - Mangrove Swamps: Tropical regions, mangroves salt-tolerant
+  - Marine Ecosystems
+    - Intertidal Zone
+      - Submerged-high tide, exposed to air and sunlight-low tide
+      - Extreme temperature changes, battered by waves/currents, barnacles, seaweed
+    - Coastal Ocean
+      - From low-tide mark to outer edge of continental shelf
+      - Brightly lit, productive, kelp forests, coral reefs
+    - Open Ocean
+      - Beyond continental shelf, covers >90% of ocean area
+      - Depth: continental slopes (500m) -> >trenches (10,000m)
+      - Photic: blue whales, tuna; Aphotic: Viperfish, silver hatchet fish

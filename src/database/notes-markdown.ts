@@ -60,9 +60,12 @@ export function slugify(value: string) {
     .replace(/^-+|-+$/g, '')
 }
 
-/** Splits `# 2.3 Partial fractions` into its code and title halves. */
+/**
+ * Splits `# 2.3 Partial fractions` into its code and title halves. Review-guide
+ * lessons carry a prefixed code (`# S1M-2 Derivatives`), which is accepted too.
+ */
 function splitHeading(heading: string): { code: string; title: string } {
-  const match = heading.match(/^([\d.]+)\s+(.*)$/)
+  const match = heading.match(/^((?:[A-Z][A-Z0-9]*-)?[\d.]+)\s+(.*)$/)
   if (!match) return { code: '', title: heading.trim() }
   return { code: match[1], title: match[2].trim() }
 }

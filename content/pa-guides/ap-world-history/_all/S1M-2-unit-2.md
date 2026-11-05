@@ -1,0 +1,633 @@
+# S1M-2 Unit 2
+
+> From the Grade 10 Resource Department's Semester 1 Midterm History AP review guide (PA). Writers: Echo Huang 10-11, Mengling Cao 10-7. Editor: Apple 10-7. Range: Unit 1-4. Student-made reference material: where it differs from class, follow class.
+
+## Topic 1 THE SILK ROADS
+
+Silk Roads
+
+- Vast network of roads and trails that facilitated trade and the spread of culture and ideas across Eurasia in and before the period **1200-1450**
+- Exchanged goods, ideas, culture (**cultural diffusion**)
+- Mainly exchanged luxury items (e.g. Chinese Silk) as expensive to haul goods so to get profit need to trade luxury goods
+- **Innovations** in Commercial Practices
+- Development of Money Economies
+  - Chinese started using **paper money**
+  - Allowed merchants to deposit bills in one location and then withdraw same amount in another location->travel gets easier and transactions more secure
+- Increasing use of Credit
+  - Get paper from merchant families and go to another region to exchange it for coins
+  - “**Flying Money**”
+- Rise of Banks
+  - Europe: banking houses influenced by model of Chinese banks
+  - Merchants can give a bill of exchange and get money equivalent in value to the bill
+- **Innovations** in Transportation
+- **Caravanserai**: Inns and guesthouses spaced about a day’s journey apart on frequently-used travel/trade routes+animals can lodge there for the night
+  - Provided safety from plunderers
+  - Centers of cultural exchange and diffusion
+- **Saddles**-Made riding easier over long distances
+  - If more than 1 camel: frame and mattress to load even more goods
+- **Effects**
+- New trading cities
+- **Kashgar**: eastern edge of China
+  - Located at convergence of 2 major trading routes beside a very hot and dry part of the travel but built around a river (thus lush water and agriculture and a great stop for food)
+  - Increasing demand for interregional trade->Kashgar became a destination hosting highly profitable markets too->thriving center for Islamic scholarship
+- **Samarkand**: Central Asia
+  - Strategically located on Silk Road too
+  - Merchants from all around the world arrived there->cultural exchange
+- Increased Demand for **Luxury Goods**
+- Main Luxury Goods: Chinese Silk and Porcelain
+- Demand increased->Chinese Indian and Persian artisans increased their production of these goods
+  - Effects such as scaling back on food production in some regions
+- **Proto-Industrialization**: Process by which China began producing more goods than their own population could consume, which were then were sold in distant markets
+  - And they went back an invested in their own iron and steel industries too
+- Cultural Diffusion
+- Islamic merchants spread Islam, Buddhist merchants spread Buddhism, etc.
+- Due to gathering in cities and caravanserais
+- **Topic 2 THE MONGOL EMPIRE**
+- **The Rise of the Mongol Empire**
+- Mongols: pastoral nomads living around Gobi Desert
+  - People that move from place to place depending on the season
+- Temujin
+- Powerful leader, used skilled diplomacy to ally with powerful people->united Mongols in 1206 and claimed title of **Chinggis Khan**
+- Got Northern China, Central Asia, Southern Russia, til death in 1227
+- Sons continued conquests til reached peak in 1279 (added in Eastern Europe, most of China, etc)
+- Cause of Military Success
+- Well-organized Military: organized into groups of 10, 100, 1,000, and 10,000
+- Superior weaponry (bows larger than traditional bows->greater reach in distance) and skills (skillful horseriders and outride people)
+- Timing: Song had lost control of northern territory; Abbasid Caliphate on decline (brought to an end in Sack of Baghdad in 1258)
+- Reputation for brutality -- slaughtered entire cities and left a few to spread the message ->people surrendered to avoid massacre
+- **After conquest**
+- **Pax Mongolica**
+- Grandsons split empires into 4 Khanates: Khanate of the Great Khan/Yuan Dynasty (China), Chagatai Khanate (Central+Southern Asia), Khanate of the Golden Horde (Southwestern Russia+Central Asia), Ilkhanate (Western+Southern Asia)
+- Adopted Local Cultural Norms
+- Kublai Khan: Confucian style ruler+many Confucian scholars thought he had Mandate of Heaven
+- **Economics**
+- Entire Silk Road under Mongol Rule->one state controlled the entire route made it safer to travel (previously safety varied from part to part)
+- Improved infrastructure: Built bridges and repaired roads
+- Increased Communication and Collaboration: **Yam System** (system of relay stations spread across the nation)
+- **Technological and Culture**
+- Mongols had high opinion of intellects and artisans->Sent skilled people to all different parts of empire->transfer of culture and technology
+- **Medical Knowledge: Greek/Islamic scholars to western Europe**
+- **Transfer of numbering systems to Europe**
+- **Adoption of Uyghur Script** by Mongols (did by Chingghis Khan)
+- **Topic 3 THE INDIAN OCEAN TRADE NETWORK**
+- Network of Sea routes that connected the various states throughout Afro-Eurasia through trade
+- **Causes**
+- Collapse of the Mongol Empire: Silk Roads harder and more dangerous to travel-> merchants turned to Indian Ocean trade networks
+- Commercial Practices: Money economies, ability to buy good on credit -> trade easier -> increased use of these routes
+- Transportation Technologies **(Innovations)**: magnetic compass, astrolabe, lateen sail, advanced knowledge of monsoon winds
+  - Monsoon winds
+    - Seasonal reversal -> merchants timed voyages to wind shifts -> predictable, repeatable trade circuit
+    - long waits in port for wind reversal -> merchants settled temporarily/ permanently
+    - directly encouraged diasporic communities (Arabs/Persians in East Africa, Chinese in SE Asia)
+    - Linked trade to cultural diffusion (religion, language, customs)
+    - Reduced risk compared to overland routes disrupted by political instability
+- Improvement in shipbuilding (e.g. Chinese junk, Arab dhows)
+- Spread of Islam
+- Traded Goods
+- More common goods: cotton textiles, grains, luxury goods
+- **Growth of Trade-cities and states**
+- Swahili city-states
+- Located on eastern (and a bit south) coastline of Africa
+- Imported gold and ivory and enslaved people from interior of Africa
+- Converted to Islam->built mosques and other public displays
+- Malacca
+- Capital City of Sultanate of Malacca on Malay Peninsula that controlled the Strait of Malacca->got rich from taxing the ships
+- Gujarat
+- West Coast of India
+- Midpoint between East and southeast Asia and Africa
+- Massive coastline+rich agricultural areas->trade cotton textiles for gold and silver
+- Taxed ships
+- **Diasporic Communities**
+- a group of people from one place who established a home in another place while retaining their cultural customs
+- Diaspora: disperse
+- Diasporic Chinese communities in SE Asia and Diasporic Arab and Persian communities in Africa->connective tissue holding Indian Ocean network together
+- **Cultural and Technological Transfers**
+- Bring religion, language, technology
+- Admiral Zheng He: commissioned by Ming Dynasty to explore the Indian Ocean trade routes and establish tributary system with neighboring powers (300 ships and more than 27,000 men), had gunpowder cannons->got adopted by others
+- **Topic 4 THE TRANS-SAHARAN TRADE NETWORK**
+- Series of trade routes that connected North Africa and the Mediterranean world with the interior of West Africa and the rest of sub-Sharan Africa
+- **Causes**
+- Transportation technologies: introduction of Arabian Camel, camel saddles (carried more goods), caravanserai (shelter along the way)
+- **Trans-Saharan Goods**
+- Golds, Kola Nuts, horses, salt
+- Specialized in creating various goods->demand to trade->expanded trade network
+- **The Growth of Empires**
+- Empire of Mali
+- Converted to Islam->connected to Dar al-Islam
+- Exported gold+taxed other merchants passing through
+- **Mansa Musa**: embarked on Hajj (pilgrimage to Mecca) and injected so much gold when stopping in Egypt into Egyptian economy that there was inflation
+- **Topic 5 CULTURAL EFFECTS OF CONNECTIVITY**
+- **Cultural Transfer**
+- Buddhism
+- 2nd century CE: Buddhism spread from India to China via Silk Roads
+- Merchants and monks explained Buddhism in terms of Chinese Daoism->syncretism->Chan Buddhism
+- Exported to Japan->Zen Buddhism
+- Islam
+- Swahili Civilization adopted Islam->connected to Dar-al Islam->language got influenced by both Arabic and Bantu (native language)
+- **Literary and Artistic Transfers**
+- House of Wisdom
+- Gathered scholars and many translated works (e.g. of Greeks and Romans)
+- Translated works got to Western Europe->Renaissance
+- **Scientific and Technological Innovations**
+- Chinese papermaking spread to Europe in 13th century and moveable type was adopted by Europeans and increased literacy
+- Gunpowder by the Chinese->adapted by Islamic Empires and European states
+- **Effects of Trade on Cities**
+- Expansion of Cities
+- Hangzhou: at southern end of Grand Canal->trade caused urbanization
+- Samarkand and Kashgar: strategic location->grew in power by facilitating trade
+- Increased influence and productivity of cities
+- Cities in Decline
+- Baghdad: Capital of Islamic cultural and artistic achievement but got sacked by mongols in 1258 and ended Abbasid Caliphate
+- Constantinople: political religious capital of Byzantine Empire but got sacked by Ottoman Turks in 1453 and it got renamed Istanbul
+- Trade routes also facilitated military travels
+- Increased interregional travel
+- Ibn Battuta: Muslim scholar from Morocco, 30 year travel and traveled all over Dar-al-Islam, detailed notes about places, people, rulers, and cultures
+- Marco Polo: traveled from Italy to China and throughout Indian Ocean, wrote about court of Kublai Khan and China’s grandeur and wealth
+- Margery Kemp: Christian mystic, made pilgrimage to Christianity’s holy sites (Jerusalem, Rome, Spain, etc), dictated her observations to be written down (demonstrated how Christianity was practiced across Europe and Middle East)
+- **Topic 6 ENVIRONMENTAL EFFECTS OF CONNECTIVITY**
+- **Diffusion of Crops**
+- Bananas
+- First domesticated in SE Asia but brought to Africa
+- Suited lush rainforests of Africa
+- Diets were expanded->population growth
+- Caused a few Bantu people to be able to migrate (major source of sustenance was the yam but can now also sustain themselves by growing bananas)
+- Champa Rice
+- Champa Kingdom in Vietnam->China
+- Matured quickly, can be harvested for more than once a season->more food->population growth
+- Citrus fruits
+- Introduced to Muslim merchants to Europe through Mediterranean trade routes
+- Variation in diet->better health->population growth
+- **Diffusion of Diseases**
+- 1331 Black Death erupted in Northern China->traveled through trade routes to Europe
+- Killed nearly 1/3 of Middle East population
+- Killed near half of Europe
+- 14th century pandemic of bubonic plague killing tens of millions across Asia North Africa and Europe travelling through Afro-Eurasian trade routes
+- Political
+- Weakened feudal nobles and manorial lords
+- Peasant revolts (English Peasants’ revolt 1381, Ciompi Revolt 1378, Jacquerie Revolt 1358)
+- Government tried quarantines (ex. Venice, Ragusa)
+- Innovation
+- Quarantine in Venice (established in 1377) and other parts of the Apennine Peninsula
+- Lack in awareness of virus/bacteria, etc.
+- Some awareness that gatherings->more people got sick
+- Culture
+- Some religious priests (Christians mainly) got greedy and lost their morals to money
+- European commoners (some of them) got less attached to religion though others didn’t
+- Flagellants: whipped themselves
+- Anti-Semitism: claimed Jews poisoned wells to scapegoat them and take their money and remove debts (of feudal lords to Jews)
+- Many Christians and Muslims took this to be punishment of God for sins
+- Muslims were very religious still, and didn’t persecute outsiders
+- Pope spoke against Anti-Semitism (largely ineffective)
+- Europe also persecuted other outsiders, lepers, gypsies, etc.
+- Dance of Death: allegory of universality of mortality and how death comes to us all
+- Economic
+- Spread along Silk Roads, Indian Ocean trade, Mediterranean shipping, Pax Mongolica
+- Labor shortage afterward so slight rise in laborer status and wages
+- Trade disrupted
+- Social
+- Social disruption of order, Population loss
+- Varied responses to plague: some lived modestly, some got more hedonist and lived extravagantly
+- **Topic 7 COMPARISON OF ECONOMIC EXCHANGE**
+
+|  | Silk Roads | Indian Ocean Trade Troutes | Trans-Saharan Trade Routes |
+|---|---|---|---|
+| Origins | All began well before common era as agrarian cultures consolidated into stable settlements. All were built on routes that early traders and conquerors first traced, but were expanded later as kingdoms and empires expanded.; Stable polities assured safety and supported technological upgrades. |  |  |
+| Purpose | To exchange what people were able to grow or produce for what they wanted, needed, or could use to trade for other items. Negotiated alliances, proselytized for converts (by diplomats and missionaries). |  |  |
+| Effects | All gave rise to trading cities |  |  |
+| Trading Cities | Chang’an, Samarkand, Aleppo, Mosul | Malacca, Calicut, Hormuz, Mombasa, Alexandria | Gao, Timbuktu, Marrakesh, Cairo |
+| Goods | **East to West**; silk, tea, spices, dyes, porcelain, rice, paper, gunpowder | **From East Africa**; gold, ivory, quartz, animal skins | **North to South**; horses, books, salt |
+|  | **West to East:**; horses, saddles, fruit, domestic animals, honey, textiles | **From Southwest Asia**; citrus, fruits, dates, books | **South to North**; gold, ivory, cloth, slaves |
+|  |  | **From Southern india**; textiles, peppers, pearls |  |
+| Transportation | horses; camels | dhows, junks | caravans of camels for carrying goods; people walked |
+|  | **Technologies**; saddles; caravanserai | **Technologies**; Stern rudder, lateen sail, astrolabe, magnetic compass | **Technologies**; saddles to increase load bearing |
+| Religions | Buddhism from S Asia to East and SE Asia; Neo-Confucianism from China to Korea, Japan, and Vietnam; Islam from SW Asia to S Asia-Islam from SW Asia to S Asia | Buddhism from S Asia to E and SE Asia; Neo-Confucianism from China to Korea, Japan, and Vietnam; Islam from S Asia to SE Asia; Christianity from Mediterranean Basin | Islam from SW Asia and N Africa to Sub-Saharan Africa |
+
+- **Social Implications**
+- Labor
+- Demand for labor increase due to demand for products
+- Large-scale projects (irrigation canals, military defenses, great buildings)->needed thousands of organized labors
+- Social and Gender Structures
+- Typical social structures defined by class or caste, and mainly patriarchies
+- Exceptions
+  - Mongol women had somewhat more freedom despite being under patriarchy (could move about freely, no burka, no footbinding, could be top advisors to the great Khan)
+  - Europe: Women worked as farmers and artisans and had their own guilds
+  - SE Asia: Women were skilled in practices of marketplace and acted as representatives of powerful families
+- Environmental Processes
+- Bubonic Plague contributed to decline of once-great cities e.g. Constantinople
+- Political instability and increased agriculture strained the environment
+- Soil erosion from deforestation or overgrazing->growing populations forced to migrate to other areas
+- **Unit 3: Land Based Empires, c. 1450 - 1750**
+- **3.1, 3.2, 3.4: Empires’ Expansion, Administration, Comparison**
+- **Safavid Empire (1501 - 1736):**
+- Basic Knowledge:
+- Turkish or Kurdish people that centred empire in Persia (Modern Iran).
+- Known as “Gunpowder Empires” along with Ottoman Empire and Mughal Empire.
+- Prior to Safavids, Persia was ruled by Umayyad/Abbasid Caliphate (Islamic), Seljuk Empire (Turkish), the Ilkhanate (Mongol), the Timurid Empire (Turco-Mongol), and other less well known states, leading to both ethnic and religious diversity.
+- Had long term rivalry with neighbouring Ottoman Empire (Based in Turkey, basically former Byzantine territory) due to religious conflict and disputes over the control of Mesopotamia.
+- Politics:
+- Had an absolute monarchy with the Shah that owned both political and religious leadership.
+  - Early Shahs were seen as semi-divine.
+  - Theoretically owned absolute authority over political, military, and religious affairs.
+  - Claimed to be representative of Hidden Imam (A religious messiah).
+- Ulamas: Religious scholars that interpret religious law and provide religious guidance.
+  - Grew increasingly powerful due to Safavid Empire’s nature as a theocracy:
+    - Founding of Safavid needed to convert a Sunni population into Shi’a.
+    - Imported Shi’a scholars as Persia did not have many Shi’a scholars.
+    - Ulama formed from the scholars to provide state with religious legitimacy.
+    - Ulama gained legal, economic, and ideological power.
+      - Given control over civil and religious law.
+      - Managed taxes/land known as waqf and therefore controlled land/money.
+      - Managed Madrassas (Religious schools) that was required for working in government.
+    - Ulama claimed right to interpret Hidden Imam’s will, stripping Shah’s religious power.
+    - Actual authority gradually exceeded Shah.
+- Qezilbash: Turkic nomadic warriors that took part in founding the empire.
+  - Owned large pieces of land and powerful positions.
+  - Often rebellious, unruly, and later divided into extremely aggressive factions.
+- Ghulams: Non-Muslim slave soldiers trained to be loyal to the Shah.
+  - Created by Abbas I to balance out power of Qesilbash.
+  - Later became more powerful and eventually corrupt.
+  - Nature as non-Muslim slaves made them lack connection to Safavid population.
+- As a result, the Safavid Empire was militarily inefficient by its late period.
+- Bureaucracy was based on Persian bureaucracy and highly centralised.
+  - Bureaucracy was always subordinate to the Shah.
+  - Used Farsi (Persian) as official language.
+  - Used mostly Persians within civil service.
+  - Vizier acted as head of bureaucracy and oversaw civil service.
+    - Also often Persian.
+  - The divan was an administrative council that advised the Shah and lead each department.
+  - Empire was divided into velayats (provinces).
+- Shah Ismail (1501 - 1524)
+  - Founded the Safavid Empire by conquering Persia.
+  - Enforced conversion towards Twelver Shi’ism.
+- Shah Abbas “the Great” (1588 - 1629):
+  - Created standing army of Ghulams to centralise power.
+  - Shifted capital to Isfahan.
+  - Tolerated some religious minorities such as Christians.
+- Innovations:
+- Artillery Reform: Reformed army to be more modern and fit for sieges through cannon usage.
+- Science generally declined with an exception to medicine.
+  - Even medicine was often mixed with superstition.
+  - Development of early vaccine usage by feeding children smallpox scabs to grant immunity.
+- Urban plans in Isfahan used as blueprint for later states.
+- Carpet weaving transformed from nomadic crafts to state-patronised export industry.
+- Economy:
+- Agricultural based with trade as a supplement.
+  - Agricultural taxes existed as most important source of revenue.
+- Controlled large part of Europe-Asia trade networks.
+  - Mostly exported silk to Europe.
+- Culture:
+- Twelver Shi’a Islam as state religion.
+  - Previously, the Persian area had always been Sunni.
+  - Constant rivalry with neighbouring Sunni Ottoman Empire partially due to religion.
+  - Oppressed Sunni Muslims violently during Ismail’s reign.
+- Gave somewhat tolerant though inferior treatment to non-Muslim religious minorities.
+- Preserved Persian culture and art.
+- Cultural flourishing was largely limited to the court elite.
+- Isfahan School of Painting: Adopted European art techniques.
+- Environment:
+- Positioned between the Ottoman and Mughal, two Sunni states.
+- Environmental diversity allowed development of cultural diversity in Persia.
+- Society:
+- Three major sectors: pastoral nomads, peasants, urban classes.
+  - Pastoral nomads: tribal groups (Qizilbash) core of early military force.
+  - Peasants: vast majority of population that bore the heaviest tax burden.
+  - Urban classes: artisans, merchants, Shi’a clergy (Ulama).
+- The power of Ulama gradually grew throughout the dynasty.
+- **Mughal Empire (1526 - 1857):**
+- Basic Knowledge:
+- Sunni Islamic empire existing in South Asia (Modern-day India, Pakistan, Bangladesh, etc.)
+- Blended Muslim, Turkic, and Indian culture.
+- Declined due to succession wars, weak rulers, and administrative decay.
+- Politics:
+- Centralised bureaucracy where Emperor acted as chief executive after abolishment of vakil.
+  - Vakil: Chief minister.
+- Four equal ministers for finance, military, law/religion, and royal affairs.
+- Governance depended upon ability of emperor.
+- Provincial government positions were often sold in a similar way to an auction.
+- Babur: Turkic prince who founded the Mughal Empire.
+- Akbar: Considered as the greatest Mughal ruler due to his expansion of the Empire.
+  - Formed religiously tolerant policies.
+    - Abolishing of taxes upon non-Muslims.
+  - Major role in shaping the Mughal government and its bureaucratic structure.
+    - Abolishing of vakil position, giving emperor higher authority.
+- Innovations:
+- Mansabdari System: Merit based ranking of military officials.
+  - Rankings were not permanent and could both go up and down.
+- Ilahi Era: Solar calendar introduced to standardise timekeeping across empire for administration.
+- Water Systems were elaborated on Persian basis to become more complex.
+  - Fatehpur Sikri: Building that had system that raised water up to 30 meters above air.
+- Economy:
+- Revenue was collected from both agricultural and trade taxes.
+- Nobles owned treasure hoards that served as a supplement.
+- Highly urbanised cities arose in northern/central India.
+  - Cotton textiles dominated urban industry.
+- Political unification under one ruler stimulated commerce across a vast area.
+- Large amounts of overseas trade.
+- Culture:
+- Cosmopolitan artistic culture formed between Indian, Iranian, and European traditions.
+- Translation of Hindu and Muslim literature and historical works.
+- Persian was the administrative and courtly language·
+- Women were granted rights:
+  - Nur Jahan: Wielded immense political power by ruling behind the throne.
+  - Royal and noble women were sometimes trained as soldiers and displayed martial capability.
+- A Sunni government ruled over a largely Hindu population.
+- Environment:
+- Located to the southeast of the Safavid Empire.
+- Mughal rule (1526–1715) coincided with the Little Ice Age.
+  - Little Ice Age: Period of weakened monsoons and recurrent drought.
+- Famines repeatedly struck the empire:
+  - Droughts undermined agricultural surplus and state revenue.
+- Society:
+- Society was hierarchical, with the emperor and nobility at the apex.
+  - Nobles commanded vast resources but were entirely dependent on royal favor.
+  - The emperor was theoretically heir to nobility’s wealth.
+- Peasants bore the heaviest tax burden.
+- Hindus formed the majority population, but the government was Sunni.
+  - Religious minorities were treated with highly inconsistent levels of tolerance.
+- Royal women could influence policy and patronage.
+- **Ottoman Empire (1299 - 1922):**
+- Basic Knowledge:
+- Ended Byzantine Empire in 1453 after conquering Constantinople and making it capital.
+- Suffered defeat from WWI due to siding with Germany.
+- Replaced by the Republic of Turkey in 1923.
+- Politics:
+- Sultan held absolute power in theory·
+- Empire administered by a bureaucracy lead by the Grand Vizier.
+- Intisap System: System of personal patronage where individuals are linked to powerful people.
+- Millet System: Granted non-Muslim communities autonomy under their own religious leaders for faith, language, and social affairs in exchange for taxes and loyalty.
+- Devshirme System: Conversion and recruitment of Christian boys to Islam as to train them for government or military purposes.
+  - Created loyal slave elite that swore allegiance to the sultan only.
+- Suleyman the Magnificent (1520 - 1566): Set thirteen campaigns to conquer parts of Asia and Africa.
+  - Restored and codified the Kanun (Secular law) to create a coherent legal framework.
+  - After Suleyman, decentralization gradually eroded central control.
+- Made attempts at modernization during late 19th century.
+  - Succeeded in forming a western bureaucracy.
+  - Succeeded in establishing modern schools.
+  - Succeeded in modernizing the existing legal framework.
+  - Failed to industrialize completely.
+    - Whilst factories were built, their efficiency/quality were incomparable to Europeans.
+  - Modernization and Westernization only impacted the elite, causing greater social gaps.
+  - Reform was often not prioritised financially due to the empire being in constant warfare.
+    - Political instability made empire increasingly authoritarian until WWI.
+- Innovations:
+- Mostly adopted and refined other culture’s innovations.
+- Nakkaşhane: A royal academy that produced illustrated manuscripts, calligraphy, illumination, and designs for tiles, rugs, and textiles.
+- Adopted gunpowder usage and actively recruited foreign military technicians.
+- Caravanserai: Allowed safety and greater volume of trade along Silk Road.
+  - Gathering of merchants from different cultures encouraged cultural diffusion.
+- Advancement of cartography.
+- Pioneering of observational astronomy.
+- Economics:
+- Shifted from largely agrarian to more commercialised in 18th century.
+- In the 19th century, attempts at modernisation and integration into world markets transformed the empire into an exporter of primary products and importer of manufactures.
+- After failure of economic modernisation and industrialisation, European goods flooded market and caused the decline of local industries.
+- Culture:
+- Believed in Sunni Islam.
+- Cultural flourishing depended largely on Intisap patronage.
+- The palace turned into the state’s cultural center.
+- Hamams: Bathhouses that acted both for rituals and for community gatherings.
+- Madrasa System: Teaching of science, law, and philosophy in religious schools.
+- Environment:
+- Location between three continents gave access to trade choke points.
+  - Further caused an extremely diverse population.
+- Neighbouring Hapsburg Austria, Safavid Empire, and Russian Empire, leading to constant frontier warfare that drained the Empire of its revenue and resources.
+- Control of the East Mediterranean exposed the empire to later rival navies.
+- The Little Ice Age brought increased winter precipitation and more frequent droughts.
+- Society:
+- Intisap (patron-client loyalty) structured political and social life.
+- Religious tolerance towards religious minorities through Millet System.
+  - Non-Muslims along with women and slaves had a subordinate legal status.
+- Maintained a practical separation between spiritual/religious matters and state administration.
+- Modernisation led to complete cultural disconnection between classes.
+  - Elite became westernised and took part in Western arts (opera, theatre, etc.)
+  - Majority maintained Turkish lifestyle and was not significantly impacted by Westernisation.
+- Women’s rights fluctuated depending on period of time:
+  - Exercised extraordinary political power between approx. 1550 - 1650.
+  - Gradually increased along with later Westernisation in 20th century.
+- **Ming Dynasty (1368 - 1644):**
+- **Basic Knowledge:**
+- Last unified Chinese dynasty ruled by the Han ethnic group.
+- Declined due to border conflicts and administrative ineffectiveness.
+- Politics:
+- The emperor as theoretical autocrat above civil bureaucracy.
+  - Civil bureaucracy formed from scholars passing a civil service exam like previous dynasties.
+    - Led by the Grand Secretary, a position that originally had limited theoretical power.
+  - The civil service dominated government to an unprecedented degree, not seriously challenged by hereditary nobles or military officers .
+  - Highly centralised bureaucracy with small provincial governments.
+  - By final decades of dynasty, the emperor often lacked ability to act against civil bureaucracy.
+- Eunuchs often disrupted civil service dominance by acting as agents or manipulators of emperors.
+  - Eunuchs: Special palace servants that later grew in power throughout dynasty.
+- Bureaucracy divided into six ministries.
+- Censorate: Dynasty’s supervisory and disciplinary agency responsible to the emperor.
+- Hongwu Emperor (1368 - 1398): Founding emperor of Ming Dynasty.
+  - Restored traditional Han customs after decades of Mongol Yuan dynasty.
+- Innovations:
+- Highest level of shipbuilding and navigation at the time in Zheng He’s treasure fleets.
+  - Navigational techniques combined the compass with stellar observation.
+- Suanpan (abacus): Used for mathematical calculations.
+- Development of twelve-tone equal temperament.
+- Bencao Gangmu (1596): A 52 volume summary of Chinese pharmacy knowledge.
+- Nongzheng Quanshu (1639): Major agricultural treatise in 60 volumes.
+- Economics:
+- Shift to a bimetallic system of copper coins and silver taels.
+  - Effect of paper money losing value due to overprinting.
+  - Caused large amounts of silver imports.
+    - Imported from Japan for copper cash, silk, porcelain, paper, and cotton thread.
+    - Led to about a third of the world’s silver being in China.
+- The prohibition on private trade ended in 1567, opening the way for commercial development .
+- Introduction of new world crops by European traders.
+  - In return, silk, porcelain, and tea were shipped from China to Europe .
+- Merchants gained greater social status than before due to wealth from trade.
+  - Merchants could buy culture and education, becoming patrons of arts and literary men.
+- Required all taxes to be paid in silver.
+- Culture:
+- Ming society believed simultaneously in multiple gods and followed Neo-Confucianism.
+  - Neo-Confucianism: Combines three teachings of Buddhism, Daoism, and Confucianism.
+    - Existed more as a set of social teachings rather than a religion.
+    - Raising doubts upon Neo-Confucianism could be seen as unpatriotic.
+- Overland and maritime trade routes kept China open to followers of Islam and allowed European Christians to arrive.
+- The novel rose as a popular literary genre, accompanied by affordable illustrated books.
+- Artistic style revived Southern Song features.
+- The separation of the sexes and the seclusion of women began to be practiced in earnest under Confucian principles.
+  - Foot binding: Practiced to make women’s feet seem smaller.
+    - Hindered women from physical activity.
+- Western missionaries introduced knowledge of modern science and technology.
+- Environment:
+- Physically isolated from other major civilisations.
+  - Troubled by frontier wars with nomadic invaders from the North and West.
+- Started plantation of American plants.
+  - Adaptable crops such as potato and corn allowed population growth.
+  - Crops such as tobacco were used as cash crops and grown to pay taxes.
+- The Ming pattern of economic development led to deforestation and animal extinction.
+- Commercialisation of Southern China.
+- Society:
+- Four classes: shi (gentry scholars), nong (peasant farmers), gong (artisans and craftsmen), and shang (merchants and traders).
+  - The traditional view held that merchants promoted only luxury goods, adding nothing of value to society.
+    - The gentry-scholar and merchant classes began to fuse, blurring traditional class lines .
+- The imperial examination system formed a gentry class of scholar-bureaucrats.
+  - Relatively open social stratification through civil service exams.
+- Textile and cotton industries in the South flourished.
+  - Often included work of women.
+- **Qing Dynasty (1644 - 1912):**
+- Basic Knowledge:
+- Ruled by the Manchus, a mixed agricultural and hunter-gatherer society from the Northeast.
+- Declined due to both internal decay and foreign imperialism.
+- Politics:
+- The Qing emperor held dual legitimacy.
+  - Confucian "Son of Heaven" ruling China.
+  - ”Bogd Khan” of Inner Asia.
+- Largely inherited the Ming structure of bureaucracy.
+  - Continued in the civil service exams but altered with Manchu characteristics.
+- The Eight Banners: Socio-military organisation framework that organised the elite.
+  - Originally effective and played prominent role in conquest of Ming Beijing.
+- Closed-door policy: Restricting international trade.
+  - Led to lack of access towards new European technologies during Industrial Revolution.
+- Kangxi (1661 - 1722):
+  - Integrated Manchu and Han culture.
+    - Actively recruited Han scholars.
+    - Sponsored compilation of Ming History.
+    - Promoted Confucian culture and Han calligraphy.
+  - Encouraged learning of Western sciences.
+    - Studied mathematics and astronomy with Jesuit missionaries.
+  - Provided Military consolidation in both North and South.
+- Qianlong (1736 - 1795):
+  - Expanded Qing territory to its greatest extent.
+  - Both sponsored compilation of Chinese texts and destroyed books threatening to Manchu rule.
+  - Set Foreign Trade Restrictions in 1757.
+- Innovations:
+- Technological innovations were largely stagnant or based on Western technology.
+  - Even domestic projects could be suspended for suspicion of foreign influence.
+- Classical literature:
+  - The Dream of the Red Mansions. (红楼梦)
+  - The Scholars: A satirical written to mock the civil service exams and scholars.
+- Monochrome glazes for porcelain.
+- Economics
+- Qing state expenditure was relatively minimal
+- The Canton trade balance did not significantly affect the Qing economy until the 1820s–30s.
+  - silver outflow from opium smuggling was linked to domestic recession.
+- Most exports consisted of silk and tea.
+- About half of the exports to China were opium.
+  - The Qing government prohibited opium import from 1800 but didn’t succeed.
+- Culture:
+- Qing art and literature were assessed harshly by some contemporaries
+- Continued to uphold Confucianism, but Daoism and Buddhism are more marginalised.
+  - Popular religious belief centred around Daoist gods that didn’t follow Orthodox Daoist Systems.
+    - Mostly circulated through folklore.
+    - The government was distant from such popular religions.
+    - Etc. The Jade Emperor (Yu Huang Da Di).
+- Environment:
+- China's population tripled during the Qing, generating unprecedented demand for timber and fuel.
+- Deforestation, soil erosion, and sedimentation contributed to increased flooding; the Qing government's disaster responses were limited and often ineffective .
+- Lack of awareness over resource sustainability.
+- Larger territory than previous Ming Empire.
+- Society:
+- Civil Service Exam remained to be bar between elite and populace.
+- Traditional customs ancestor veneration, male superiority over females, master-servant status distinctions were mostly unchanged.
+  - Qing government made attempts at banning foot-binding but never succeeded within the Han people despite successfully avoiding Manchu women from the practice.
+- Maintained a balance between Manchu and Han.
+  - Han people often ruled as local officials or within the bureaucracy.
+  - Manchu people kept a superior status through the Eight Banners.
+- **3.3 Empires: Belief Systems**
+- **Protestant Reformation (1517 - 1648):**
+- Background (Europe c. 1500):
+- Spain: Reconquista finished by kingdoms of Aragon & Castile
+- Italian city-states get very rich
+- France politically unified, now stable since end of 100 Years' War
+- Holy Roman Empire: somewhat decentralized, ruled by Maximilian I (founder of Habsburg dynasty), effectively hereditary (but emperors still elected)
+  - Joanna of Aragon & Castile married to Philip the Handsome of Austria (Habsburg noble)
+- Ottoman Empire rising in East
+- England stabilized under Tudors (Henry VII & VIII)
+- Martin Luther
+- initially not opposed to Church
+- **1517**: 95 Theses published; argue church cannot save you from purgatory
+- **1521**: excommunicated, outlawed; still able to gain support of people
+- **1522**: publication of German translation of New Testament
+- Diet of Worms (**1521**)
+- Charles V
+  - HRE, declared Martin Luther heretic & outlaw
+  - known as Charles I in Spain
+  - elected (**1519**) by clergy members & German princes, beating Francis I of France
+  - crowned emperor by Pope
+  - wanted to execute Martin Luther; Luther refused to recant
+  - protected by German princes (among them was Frederick the Wise)
+- Zwingli (**1484–1531**)
+  - Ulrich Zwingli, similar to Luther, based in Zurich
+  - scripture = sole basis of religious truth
+  - attacked indulgences, Mass, monasticism, clerical celibacy
+- John Calvin
+- established Protestant theocracy in Geneva (**~1541**)
+- Calvinism spread through parts of France & Scotland
+- some Calvinists in Scotland (& England eventually) became known as Puritans
+- Huguenots in France
+- Calvinism
+- key doctrine of predestination (posits that God has eternally chosen those whom he intends to save)
+- Council of Trent
+- held off and on (**1545–1563**)
+- attempt to restore papal authority
+- restore traditional Catholic ideas
+- salvation through faith & good works
+- penalties for corruption
+- better clerical schools
+- missionary efforts in New World
+- Pope Paul also tried to continue fight against Protestants
+- Inquisition strengthened -> prosecute heretics
+- Council of Trent Rules on Prohibited Books, **1564**
+  - booksellers may not sell vernacular translations of Bible
+- Jesuits
+- Christian elite missionaries, well educated
+- Ignatius of Loyola (**1491–1556**)
+  - decided to give up military career & become “soldier of Christ”, founded Jesuits order
+  - strict spiritual/moral discipline
+  - set up schools to spread their interpretations
+  - widespread impact
+- Henry VIII and Anglican Church
+- Henry VIII: Catholic, wanted to divorce wife but denied by Catholic Pope
+- Act of Supremacy **1534** -> break from Rome, establish Anglican Church that places Henry VIII as head
+- **1535 - 1539** dissolution & destruction of monasteries
+- Calvinism makes way to England
+  - Pilgrims (Calvinists who believed Anglican Church irredeemable) make their way to America in **1620**
+- French Wars of Religion (**1562–1598**)
+- St. Bartholomew's Day Massacre
+  - **1562–70**: violent religious wars between French Catholics & Protestants
+- **1570** agreement
+  - Henry IV of Navarre (Protestant) marries Margaret of Valois (Catholic)
+  - Huguenots came to Paris for wedding in **1572**
+  - Royal council planned execution of Huguenot military leader & other prominent Huguenots
+  - Violence explodes across Paris, then through French countryside
+- Tensions Ease
+  - Henry IV of Navarre eventually inherited French throne in **1589**
+  - Won series of battles against Catholic nobles, but could not take Paris
+  - Converted to Catholicism in **1594**, finally accepted by Catholic nobles
+- Comparison: Protestant Reformation (French vs. Eng)
+  - Eng: Protestantism became popular
+Fr: Huguenots remain minority
+  - Eng: monarch consolidates power
+Fr: monarch does not gain power
+- Laws (Comparison)
+- England: Act of Supremacy (**1534**)
+  - grants monarch control over Anglican Church
+- France: Edict of Nantes (**1598**)
+  - granted Huguenots substantial religious liberty and civil rights
+- HRE: Peace of Augsburg (**1555**)
+  - religion of state determined by ruler (religious autonomy)
+  - followers may move to other states that practice their religion -> ruler determines religion, followers are granted mobility
+- **Sunni / Shi’a Split**
+- Background
+- **Sunni** belief: leader (caliph) chosen by community consensus; caliph is a political/religious leader but not divinely appointed
+- **Shi’a** belief: leadership belongs to Muhammad's family line through Ali (cousin/son in law); leaders (imams) are divinely guided
+- Both share core beliefs (Quran, Five Pillars, monotheism, etc.)
+- Ottoman Empire (Sunni Muslims) and Safavid Empire (Shi'a Muslims)
+- See **Ottoman Empire - Politics**, **Ottoman Empire - Society**; **Safavid Empire - Politics**, **Safavid Empire - Society**
+- Results: geopolitical divide
+- Political + religious conflict: Ottoman (Sunni) vs. Safavid (Shi'a) rivalry was fought over territory (Mesopotamia/Iraq), trade routes, and religious authority.
+- Border warfare: repeated Ottoman-Safavid wars (16th-17th centuries); the frontier became a sectarian dividing line.
+- Mutual delegitimization: each empire cast the other as heretical; religious rhetoric justified political conflict.
+- Conversion as state policy: Safavid forced conversion of Sunnis; Ottoman repression of Shi'a in contested areas.
+- Long-term result: hardened a permanent Sunni-Shi'a geographic split — Ottoman Sunni heartland (Anatolia, Arab lands) vs. Safavid Shi'a Persia (modern Iran).
+- Legacy: the modern Sunni/Shi'a map of the Middle East largely traces back to this Ottoman–Safavid rivalry.
+- **Sikhism**
+- emerged in South Asia (Punjab) in the late 15th century, where Hinduism and Islam coexisted and interacted.
+- Founded by Guru Nanak (1469–1539), taught one God and salvation through devotion and righteous living
+- A relatively new religion that developed from Hinduism, may have been influenced by Islamic mysticism known as Sufism
+- A monotheistic faith that rejected Hindu caste system and recognized the rights of other faiths to exist
+- Under the Mughals, Sikhism experienced both tolerance (Akbar's land grants) and later persecution

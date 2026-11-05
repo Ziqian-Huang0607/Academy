@@ -207,6 +207,11 @@ def main():
     print(f"shards: {len(manifest)} course files -> {SHARDS}"
           f" (largest {largest['courseId']} {largest['bytes'] / 1024:.0f} KB)")
 
+    # The PA review guides live in content/pa-guides/ (tracked, unlike
+    # content/notes/) and are layered on top of whatever was just compiled.
+    from merge_pa_guides import merge
+    merge()
+
 
 if __name__ == "__main__":
     main()
