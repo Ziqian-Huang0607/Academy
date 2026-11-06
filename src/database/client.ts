@@ -1585,6 +1585,48 @@ export function updateSettings(patch: Partial<DatabaseSettings>) {
 }
 
 /**
+ * The pre-sign-in access guide ("how do I get into Synonance?").
+ *
+ * It runs before anyone is signed in, so there is no account to hang the flag
+ * on: it is per browser. A visitor who clears storage, or opens Synonance on a
+ * new device, sees it once more — a few clicks, and the cheaper mistake than
+ * letting a first-time student reach the sign-in buttons without knowing they
+ * need a verified Launchpad account first.
+ */
+const ACCESS_GUIDE_KEY = 'synonance:access-guide-seen:v1'
+
+export function hasSeenAccessGuide(): boolean {
+  try {
+    return localStorage.getItem(ACCESS_GUIDE_KEY) !== null
+  } catch {
+    // Storage blocked: showing it every time beats never showing it.
+    return false
+  }
+}
+
+export function markAccessGuideSeen() {
+  try {
+    localStorage.setItem(ACCESS_GUIDE_KEY, new Date().toISOString())
+  } catch {
+    // Nothing to do — the guide simply shows again next visit.
+  }
+}
+
+/** Whether the signed-in account still owes the first-run app tour. */
+export function needsAppTour(): boolean {
+  return !getCurrentUserDatabase().settings.tutorialCompletedAt
+}
+
+export function completeAppTour() {
+  updateSettings({ tutorialCompletedAt: new Date().toISOString() })
+}
+
+/** Profile → "Replay the tour": clearing the flag brings the tour straight back. */
+export function resetAppTour() {
+  updateSettings({ tutorialCompletedAt: undefined })
+}
+
+/**
  * The current student's private memory. Reads from their own record only —
  * there is deliberately no way to address another user's memory from here.
  */

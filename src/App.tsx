@@ -21,6 +21,7 @@ import { currentLaunchpadUser } from '@/lib/launchpad-auth'
 import { Spinner } from '@/components/ui/spinner'
 import StorageNotice from '@/components/StorageNotice'
 import NotificationPush from '@/components/NotificationPush'
+import { AppTour } from '@/components/FirstRunTours'
 
 // Login is eager: it is the first thing an unauthenticated visitor sees, and
 // loading it in the main bundle avoids a network round trip before the very
@@ -212,6 +213,9 @@ export default function App() {
       {/* Same placement, same reason: a notification landing mid-session has
           to surface wherever the user happens to be. */}
       <NotificationPush />
+      {/* Forced first-run tour: outside the routes so it can sit over
+          whichever course page an account first lands on. */}
+      <AppTour />
       <Suspense fallback={<RouteFallback />}>
         <Routes>
           <Route path="/" element={<SessionHome />} />
