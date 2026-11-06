@@ -1612,6 +1612,25 @@ export function markAccessGuideSeen() {
   }
 }
 
+/** The "How to access Synonance" video: compulsory on first visit, skippable. Per browser. */
+const ACCESS_VIDEO_KEY = 'synonance:access-video-seen:v1'
+
+export function hasSeenAccessVideo(): boolean {
+  try {
+    return localStorage.getItem(ACCESS_VIDEO_KEY) !== null
+  } catch {
+    return false
+  }
+}
+
+export function markAccessVideoSeen() {
+  try {
+    localStorage.setItem(ACCESS_VIDEO_KEY, new Date().toISOString())
+  } catch {
+    // Shown again next visit; harmless.
+  }
+}
+
 /** Whether the signed-in account still owes the first-run app tour. */
 export function needsAppTour(): boolean {
   return !getCurrentUserDatabase().settings.tutorialCompletedAt
