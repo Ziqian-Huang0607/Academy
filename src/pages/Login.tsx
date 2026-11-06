@@ -5,9 +5,10 @@
 // it already knows. The administrator form below is the local escape hatch.
 import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router'
-import { Building2, Globe, LoaderCircle, LockKeyhole, Mail, UserPlus } from 'lucide-react'
+import { Building2, CircleHelp, Globe, LoaderCircle, LockKeyhole, Mail, UserPlus } from 'lucide-react'
 import {
   getSignedInHomeRoute,
+  hasSeenAccessGuide,
   signInAdministrator,
   signInLockoutSeconds,
   signInWithLaunchpad,
@@ -18,6 +19,7 @@ import {
   isSecureEnough,
   startLaunchpadSignIn,
 } from '@/lib/launchpad-auth'
+import { AccessGuide } from '@/components/FirstRunTours'
 
 /** Which button was pressed, kept across the redirect so the copy can match. */
 const INTENT_KEY = 'synonance:launchpad-intent'
@@ -35,6 +37,12 @@ export default function Login() {
   const [launchpadReady, setLaunchpadReady] = useState<boolean | null>(null)
   const [launchpadBusy, setLaunchpadBusy] = useState<'signin' | 'signup' | null>(null)
   const [launchpadError, setLaunchpadError] = useState('')
+  // First visit from this browser: the access guide runs before the sign-in
+  // card is usable. A visitor coming back from the Launchpad redirect (a code
+  // in the URL) is mid sign-in and has evidently got through it already.
+  const [guideOpen, setGuideOpen] = useState(
+    () => !hasSeenAccessGuide() && !/[?&]code=/.test(window.location.search + window.location.hash),
+  )
 
   // Two jobs on mount: find out whether the Launchpad SDK is reachable at all
   // (it only exists on a Launchpad-hosted origin), and finish a sign-in that
@@ -147,6 +155,7 @@ export default function Login() {
 
   return (
     <div className="min-h-[100dvh] overflow-y-auto bg-paper flex flex-col items-center justify-center px-4 py-8 relative">
+      {guideOpen ? <AccessGuide onDone={() => setGuideOpen(false)} /> : null}
       <div className="w-full max-w-[380px] flex flex-col items-center">
         <h1 className="font-serif text-[56px] leading-none text-ink">Synonance</h1>
         <p className="mt-3 font-serif text-[18px] text-center text-ink-muted">
@@ -206,6 +215,15 @@ export default function Login() {
               {launchpadError ? (
                 <p role="alert" className="mt-2 text-[12px] text-mark">{launchpadError}</p>
               ) : null}
+
+              <button
+                type="button"
+                onClick={() => setGuideOpen(true)}
+                className="mt-3 w-full flex items-center justify-center gap-1.5 text-[12px] font-medium text-board hover:text-board-deep transition-colors duration-[120ms] ease-out"
+              >
+                <CircleHelp size={14} />
+                First time here? How to get in
+              </button>
             </>
           )}
 

@@ -233,6 +233,7 @@ export default function CourseShell({
                 <li key={item.key}>
                   <Link
                     to={item.to}
+                    data-tour={item.key}
                     aria-current={isActive ? 'page' : undefined}
                     aria-label={collapsed ? item.label : undefined}
                     title={collapsed ? item.label : undefined}

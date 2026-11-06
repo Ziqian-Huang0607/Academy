@@ -23,6 +23,7 @@ import {
   signOutCurrentUser,
   updateSettings,
   updateUserProfile,
+  resetAppTour,
 } from '@/database/client'
 import { deleteOwnAccount, exportAndDownload } from '@/database/accounts'
 import { storageEstimate, storedBytes } from '@/database/storage'
@@ -366,6 +367,18 @@ export default function Profile() {
               </span>
             </div>
           </div>
+        </section>
+
+        {/* Tour */}
+        <section className="mt-10 flex items-start justify-between gap-6 py-5 border-t border-rule">
+          <div className="max-w-[520px]">
+            <h3 className="text-[14px] font-medium text-ink">Tour of Synonance</h3>
+            <p className="mt-1 text-[13px] leading-relaxed text-ink-muted">
+              Walk through where everything lives again — courses, chat, notes, practice and mock
+              tests.
+            </p>
+          </div>
+          <PageAction onClick={resetAppTour}>Replay the tour</PageAction>
         </section>
 
         {/* Your data */}

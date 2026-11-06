@@ -322,6 +322,14 @@ export interface DatabaseSettings {
    * off by default is that the feature never runs for anyone.
    */
   autoSynthesis?: boolean
+  /**
+   * When this account finished the first-run tour of the app (ISO time).
+   * Absent means it has never been completed, so the tour is shown — and
+   * cannot be dismissed — on the account's first visit to a course page.
+   * Optional, so databases written before the tour existed read as "not
+   * seen" without a schema bump.
+   */
+  tutorialCompletedAt?: string
 }
 
 export interface UserProfile {
