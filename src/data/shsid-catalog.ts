@@ -13,7 +13,8 @@
 import type { CatalogCourse, CoursePathway } from '@/database/types'
 
 const ENDPOINT = 'https://cc.indexademics.com/api/courses'
-const CACHE_KEY = 'synonance:shsid-catalog:v1'
+// Bump when the grouping rules change, so browsers drop a catalogue built by the old ones.
+const CACHE_KEY = 'synonance:shsid-catalog:v2'
 /** The upstream catalogue changes a few times a year; a day is plenty. */
 const CACHE_TTL_MS = 24 * 60 * 60 * 1000
 
@@ -62,6 +63,20 @@ const ID_ALIASES: Record<string, string> = {
   // Grade 10's "AP Calculus 10" teaches the AB syllabus (limits through
   // applications of derivatives), so it reads the AB notes.
   'ap-calculus': 'ap-calculus-ab',
+}
+
+/**
+ * Short names for courses whose official name is unwieldy or varies by grade:
+ * Music is "Music and Performing Arts Culture and Administration" in grade 9
+ * and "Music Appreciation" in grade 10.
+ */
+const TITLE_OVERRIDES: Record<string, string> = {
+  'hs-music': 'Music',
+}
+
+/** Departments the school lists at a grade but this app does not offer there. */
+const EXCLUDED_DEPARTMENTS: Record<number, Set<string>> = {
+  10: new Set(['Art']),
 }
 
 /** These two are not streamed by grade in this app, so they carry no suffix. */
@@ -143,9 +158,10 @@ function appIdFor(course: ApiCourse) {
 function groupCourses(courses: ApiCourse[]): ShsidCourse[] {
   const grouped = new Map<string, ShsidCourse>()
   for (const course of courses) {
+    const grade = Number(course.grade)
+    if (EXCLUDED_DEPARTMENTS[grade]?.has(course.department)) continue
     const id = appIdFor(course)
     const pathway = PATHWAY[course.track] ?? 'HS'
-    const grade = Number(course.grade)
     const existing = grouped.get(id)
     const level = levelOf(course)
     if (existing) {
@@ -154,7 +170,7 @@ function groupCourses(courses: ApiCourse[]): ShsidCourse[] {
       existing.officialIds.push(course.id)
       continue
     }
-    const title = baseName(course.name)
+    const title = TITLE_OVERRIDES[id] ?? baseName(course.name)
     grouped.set(id, {
       id,
       pathway,

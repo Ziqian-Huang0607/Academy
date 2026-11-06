@@ -1,4 +1,4 @@
-import { COURSE_CATALOG } from '@/data/course-catalog'
+import { findCatalogCourses } from '@/data/course-catalog'
 import { courses as seededCourses } from '@/data/mock'
 import { getSettings, updateSettings } from '@/database/client'
 
@@ -40,11 +40,10 @@ export function getAvailableCourses(): ActiveCourse[] {
   try {
     const settings = getSettings()
     const savedIds = settings.selectedCourseIds
-    const selected = new Set(savedIds)
     const grade = settings.grade
     const pathway = settings.pathway
     const courseLevels = settings.courseLevels
-    const catalogCourses = COURSE_CATALOG.filter((course) => selected.has(course.id))
+    const catalogCourses = findCatalogCourses(savedIds)
 
     if (catalogCourses.length > 0) {
       return catalogCourses.map((course) => ({
@@ -53,7 +52,7 @@ export function getAvailableCourses(): ActiveCourse[] {
         title: course.title,
         context: [
           grade ? `Grade ${grade}` : null,
-          course.pathway === 'HS' ? courseLevels[course.id] ?? 'S' : pathway,
+          course.pathway === 'HS' ? courseLevels[course.id] ?? 'S' : course.pathway ?? pathway,
         ]
           .filter(Boolean)
           .join(' · '),

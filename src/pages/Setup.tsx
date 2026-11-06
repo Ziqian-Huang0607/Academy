@@ -99,9 +99,14 @@ export default function Setup() {
     if (!grade || !pathway) return []
     const normalizedQuery = query.trim().toLowerCase()
     const source: CatalogCourse[] = official ?? COURSE_CATALOG
+    // Grades 9 and 10 have no pathway choice, but the school still runs AP
+    // courses there (AP Precalculus, AP Calculus, AP Microeconomics, AP Music
+    // Theory in grade 10), so the high-school catalogue includes them.
+    const inPathway = (course: CatalogCourse) =>
+      course.pathway === pathway || (pathway === 'HS' && course.pathway === 'AP')
     return source.filter(
       (course) =>
-        course.pathway === pathway &&
+        inPathway(course) &&
         course.grades.includes(grade) &&
         (!normalizedQuery ||
           `${course.code} ${course.title} ${course.subject}`.toLowerCase().includes(normalizedQuery)),
