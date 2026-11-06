@@ -201,8 +201,26 @@ export async function startLaunchpadSignIn(): Promise<SignInBlocker | null> {
  * Clear the SDK's stored token. This is local only: the platform deliberately
  * keeps the user signed in to Launchpad itself, so this ends the session with
  * *this app* and nothing else.
+ *
+ * Every user-initiated sign-out must call this. Ending only the Synonance
+ * session is not enough: /login finishes any Launchpad sign-in it finds on
+ * mount, so a token left in sessionStorage signed the user straight back in
+ * and "Sign out" appeared to do nothing.
+ *
+ * Synchronous on purpose — callers navigate to /login on the next line, and an
+ * awaited SDK load would race that mount. The storage keys are cleared
+ * directly as well, for the case where the SDK script never loaded.
  */
-export async function endLaunchpadSession(): Promise<void> {
-  const sdk = await loadSdk()
-  sdk?.signOut()
+export function endLaunchpadSession(): void {
+  try {
+    window.LaunchpadAuth?.signOut()
+  } catch {
+    // Fall through to the direct clear below.
+  }
+  try {
+    sessionStorage.removeItem(SDK_TOKEN_KEY)
+    sessionStorage.removeItem('lp_user')
+  } catch {
+    // Storage blocked: nothing was persisted there to clear.
+  }
 }

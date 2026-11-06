@@ -22,6 +22,7 @@ import {
   signOutCurrentUser,
   touchSession,
 } from '@/database/client'
+import { endLaunchpadSession } from '@/lib/launchpad-auth'
 
 export interface AdminNavItem {
   key: string
@@ -97,6 +98,7 @@ export default function AdminShell({
 
   const signOut = () => {
     signOutCurrentUser()
+    endLaunchpadSession()
     navigate('/login', { replace: true })
   }
 
