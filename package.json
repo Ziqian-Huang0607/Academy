@@ -12,7 +12,7 @@
     "test:generation": "node scripts/test-generation.mjs",
     "test:retrieval": "node scripts/test-retrieval.mjs",
     "test:keepalive": "node scripts/test-proxy-keepalive.mjs",
-    "start": "vite preview --host 0.0.0.0",
+    "start": "vite preview --host 0.0.0.0 --port ${PORT:-4173} --strictPort",
     "test:notes": "node scripts/test-notes.mjs"
   },
   "dependencies": {
