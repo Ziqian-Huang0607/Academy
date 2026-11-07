@@ -23,6 +23,7 @@ import {
   updateDatabase,
 } from './client'
 import { pushSystemNotification } from './notifications'
+import { endLaunchpadSession } from '@/lib/launchpad-auth'
 import type { AccountStatus, ApplicationUser, UserDatabase, UserRole } from './types'
 
 /** An account as the admin table shows it, joined to its per-user activity. */
@@ -419,6 +420,7 @@ export function deleteOwnAccount(): AccountResult<void> {
     result: 'success',
   })
   signOutCurrentUser()
+  endLaunchpadSession()
   purgeLocalData()
   return { ok: true, value: undefined }
 }

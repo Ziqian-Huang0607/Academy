@@ -26,6 +26,7 @@ import {
   resetAppTour,
 } from '@/database/client'
 import { deleteOwnAccount, exportAndDownload } from '@/database/accounts'
+import { endLaunchpadSession } from '@/lib/launchpad-auth'
 import { storageEstimate, storedBytes } from '@/database/storage'
 
 function Field({ label, children }: { label: string; children: ReactNode }) {
@@ -419,6 +420,7 @@ export default function Profile() {
           <PageAction
             onClick={() => {
               signOutCurrentUser()
+              endLaunchpadSession()
               navigate('/login', { replace: true })
             }}
           >
