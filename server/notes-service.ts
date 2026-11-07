@@ -222,8 +222,11 @@ export class NotesService {
         respond(res, 200, { shared: true })
         return
       }
-      const bearer = req.headers.authorization
-      if (!bearer?.startsWith('Bearer '))
+      // The Launchpad app proxy removes the platform Authorization header.
+      // This explicit app token must still pass the same userinfo verification.
+      const bearer =
+        req.headers['x-academy-authorization'] ?? req.headers.authorization
+      if (typeof bearer !== 'string' || !/^Bearer \S+$/.test(bearer))
         throw failure('Sign in with Launchpad to use shared notes.', 401)
       const identity = await this.options.authenticate(bearer)
       if (!identity?.sub)

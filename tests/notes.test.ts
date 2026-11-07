@@ -15,10 +15,8 @@ import { renderToStaticMarkup } from 'react-dom/server'
 import { createElement } from 'react'
 import MarkdownText from '../src/components/MarkdownText'
 import NoteDocument from '../src/components/NoteDocument'
-import type {
-  AgentAssessment,
-  NotePacket,
-} from '../src/database/contribution-types'
+import { notesRequest, requestNoteImage } from '../src/lib/notes-api'
+import type { AgentAssessment } from '../src/database/contribution-types'
 import type { ModelCall } from '../server/review'
 
 const root = process.cwd()
@@ -43,10 +41,8 @@ const assessment: AgentAssessment = {
   penalties: [],
 }
 let responses: unknown[] = []
-let calls = 0
 let slow: ((signal: AbortSignal) => Promise<string>) | null = null
 const model: ModelCall = async (_messages, signal) => {
-  calls++
   if (slow) return await slow(signal)
   assert.ok(responses.length, 'Test must provide a model response')
   return JSON.stringify(responses.shift())
@@ -85,6 +81,13 @@ service.store.write((state) =>
 const server = createServer((req, res) => {
   void service.handle(req, res)
 })
+// Match the deployed Launchpad boundary: platform credentials never reach apps.
+const proxy = createServer((req, res) => {
+  delete req.headers.authorization
+  void service.handle(req, res)
+})
+await new Promise<void>((resolve) => proxy.listen(0, '127.0.0.1', resolve))
+const proxyPort = (proxy.address() as { port: number }).port
 await new Promise<void>((resolve) => server.listen(0, '127.0.0.1', resolve))
 const port = (server.address() as { port: number }).port
 async function api(
@@ -127,6 +130,49 @@ async function settled(id: string) {
   throw new Error(`Packet ${id} did not settle`)
 }
 try {
+  const nativeFetch = globalThis.fetch
+  const originalWindow = Object.getOwnPropertyDescriptor(globalThis, 'window')
+  Object.defineProperty(globalThis, 'window', {
+    configurable: true,
+    value: { LaunchpadAuth: { state: { accessToken: 'alice' } } },
+  })
+  globalThis.fetch = (input, init) =>
+    nativeFetch(
+      typeof input === 'string' && input.startsWith('/__academy/notes')
+        ? `http://127.0.0.1:${proxyPort}${input}`
+        : input,
+      init,
+    )
+  try {
+    const state = await notesRequest<{ notes: Array<{ id: string }> }>(
+      `/state?courseId=${courseId}`,
+    )
+    assert.ok(state.notes.some((note) => note.id === 'fixture'))
+    window.LaunchpadAuth!.state!.accessToken = 'invalid'
+    await assert.rejects(notesRequest(`/state?courseId=${courseId}`), /expired/)
+    window.LaunchpadAuth!.state!.accessToken = 'outsider'
+    await assert.rejects(notesRequest(`/state?courseId=${courseId}`), /membership/)
+    window.LaunchpadAuth!.state!.accessToken = 'alice'
+    const png = 'iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/x8AAwMCAO+aX1kAAAAASUVORK5CYII='
+    const uploaded = await notesRequest<{ source: string }>('/images', {
+      method: 'POST',
+      headers: new Headers({ 'Content-Type': 'image/png', 'X-File-Name': 'proxy-test.png' }),
+      body: new Blob([Buffer.from(png, 'base64')], { type: 'image/png' }),
+    })
+    const image = await requestNoteImage(uploaded.source)
+    assert.deepEqual(Buffer.from(await image.arrayBuffer()), Buffer.from(png, 'base64'))
+    const stripped = await nativeFetch(
+      `http://127.0.0.1:${proxyPort}/__academy/notes/state?courseId=${courseId}`,
+      { headers: { Authorization: 'Bearer alice' } },
+    )
+    assert.equal(stripped.status, 401)
+    console.log('PASS: browser notes and images authenticate through the Launchpad stripping proxy')
+  } finally {
+    globalThis.fetch = nativeFetch
+    if (originalWindow) Object.defineProperty(globalThis, 'window', originalWindow)
+    else Reflect.deleteProperty(globalThis, 'window')
+    await new Promise<void>((resolve) => proxy.close(() => resolve()))
+  }
   assert.equal(
     (await api('/state?courseId=math-aa-hl', undefined, 'invalid')).status,
     401,

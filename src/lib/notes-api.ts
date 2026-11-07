@@ -10,9 +10,13 @@ export async function notesRequest<T>(
   path: string,
   init?: RequestInit,
 ): Promise<T> {
+  // Launchpad strips Authorization at the app proxy boundary. Explicitly
+  // pass the app's OAuth token in an app-specific header instead.
+  const headers = new Headers(init?.headers)
+  headers.set('X-Academy-Authorization', `Bearer ${notesToken()}`)
   const response = await fetch(`${BASE}${path}`, {
     ...init,
-    headers: { ...init?.headers, Authorization: `Bearer ${notesToken()}` },
+    headers,
     signal: init?.signal ?? AbortSignal.timeout(20_000),
   })
   if (!response.headers.get('Content-Type')?.includes('application/json'))
@@ -27,7 +31,7 @@ export async function notesRequest<T>(
 export async function requestNoteImage(source: string): Promise<Blob> {
   const id = source.replace(/^note-asset:/, '')
   const response = await fetch(`${BASE}/images/${encodeURIComponent(id)}`, {
-    headers: { Authorization: `Bearer ${notesToken()}` },
+    headers: { 'X-Academy-Authorization': `Bearer ${notesToken()}` },
     signal: AbortSignal.timeout(20_000),
   })
   if (
