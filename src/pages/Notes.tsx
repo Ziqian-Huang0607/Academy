@@ -1,305 +1,272 @@
-import { useEffect, useMemo, useState } from 'react'
-import { BookOpen, Plus, Search } from 'lucide-react'
+import { useEffect, useReducer, useState } from 'react'
+import { useSearchParams } from 'react-router'
+import {
+  BookOpen,
+  Search,
+  ListOrdered,
+  Trophy,
+  MessageCircle,
+} from 'lucide-react'
 import CourseShell from '@/components/CourseShell'
 import Page, { PageBar, PageBody, SidePanel } from '@/components/Page'
 import NoteDocument from '@/components/NoteDocument'
+import MarkdownText from '@/components/MarkdownText'
 import AskSelection from '@/components/AskSelection'
-import ContributeNotes, { ContributeNotesButton } from '@/components/ContributeNotes'
-import { subscribeDatabase } from '@/database/client'
+import ContributeNotes, {
+  ContributeNotesButton,
+} from '@/components/ContributeNotes'
+import {
+  ProcessingQueue,
+  ContributionsLeaderboard,
+} from '@/components/NoteContributions'
+import { subscribeDatabase, ensureCourseNotesLoaded } from '@/database/client'
 import {
   noteMarkdown,
   getCourseLevel,
   levelsWithNotes,
   notesForCourse,
 } from '@/database/notes-tools'
+import {
+  ACTIVE_STATUSES,
+  contributionSyncError,
+  packetsForCourse,
+  syncContributions,
+} from '@/database/contributions'
 import { getActiveCourse } from '@/lib/course-selection'
 
-/* Notes live in the shared course database, scoped per course — see notes-tools.ts. */
-/*
-  {
-    code: '2.1',
-    title: 'Antiderivatives',
-    summary: 'Reverse differentiation, constants of integration, and families of curves.',
-    revision: 14,
-    updated: 'Today, 14:32',
-    sections: [
-      {
-        id: 'idea',
-        title: 'Core idea',
-        body: [
-          'An antiderivative of a function is another function whose derivative gives the original function.',
-          'Indefinite integration describes a family of antiderivatives. The constant of integration accounts for functions that have the same derivative but differ by a vertical translation.',
-        ],
-      },
-      {
-        id: 'rules',
-        title: 'Rules to remember',
-        body: [
-          'Apply the power rule term by term when the exponent is not negative one.',
-          'Always include the constant of integration for an indefinite integral.',
-          'Differentiate the result to check an antiderivative quickly.',
-        ],
-        callout: 'Recent course improvement: the reverse-check step was added after several students asked how to verify an answer.',
-      },
-    ],
-  },
-  {
-    code: '2.2',
-    title: 'Substitution',
-    summary: 'Recognising composite structure and changing variables to simplify an integral.',
-    revision: 11,
-    updated: 'Yesterday, 18:06',
-    sections: [
-      {
-        id: 'recognise',
-        title: 'Recognising substitution',
-        body: [
-          'Look for an inner expression whose derivative also appears elsewhere in the integrand.',
-          'A useful substitution should simplify the entire integral, including the differential.',
-        ],
-      },
-      {
-        id: 'workflow',
-        title: 'Reliable workflow',
-        body: [
-          'Choose the inner expression, calculate its differential, rewrite every part of the integral in the new variable, integrate, and substitute back.',
-          'For definite integrals, either change the limits immediately or return to the original variable before evaluating.',
-        ],
-      },
-    ],
-  },
-  {
-    code: '2.3',
-    title: 'Partial fractions',
-    summary: 'Decomposing rational expressions into forms that can be integrated directly.',
-    revision: 18,
-    updated: '12 minutes ago',
-    sections: [
-      {
-        id: 'conditions',
-        title: 'Before decomposing',
-        body: [
-          'First check that the rational expression is proper. If the numerator degree is at least the denominator degree, perform polynomial division.',
-          'Factor the denominator completely and choose a decomposition form that matches its linear, repeated, or irreducible quadratic factors.',
-        ],
-      },
-      {
-        id: 'coefficients',
-        title: 'Finding coefficients',
-        body: [
-          'After multiplying through by the common denominator, use convenient substitutions or compare coefficients.',
-          'Check the decomposition by recombining its terms before integrating.',
-        ],
-        callout: 'Clarified from recent course activity: denominator factor count and polynomial degree answer different questions.',
-      },
-      {
-        id: 'mistakes',
-        title: 'Common mistakes',
-        body: [
-          'Skipping polynomial division, omitting terms for repeated factors, and integrating before verifying the decomposition are the most common sources of error.',
-        ],
-      },
-    ],
-  },
-  {
-    code: '2.4',
-    title: 'Integration by parts',
-    summary: 'Integrating products by reversing the product rule.',
-    revision: 16,
-    updated: 'Today, 09:48',
-    sections: [
-      {
-        id: 'choice',
-        title: 'Choosing the parts',
-        body: [
-          'Choose the part to differentiate so that it becomes simpler, while the remaining part should be straightforward to integrate.',
-          'The LIATE ordering is a guide rather than a rule; always check whether the resulting integral is actually simpler.',
-        ],
-      },
-      {
-        id: 'repeat',
-        title: 'Repeated application',
-        body: [
-          'Polynomial factors often require integration by parts more than once. Keep signs visible and simplify only after each application is complete.',
-        ],
-      },
-    ],
-  },
-*/
-
 export default function Notes() {
-  const [activeCourse] = useState(getActiveCourse)
-  const [selectedCode, setSelectedCode] = useState<string | null>(null)
+  const [, refresh] = useReducer((value) => value + 1, 0)
+  useEffect(() => subscribeDatabase(refresh), [])
+  const activeCourse = getActiveCourse()
+  const [params, setParams] = useSearchParams()
+  const tab = ['queue', 'contributions'].includes(params.get('tab') ?? '')
+    ? params.get('tab')!
+    : 'guide'
   const [query, setQuery] = useState('')
   const [contributeOpen, setContributeOpen] = useState(false)
-  // Bumped whenever the shared database changes, so an applied revision shows
-  // up in the document without a reload.
-  const [dbTick, setDbTick] = useState(0)
-
-  useEffect(() => subscribeDatabase(() => setDbTick((tick) => tick + 1)), [])
-
-  // Notes are shared per course: everyone enrolled reads the same documents.
-  const level = useMemo(
-    () => getCourseLevel(activeCourse.id),
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    [activeCourse.id, dbTick],
+  const [loading, setLoading] = useState(true)
+  useEffect(() => {
+    let alive = true
+    void ensureCourseNotesLoaded(activeCourse.id).finally(() => {
+      if (alive) setLoading(false)
+    })
+    return () => {
+      alive = false
+    }
+  }, [activeCourse.id])
+  const notes = notesForCourse(activeCourse.id)
+  const selected =
+    notes.find(
+      (note) =>
+        note.id === params.get('note') || note.code === params.get('note'),
+    ) ?? notes[0]
+  const packets = packetsForCourse(activeCourse.id)
+  const queued = packets.filter(
+    (packet) =>
+      ACTIVE_STATUSES.includes(packet.status) || packet.status === 'ready',
+  ).length
+  const level = getCourseLevel(activeCourse.id)
+  const otherLevels = levelsWithNotes(activeCourse.id).filter(
+    (item) => item !== level,
   )
-  const unitNotes = useMemo(
-    () => notesForCourse(activeCourse.id),
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    [activeCourse.id, dbTick],
-  )
-  const selectedUnit =
-    unitNotes.find((unit) => unit.code === selectedCode) ?? unitNotes[0]
-  const markdown = selectedUnit ? noteMarkdown(selectedUnit) : ''
-
-  // A course with no authored notes is a normal state, not an error: notes are
-  // shared class material, so a course has none until someone publishes them.
-  // (Before notes were course-scoped every course showed the same demo unit,
-  // which is what made this case invisible.)
-  if (!selectedUnit) {
-    // Three different reasons the list can be empty, and a student can act on
-    // only one of them — so they are not collapsed into one message. Notes are
-    // never borrowed from an adjacent level: that would show material the
-    // student's own class was not taught.
-    const otherLevels = levelsWithNotes(activeCourse.id).filter((item) => item !== level)
-    const levelGap = Boolean(level) && otherLevels.length > 0
-    return (
-      <CourseShell role="student" active="notes">
-        <Page>
-          <PageBar
-            context={
-              levelGap
-                ? `${activeCourse.code} · no ${level} notes`
-                : `${activeCourse.code} · no notes yet`
-            }
-          >
-            <ContributeNotesButton onClick={() => setContributeOpen(true)} />
-          </PageBar>
-          <PageBody measure="reading">
-            <div className="rounded-card border border-dashed border-rule bg-surface px-8 py-16 text-center">
-              <BookOpen size={24} className="mx-auto text-ink-muted" />
-              <h2 className="mt-4 font-serif text-[24px] text-ink">
-                {levelGap ? `No notes at ${level} level` : 'No shared notes yet'}
-              </h2>
-              <p className="mx-auto mt-2 max-w-[46ch] text-[13px] leading-relaxed text-ink-muted">
-                {levelGap ? (
-                  <>
-                    {activeCourse.code} has published notes at {otherLevels.join(' and ')} level, but
-                    none written for {level}. Each level is taught different material, so notes from
-                    another level are not shown here — contributing yours is what starts {level} off.
-                  </>
-                ) : (
-                  <>
-                    {activeCourse.code} has no published notes yet. Shared notes appear here once a
-                    unit is published — or you can start them off by contributing yours.
-                  </>
-                )}
-              </p>
-              <button
-                type="button"
-                onClick={() => setContributeOpen(true)}
-                className="mt-5 inline-flex items-center gap-2 rounded-control bg-board px-3.5 py-2 text-[13px] text-paper hover:bg-board-deep"
-              >
-                <Plus size={15} /> Contribute notes
-              </button>
-            </div>
-          </PageBody>
-        </Page>
-        {contributeOpen ? (
-          <ContributeNotes
-            onClose={() => setContributeOpen(false)}
-            courseId={activeCourse.id}
-            courseCode={activeCourse.code}
-          />
-        ) : null}
-      </CourseShell>
-    )
+  function switchTab(next: string) {
+    setParams((current) => {
+      const updated = new URLSearchParams(current)
+      updated.set('tab', next)
+      return updated
+    })
   }
-
+  const queue = () => switchTab('queue')
   return (
     <CourseShell role="student" active="notes">
       <Page>
-        <PageBar context={`Revision ${selectedUnit.revision} · Updated ${selectedUnit.updated}`}>
+        <PageBar
+          context={`${activeCourse.code}${level ? ` · ${level}` : ''} · Course notes`}
+        >
           <ContributeNotesButton onClick={() => setContributeOpen(true)} />
         </PageBar>
-
-        <div className="practice-workspace flex flex-1 min-h-0 overflow-hidden">
-        <SidePanel title="Unit notes" width="index">
-          <nav className="p-4" aria-label="Unit notes">
-            <ul className="flex flex-col gap-1">
-              {unitNotes.map((unit) => {
-                const selected = selectedUnit?.code === unit.code
-                return (
-                  <li key={unit.code}>
-                    <button
-                      type="button"
-                      onClick={() => {
-                        setSelectedCode(unit.code)
-                        setQuery('')
-                      }}
-                      className={
-                        selected
-                          ? 'w-full text-left bg-board-tint border border-board/30 rounded-control px-3 py-2.5'
-                          : 'w-full text-left border border-transparent rounded-control px-3 py-2.5 hover:bg-paper transition-colors duration-[120ms] ease-out'
-                      }
-                    >
-                      <span className="block font-mono text-[11px] text-ink-muted">{unit.code}</span>
-                      <span className="block mt-0.5 text-[13px] font-medium text-ink leading-snug">
-                        {unit.title}
-                      </span>
-                    </button>
-                  </li>
-                )
-              })}
-            </ul>
-          </nav>
-        </SidePanel>
-
-        <PageBody measure="reading">
-          <div>
-            <div className="flex items-start justify-between gap-6">
-              <div>
-                <h2 className="font-serif text-[24px] text-ink leading-tight">
-                  {selectedUnit.code} {selectedUnit.title}
-                </h2>
-                <p className="mt-2 text-[14px] leading-relaxed text-ink-muted">
-                  {selectedUnit.summary}
-                </p>
-              </div>
-              <BookOpen size={24} className="text-board shrink-0 mt-1" />
-            </div>
-
-            <label className="mt-5 flex items-center gap-2.5 border border-rule rounded-control bg-surface px-3.5 py-2.5 focus-within:border-board transition-colors duration-[120ms] ease-out">
-              <Search size={15} className="text-ink-muted shrink-0" />
-              <span className="sr-only">Search this unit</span>
-              <input
-                value={query}
-                onChange={(event) => setQuery(event.target.value)}
-                placeholder="Search this unit…"
-                className="w-full bg-transparent outline-none text-[14px] text-ink placeholder:text-ink-muted"
-              />
-            </label>
-
-            <div className="mt-8">
-              <AskSelection
-                unit={{ code: selectedUnit.code, title: selectedUnit.title, summary: selectedUnit.summary }}
-              >
-                <NoteDocument markdown={markdown} query={query} />
-              </AskSelection>
-            </div>
+        <nav
+          aria-label="Notes views"
+          className="flex shrink-0 gap-1 overflow-x-auto border-b border-rule bg-surface px-4 pt-2 md:px-8"
+        >
+          {[
+            { id: 'guide', title: 'Everyone’s guide', Icon: BookOpen },
+            { id: 'queue', title: 'Processing queue', Icon: ListOrdered },
+            { id: 'contributions', title: 'Contributions', Icon: Trophy },
+          ].map(({ id, title, Icon }) => (
+            <button
+              key={id}
+              aria-current={tab === id ? 'page' : undefined}
+              onClick={() => switchTab(id)}
+              className={`flex shrink-0 items-center gap-2 border-b-2 px-3 py-3 text-[13px] ${tab === id ? 'border-board font-medium text-board' : 'border-transparent text-ink-muted hover:text-ink'}`}
+            >
+              <Icon size={15} />
+              {title}
+              {id === 'queue' && queued > 0 && (
+                <span className="rounded-full bg-board-tint px-1.5 py-0.5 font-mono text-[10px] text-board">
+                  {queued}
+                </span>
+              )}
+            </button>
+          ))}
+        </nav>
+        {contributionSyncError() && (
+          <div
+            role="alert"
+            className="flex shrink-0 items-center justify-between gap-3 border-b border-rule bg-amber-50 px-5 py-3 text-xs text-amber-900"
+          >
+            <span>{contributionSyncError()}</span>
+            <button
+              onClick={() => void syncContributions(activeCourse.id)}
+              className="shrink-0 underline"
+            >
+              Reconnect
+            </button>
           </div>
-        </PageBody>
-        </div>
+        )}
+        {tab === 'queue' ? (
+          <div className="min-h-0 flex-1 overflow-y-auto">
+            <ProcessingQueue packets={packets} />
+          </div>
+        ) : tab === 'contributions' ? (
+          <div className="min-h-0 flex-1 overflow-y-auto">
+            <ContributionsLeaderboard packets={packets} />
+          </div>
+        ) : selected ? (
+          <div className="flex min-h-0 flex-1 flex-col overflow-hidden md:flex-row">
+            <label className="flex shrink-0 items-center gap-3 border-b border-rule bg-surface px-4 py-3 text-xs text-ink-muted md:hidden">
+              Unit
+              <select
+                aria-label="Select unit"
+                value={selected.id}
+                onChange={(event) => {
+                  setParams((current) => {
+                    const next = new URLSearchParams(current)
+                    next.set('note', event.target.value)
+                    return next
+                  })
+                  setQuery('')
+                }}
+                className="min-w-0 flex-1 rounded-control border border-rule bg-paper p-2 text-ink"
+              >
+                {notes.map((note) => (
+                  <option key={note.id} value={note.id}>
+                    {note.code} · {note.title}
+                  </option>
+                ))}
+              </select>
+            </label>
+            <div className="hidden min-h-0 md:flex">
+              <SidePanel title="Unit notes" width="index">
+                <nav className="p-4" aria-label="Unit notes">
+                  <ul className="flex flex-col gap-1">
+                    {notes.map((note) => (
+                      <li key={note.id}>
+                        <button
+                          onClick={() => {
+                            setParams((current) => {
+                              const next = new URLSearchParams(current)
+                              next.set('note', note.id)
+                              return next
+                            })
+                            setQuery('')
+                          }}
+                          className={`w-full rounded-control border px-3 py-2.5 text-left ${note.id === selected.id ? 'border-board/30 bg-board-tint' : 'border-transparent hover:bg-paper'}`}
+                        >
+                          <span className="block font-mono text-[11px] text-ink-muted">
+                            {note.code}
+                          </span>
+                          <span className="mt-0.5 block text-[13px] font-medium leading-snug">
+                            {note.title}
+                          </span>
+                        </button>
+                      </li>
+                    ))}
+                  </ul>
+                </nav>
+              </SidePanel>
+            </div>
+            <PageBody measure="reading">
+              <AskSelection
+                key={`${activeCourse.id}-${selected.id}-${selected.revision}`}
+                unit={selected}
+                onQueued={queue}
+              >
+                <div>
+                  <div className="font-mono text-[10px] uppercase tracking-wider text-board">
+                    Everyone’s guide · Revision {selected.revision}
+                  </div>
+                  <h2 className="mt-3 font-serif text-3xl leading-tight">
+                    {selected.code} {selected.title}
+                  </h2>
+                  <div className="mt-3 text-ink-muted">
+                    <MarkdownText>{selected.summary}</MarkdownText>
+                  </div>
+                  <div className="mt-5 flex items-start gap-2 rounded-control bg-board-tint/40 px-3 py-2.5 text-xs leading-relaxed text-ink-muted">
+                    <MessageCircle
+                      size={14}
+                      className="mt-0.5 shrink-0 text-board"
+                    />
+                    Highlight a passage to ask the agent, report a problem, or
+                    suggest an addition.
+                  </div>
+                  <label className="mt-5 flex items-center gap-2 rounded-control border border-rule bg-surface px-3 py-2.5">
+                    <Search size={15} className="text-ink-muted" />
+                    <input
+                      aria-label="Search this guide"
+                      value={query}
+                      onChange={(event) => setQuery(event.target.value)}
+                      placeholder="Find a concept in this guide…"
+                      className="w-full bg-transparent text-sm outline-none"
+                    />
+                  </label>
+                  <div className="mt-8">
+                    <NoteDocument
+                      markdown={noteMarkdown(selected)}
+                      query={query}
+                    />
+                  </div>
+                </div>
+              </AskSelection>
+            </PageBody>
+          </div>
+        ) : (
+          <PageBody measure="reading">
+            <div className="rounded-card border border-dashed border-rule bg-surface px-8 py-16 text-center">
+              <BookOpen size={28} className="mx-auto text-board" />
+              <h2 className="mt-4 font-serif text-2xl">
+                {loading
+                  ? 'Loading the course guide…'
+                  : level && otherLevels.length
+                    ? `No notes at ${level} level yet`
+                    : 'Build the first guide together'}
+              </h2>
+              <p className="mx-auto mt-3 max-w-md text-sm leading-relaxed text-ink-muted">
+                Contribute your notes to start this course’s shared guide. The
+                agent reviews every packet before it can be published.
+              </p>
+              <div className="mt-5 flex justify-center">
+                <ContributeNotesButton
+                  onClick={() => setContributeOpen(true)}
+                />
+              </div>
+            </div>
+          </PageBody>
+        )}
+        <footer className="shrink-0 border-t border-rule bg-surface px-5 py-2 text-[10px] leading-relaxed text-ink-muted">
+          Shared across the class · All additions and corrections pass agent
+          review · Contribution scores are recorded by the server
+        </footer>
       </Page>
-
-      {contributeOpen ? (
+      {contributeOpen && (
         <ContributeNotes
+          key={activeCourse.id}
           onClose={() => setContributeOpen(false)}
+          onQueued={queue}
           courseId={activeCourse.id}
           courseCode={activeCourse.code}
         />
-      ) : null}
+      )}
     </CourseShell>
   )
 }
