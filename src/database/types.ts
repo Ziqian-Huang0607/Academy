@@ -368,6 +368,7 @@ export interface ApplicationUser {
   /** When Launchpad most recently asserted both verification and institution membership. */
   launchpadVerifiedAt?: string
   displayName?: string
+  avatarUrl?: string
   /**
    * PBKDF2 verifier — never a password. See src/lib/password.ts for what this
    * does and does not protect against.

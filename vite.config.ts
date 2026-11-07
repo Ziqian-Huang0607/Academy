@@ -2,6 +2,7 @@ import path from "path"
 import react from "@vitejs/plugin-react"
 import { defineConfig, loadEnv, type Plugin } from "vite"
 import { inspectAttr } from 'plugin-inspect-react-code'
+import { sharedNotesBackend } from './server/vite-notes'
 import { proxyKeepalive } from './scripts/vite-proxy-keepalive'
 
 /**
@@ -105,9 +106,11 @@ export default defineConfig(({ mode }) => {
     // /course/assets/index-*.js and gets a 404 and a blank page. Launchpad
     // serves each app at the root of its own subdomain, so '/' is correct.
     base: '/',
-    plugins: [inspectAttr(), react(), proxyKeepalive(), moonshotDevBridge(env)].filter(Boolean) as Plugin[],
+    plugins: [sharedNotesBackend(env), inspectAttr(), react(), proxyKeepalive(), moonshotDevBridge(env)].filter(Boolean) as Plugin[],
     server: {
       port: 3000,
+      watch: { ignored: ['**/.launchpad-data/**', '**/work/**'] },
+      fs: { deny: ['.env', '.env.*', '**/.git/**', '**/.launchpad-data/**', '**/server/**'] },
     },
     resolve: {
       alias: {

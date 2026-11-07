@@ -14,3 +14,7 @@ output/
 tmp/
 __pycache__/
 scripts/.lesson-cache.json
+
+# Persistent server notes and local verification artifacts
+.launchpad-data/
+work/
