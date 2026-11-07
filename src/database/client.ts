@@ -497,6 +497,7 @@ function hydrateStoredDatabase(stored: Partial<SynonanceDatabase> & Partial<Data
     'initials',
     'email',
     'schoolId',
+    'avatarUrl',
     'launchpadSub',
     'launchpadVid',
     'launchpadInstitutionId',
@@ -817,6 +818,18 @@ export async function ensureCourseNotesLoaded(courseId: string): Promise<void> {
   }
 }
 
+const sharedNoteSnapshots = new Map<string, UnitNote[]>()
+export function cacheSharedNotes(session: string, notes: UnitNote[]) {
+  sharedNoteSnapshots.set(session, notes)
+  mergedCache = null
+  window.dispatchEvent(new CustomEvent(DATABASE_EVENT))
+}
+export function clearSharedNotes() {
+  sharedNoteSnapshots.clear()
+  mergedCache = null
+  window.dispatchEvent(new CustomEvent(DATABASE_EVENT))
+}
+
 export function getDatabase(): SynonanceDatabase {
   ensureCorpusLoaded()
   const database = loadDatabase()
@@ -832,6 +845,15 @@ export function getDatabase(): SynonanceDatabase {
       ...database,
       notes: [...database.notes, ...corpusNotes.filter((note) => !seeded.has(note.id))],
     }
+  }
+  const sharedById = new Map<string, UnitNote>()
+  for (const note of [...sharedNoteSnapshots.values()].flat()) {
+    if ((sharedById.get(note.id)?.revision ?? -1) <= note.revision) sharedById.set(note.id, note)
+  }
+  const shared = [...sharedById.values()]
+  if (shared.length) {
+    const ids = new Set(shared.map(note => note.id))
+    mergedCache = { ...mergedCache, notes: [...mergedCache.notes.filter(note => !ids.has(note.id)), ...shared] }
   }
   mergedCorpusCount = corpusNotes.length
   return mergedCache
@@ -1097,6 +1119,7 @@ function initialsFor(name: string, email: string) {
  * for things it already knows.
  */
 export interface LaunchpadIdentity {
+  picture?: string
   sub: string
   email: string
   name?: string
@@ -1184,6 +1207,7 @@ function bindLaunchpadIdentity(identity: LaunchpadIdentity, openSession: boolean
   updateDatabase((stored) => {
     const user = stored.users.find((item) => item.id === userId)
     if (user) {
+      user.avatarUrl = identity.picture
       user.email = identity.email
       if (identity.name) user.name = name
       user.launchpadSub = subject
@@ -1200,6 +1224,7 @@ function bindLaunchpadIdentity(identity: LaunchpadIdentity, openSession: boolean
         role,
         email: identity.email,
         schoolId: '',
+        avatarUrl: identity.picture,
         launchpadSub: subject,
         launchpadVid: vid,
         launchpadInstitutionId: institutionId,

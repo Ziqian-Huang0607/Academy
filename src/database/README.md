@@ -1,6 +1,6 @@
 # Synonance JSON database
 
-`synonance.database.json` is the application seed and schema-shaped source of truth.
+`synonance.database.json` is the application seed. Published note contributions, images and scores now use the existing Academy server; see “Shared notes and contributions” below. The remaining account and study features retain their browser-local adapter.
 
 ## Data ownership
 
@@ -130,3 +130,53 @@ against one session; accepting or discarding the block is one act, and `discardB
 any paper assembled from it. `src/lib/question-forge.ts` documents the pipeline itself — plan from
 coverage, write per note, validate every draft against the marker the student will meet, stage for
 review — and `marking.ts` holds the marking rules both the validator and the UI use.
+
+## Shared notes and contributions
+
+Course-note contributions now use the **existing Academy Launchpad runtime**.
+`server/vite-notes.ts` mounts `/__academy/notes` in both development and preview;
+`npm start` serves the built app with that backend. Deploy the repository using
+`.launchpad/deploy.json`, not `dist/` alone: a static-only deployment cannot index
+or persist shared contributions.
+
+The server writes its own versioned note store and image files under
+`.launchpad-data/notes/`, the directory Launchpad preserves across releases.
+It uses atomic writes and a process lock, and refuses to start a competing writer
+or silently replace unreadable data. Back up this directory with the existing
+host backup process. Original contributions, snapshots, assessments and score
+entries stay with the contribution history; image bytes are stored once and
+referenced as `![description](note-asset:<id>)` in Markdown.
+
+Every API request verifies the bearer token with Launchpad userinfo and requires
+verified membership in the configured institution. Contributor identity comes
+from that verified subject, not a browser-supplied user ID. Unpublished packets
+and attachments are visible only to their author; published guide changes and
+contribution history are visible to the institution. The browser caches shared
+snapshots in memory for rendering and tutoring; it cannot set authoritative
+scores or review decisions.
+
+Uploads, selected-passage additions and reports all enter the same persistent
+queue. The first agent proposes a guide change and assesses its marginal coverage;
+a separate model call verifies the proposal, images and scoring. Uncertain,
+invalid, timed-out or conflicting reviews never publish. Accepted packets retain
+their exact before/after snapshots and wait for the contributor to publish. A stale
+base revision queues a fresh review. Stopping a packet aborts the model request
+and late replies cannot publish or score it. Server restarts make interrupted
+packets explicitly retryable; queued packets continue in the background.
+
+A published packet earns 0–100 points based on useful new course coverage.
+Duplicate material earns none. Both reviewers must agree before an incorrect
+source receives a penalty. Reports alone do not deduct points: corrections must
+pass review and publish, with exact evidence linking the error to an earlier
+packet. A correction cannot deduct more than that packet's remaining credit,
+and event IDs prevent repeated publication from changing the score twice.
+Agent review reduces errors but cannot guarantee factual correctness; ambiguous
+cases stay unresolved instead of being silently accepted.
+
+Runtime configuration reuses `MOONSHOT_API_KEY`, `MOONSHOT_BASE_URL` and
+`VITE_LLM_MODEL`. Optional server-only overrides are `LAUNCHPAD_USERINFO_URL`
+(default: Academy's existing HTTPS userinfo bridge) and `ACADEMY_NOTES_DATA_DIR`.
+The latter must stay in preserved private storage. No model key is sent to the
+browser. `npm run test:notes` exercises the real API with controlled model replies,
+including cross-account access, cancellations, conflicts, penalties, image access,
+failed storage and restart durability.

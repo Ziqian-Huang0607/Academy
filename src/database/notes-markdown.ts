@@ -331,17 +331,29 @@ export interface DiffLine {
 }
 
 export function diffMarkdown(before: string, after: string): DiffLine[] {
-  const beforeLines = before.split('\n')
-  const afterLines = after.split('\n')
-  const beforeSet = new Set(beforeLines)
-  const afterSet = new Set(afterLines)
-  const out: DiffLine[] = []
-
-  for (const line of beforeLines) {
-    if (!afterSet.has(line) && line.trim()) out.push({ kind: 'removed', text: line })
+  const original = before.split('\n'), updated = after.split('\n')
+  let start = 0, endA = original.length, endB = updated.length
+  // Strip equal edges first. Bound the matrix for long uploads so review UI
+  // cannot freeze; the fallback still shows every changed line in order.
+  while (start < endA && start < endB && original[start] === updated[start]) start++
+  while (endA > start && endB > start && original[endA - 1] === updated[endB - 1]) { endA--; endB-- }
+  const a = original.slice(start, endA), b = updated.slice(start, endB)
+  if (a.length * b.length > 1_000_000) return [
+    ...a.map(text => ({ kind: 'removed' as const, text })),
+    ...b.map(text => ({ kind: 'added' as const, text })),
+  ]
+  const width = b.length + 1
+  const lengths = new Uint32Array((a.length + 1) * width)
+  for (let i = a.length - 1; i >= 0; i--) for (let j = b.length - 1; j >= 0; j--) {
+    lengths[i * width + j] = a[i] === b[j] ? 1 + lengths[(i + 1) * width + j + 1]
+      : Math.max(lengths[(i + 1) * width + j], lengths[i * width + j + 1])
   }
-  for (const line of afterLines) {
-    if (!beforeSet.has(line) && line.trim()) out.push({ kind: 'added', text: line })
+  const result: DiffLine[] = []
+  let i = 0, j = 0
+  while (i < a.length || j < b.length) {
+    if (i < a.length && j < b.length && a[i] === b[j]) { i++; j++; continue }
+    if (i < a.length && (j === b.length || lengths[(i + 1) * width + j] >= lengths[i * width + j + 1])) result.push({ kind: 'removed', text: a[i++] })
+    else result.push({ kind: 'added', text: b[j++] })
   }
-  return out
+  return result
 }

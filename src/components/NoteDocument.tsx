@@ -7,6 +7,7 @@
 import type { ReactNode } from 'react'
 import { Sparkles } from 'lucide-react'
 import Tex from './Tex'
+import NoteImage from './NoteImage'
 import { parseNote, type ParsedSection } from '@/database/notes-markdown'
 
 /**
@@ -15,9 +16,11 @@ import { parseNote, type ParsedSection } from '@/database/notes-markdown'
  * would print literal asterisks through the whole document.
  */
 function renderInline(text: string, keyPrefix: string): ReactNode[] {
-  const parts = text.split(/(\$\$[^$]+\$\$|\$[^$\n]+\$|\*\*[^*]+\*\*|`[^`]+`)/g)
+  const parts = text.split(/(!\[[^\]\n]*\]\([^\s)]+(?:\s+"[^"\n]*")?\)|\$\$[^$]+\$\$|\$[^$\n]+\$|\*\*[^*]+\*\*|`[^`]+`)/g)
   return parts.filter(Boolean).map((part, index) => {
     const key = `${keyPrefix}-${index}`
+    const image = part.match(/^!\[([^\]]*)\]\(([^\s)]+)(?:\s+"[^"]*")?\)$/)
+    if (image) return <NoteImage key={`${key}-${image[2]}`} source={image[2]} alt={image[1]} />
     if (part.startsWith('$$') && part.endsWith('$$')) {
       return (
         <Tex key={key} display className="my-3 block text-ink">
@@ -51,7 +54,7 @@ function Section({ section, index, code }: { section: ParsedSection; index: numb
     <section id={section.id}>
       <div className="flex items-baseline gap-3 border-b border-rule pb-2">
         <span className="font-mono text-[11px] text-ink-muted">
-          {code}.{index + 1}
+          {code ? `${code}.${index + 1}` : index + 1}
         </span>
         <h3 className="font-serif text-[20px] text-ink">{section.title}</h3>
       </div>

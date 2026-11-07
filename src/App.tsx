@@ -20,6 +20,7 @@ import {
 import { currentLaunchpadUser } from '@/lib/launchpad-auth'
 import { Spinner } from '@/components/ui/spinner'
 import StorageNotice from '@/components/StorageNotice'
+import ContributionWorker from '@/components/ContributionWorker'
 import NotificationPush from '@/components/NotificationPush'
 import { AppTour } from '@/components/FirstRunTours'
 
@@ -213,6 +214,7 @@ export default function App() {
       {/* Same placement, same reason: a notification landing mid-session has
           to surface wherever the user happens to be. */}
       <NotificationPush />
+      <ContributionWorker />
       {/* Forced first-run tour: outside the routes so it can sit over
           whichever course page an account first lands on. */}
       <AppTour />

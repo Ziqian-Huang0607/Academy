@@ -1,11 +1,11 @@
 {
   "root": ".",
   "mode": "production",
-  "runtime": "static",
+  "runtime": "generated-container",
   "packageManager": "npm",
   "installCommand": "npm ci",
   "buildCommand": "npm run build",
-  "outputDirectory": "dist",
+  "outputDirectory": ".",
   "spaFallback": true,
   "healthPath": "/",
   "ignore": [
@@ -14,6 +14,9 @@
     "output",
     "sources",
     "dist",
-    "node_modules"
-  ]
+    "node_modules",
+    ".launchpad-data",
+    "work"
+  ],
+  "startCommand": "npm start -- --port $PORT"
 }
