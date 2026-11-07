@@ -637,6 +637,16 @@
         11,
         12
       ]
+    },
+    {
+      "id": "ap-psychology",
+      "pathway": "AP",
+      "code": "AP PSYCHOLOGY",
+      "title": "AP Psychology",
+      "subject": "Humanities",
+      "grades": [
+        12
+      ]
     }
   ],
   "seedCourses": [
