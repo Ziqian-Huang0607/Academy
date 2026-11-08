@@ -156,8 +156,14 @@ snapshots in memory for rendering and tutoring; it cannot set authoritative
 scores or review decisions.
 
 Uploads, selected-passage additions and reports all enter the same persistent
-queue. The first agent proposes a guide change and assesses its marginal coverage;
-a separate model call verifies the proposal, images and scoring. Uncertain,
+queue. A source is reviewed in parts of about 8,000 characters (split on
+paragraph and page boundaries). For each part the first agent drafts
+section-level edits (insert, replace or remove a `##` section by heading) and
+assesses its marginal coverage; the server applies the edits itself, so the
+model never rewrites the whole guide and its output grows with the change, not
+the document. A separate model call verifies each part's edits, images and
+scoring. Part scores are weighted by length; an uncertain or incorrect part
+holds the whole packet for review. Each model call has its own deadline. Uncertain,
 invalid, timed-out or conflicting reviews never publish. Accepted packets retain
 their exact before/after snapshots and wait for the contributor to publish. A stale
 base revision queues a fresh review. Stopping a packet aborts the model request

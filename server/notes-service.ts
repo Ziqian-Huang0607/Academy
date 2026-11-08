@@ -6,7 +6,11 @@ import { z } from 'zod'
 import type { IncomingMessage, ServerResponse } from 'node:http'
 import { __internals as schoolCatalog } from '../src/data/shsid-catalog'
 import { NotesStore, type Contributor } from './notes-store'
-import { reviewContribution, type ModelCall } from './review'
+import {
+  reviewContribution,
+  type ModelCall,
+  type ReviewOptions,
+} from './review'
 import {
   diffMarkdown,
   parseNote,
@@ -30,6 +34,8 @@ export interface NotesServiceOptions {
   model: string
   authenticate: (bearer: string) => Promise<Identity | null>
   modelCall: ModelCall
+  /** Part size and per-call deadline for agent review (tests shrink these). */
+  review?: ReviewOptions
 }
 const inputSchema = z
   .object({
@@ -361,6 +367,13 @@ export class NotesService {
           JSON.parse((await body(req, 300_000)).toString()),
         )
         await this.ensureCourse(input.courseId)
+        // Only HS courses are taught at S/S+/H/H+. Setup still records a level
+        // for every course, so an AP upload arrived tagged "S" and was hidden
+        // from the rest of the class; other pathways share one guide.
+        const pathway = this.seed.courseCatalog.find(
+          (course) => course.id === input.courseId,
+        )?.pathway
+        if (pathway && pathway !== 'HS') input.level = undefined
         const notes = this.courseNotes(input.courseId)
         const note = input.noteId
           ? notes.find(
@@ -628,7 +641,6 @@ export class NotesService {
     const controller = new AbortController(),
       attempt = randomUUID()
     this.controllers.set(packet.id, controller)
-    const timeout = setTimeout(() => controller.abort(), 180_000)
     try {
       const note = this.target(packet)
       if (packet.fromRevision > 0 && !note)
@@ -682,8 +694,6 @@ export class NotesService {
         coverage,
         relatedPassages,
       }
-      if (JSON.stringify(context).length > 180_000)
-        throw new Error('This guide’s history needs a smaller review packet.')
       const images = imageSources(packet.source)
         .filter((source) => source.startsWith(ASSET_PREFIX))
         .map((source) => {
@@ -704,10 +714,16 @@ export class NotesService {
         () => {
           controller.signal.throwIfAborted()
           this.patch(packet.id, (row) => {
-            row.status = 'reviewing'
-            row.stage = 'Independently checking accuracy, images and scoring'
+            if (row.attempt === attempt) row.status = 'reviewing'
           })
         },
+        (stage) => {
+          this.patch(packet.id, (row) => {
+            if (row.attempt === attempt && row.status !== 'cancelled')
+              row.stage = stage
+          })
+        },
+        this.options.review,
       )
       controller.signal.throwIfAborted()
       this.patch(packet.id, (row) => {
@@ -751,11 +767,10 @@ export class NotesService {
           row.verified = false
           row.attempt = undefined
           row.error = controller.signal.aborted
-            ? 'Agent review timed out. Retry when ready.'
+            ? 'Review stopped. Retry when ready.'
             : (error as Error).message
         })
     } finally {
-      clearTimeout(timeout)
       this.controllers.delete(packet.id)
       this.processing = false
     }

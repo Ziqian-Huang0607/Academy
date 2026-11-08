@@ -16,10 +16,10 @@ import { parseNote, type ParsedSection } from '@/database/notes-markdown'
  * would print literal asterisks through the whole document.
  */
 function renderInline(text: string, keyPrefix: string): ReactNode[] {
-  const parts = text.split(/(!\[[^\]\n]*\]\([^\s)]+(?:\s+"[^"\n]*")?\)|\$\$[^$]+\$\$|\$[^$\n]+\$|\*\*[^*]+\*\*|`[^`]+`)/g)
+  const parts = text.split(/(!\[(?:[^[\]\n]|\[[^[\]\n]*\])*\]\([^\s)]+(?:\s+"[^"\n]*")?\)|\$\$[^$]+\$\$|\$[^$\n]+\$|\*\*[^*]+\*\*|`[^`]+`)/g)
   return parts.filter(Boolean).map((part, index) => {
     const key = `${keyPrefix}-${index}`
-    const image = part.match(/^!\[([^\]]*)\]\(([^\s)]+)(?:\s+"[^"]*")?\)$/)
+    const image = part.match(/^!\[(.*)\]\(([^\s)]+)(?:\s+"[^"]*")?\)$/)
     if (image) return <NoteImage key={`${key}-${image[2]}`} source={image[2]} alt={image[1]} />
     if (part.startsWith('$$') && part.endsWith('$$')) {
       return (

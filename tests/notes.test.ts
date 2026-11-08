@@ -5,7 +5,17 @@ import path from 'node:path'
 import { createServer } from 'node:http'
 import { NotesService } from '../server/notes-service'
 import { NotesStore } from '../server/notes-store'
-import { reconcileAssessments } from '../server/review'
+import {
+  combineParts,
+  reconcileAssessments,
+  reviewContribution,
+  ReviewTimeoutError,
+} from '../server/review'
+import {
+  applyGuideEdits,
+  GuideEditError,
+  splitSource,
+} from '../server/guide-edits'
 import { diffMarkdown } from '../src/database/notes-markdown'
 import {
   safeImageSource,
@@ -213,7 +223,19 @@ try {
     'PASS: session, institution, ownership inputs, path and image validation',
   )
 
-  responses = [{ ...assessment, markdown: after }, assessment]
+  responses = [
+    {
+      ...assessment,
+      edits: [
+        {
+          action: 'insert',
+          markdown:
+            '## Worked example\nFor f(x) = x + 1, the limit as x tends to 2 is 3.',
+        },
+      ],
+    },
+    assessment,
+  ]
   const uploaded = await api('/packets', input)
   assert.equal(uploaded.status, 201, JSON.stringify(uploaded.data))
   const id = uploaded.data.id
@@ -269,7 +291,10 @@ try {
     200,
   )
   release(
-    JSON.stringify({ ...assessment, markdown: after + '\nCancelled content.' }),
+    JSON.stringify({
+      ...assessment,
+      edits: [{ action: 'insert', markdown: '## Cancelled\nCancelled content.' }],
+    }),
   )
   await new Promise((resolve) => setTimeout(resolve, 30))
   assert.equal(row(cancelled.data.id).status, 'cancelled')
@@ -278,7 +303,10 @@ try {
   console.log('PASS: cancellation aborts late publication and scoring')
 
   responses = [
-    { ...assessment, markdown: after + '\n\nStale proposal.' },
+    {
+      ...assessment,
+      edits: [{ action: 'insert', markdown: '## Stale\nStale proposal.' }],
+    },
     assessment,
   ]
   const stale = await api(
@@ -334,7 +362,19 @@ try {
       },
     ],
   }
-  responses = [{ ...reportAssessment, markdown: corrected }, reportAssessment]
+  responses = [
+    {
+      ...reportAssessment,
+      edits: [
+        {
+          action: 'replace',
+          section: 'Derivative',
+          markdown: '## Derivative\nThe derivative of x squared is 2x.',
+        },
+      ],
+    },
+    reportAssessment,
+  ]
   const report = await api(
     '/packets',
     {
@@ -382,7 +422,7 @@ try {
     evidence: 'The power rule gives d(x squared)/dx = 2x, rather than 17.',
   }
   responses = [
-    { ...rejectedAssessment, markdown: corrected },
+    { ...rejectedAssessment, edits: [] },
     rejectedAssessment,
   ]
   const rejected = await api(
@@ -398,7 +438,12 @@ try {
     409,
   )
   responses = [
-    { ...assessment, markdown: corrected + '\nMaybe this conjecture is true.' },
+    {
+      ...assessment,
+      edits: [
+        { action: 'insert', markdown: '## Conjecture\nMaybe this conjecture is true.' },
+      ],
+    },
     { ...assessment, decision: 'uncertain', completeness: 0 },
   ]
   const uncertain = await api(
@@ -413,7 +458,7 @@ try {
       .status,
     409,
   )
-  responses = [{ ...assessment, completeness: 1000, markdown: corrected }]
+  responses = [{ ...assessment, completeness: 1000, edits: [] }]
   const malformed = await api(
     '/packets',
     { ...input, source: 'An agent response with an invalid score.' },
@@ -452,8 +497,18 @@ try {
     ).status,
     404,
   )
-  const imageGuide = corrected + `\n\n![Reviewed diagram](${image.source})`
-  responses = [{ ...assessment, markdown: imageGuide }, assessment]
+  responses = [
+    {
+      ...assessment,
+      edits: [
+        {
+          action: 'insert',
+          markdown: `## Diagram\n![Reviewed diagram on [0, 2]](${image.source})`,
+        },
+      ],
+    },
+    assessment,
+  ]
   const imagePacket = await api(
     '/packets',
     {
@@ -489,8 +544,14 @@ try {
   responses = [
     {
       ...assessment,
-      markdown:
-        '# C1 Sequences\n\nArithmetic sequences use a common difference.\n\n## Example\nThe sequence 2, 5, 8 has common difference 3.',
+      title: 'Sequences',
+      summary: 'Arithmetic sequences use a common difference.',
+      edits: [
+        {
+          action: 'insert',
+          markdown: '## Example\nThe sequence 2, 5, 8 has common difference 3.',
+        },
+      ],
     },
     assessment,
   ]
@@ -548,6 +609,28 @@ try {
   console.log(
     'PASS: first guide publication, readable community codes and level isolation',
   )
+  // Only HS courses are streamed: an AP upload tagged with a level is shared.
+  slow = (signal) =>
+    new Promise((_resolve, reject) =>
+      signal.addEventListener('abort', () => reject(new Error('Stopped'))),
+    )
+  const apPacket = await api(
+    '/packets',
+    {
+      courseId: 'ap-calculus-ab',
+      level: 'S',
+      title: 'Review',
+      fileName: 'review.md',
+      source: 'Limits, derivatives and the Mean Value Theorem.',
+    },
+    'ap-author',
+  )
+  assert.equal(apPacket.status, 201, JSON.stringify(apPacket.data))
+  assert.equal(row(apPacket.data.id).level, undefined)
+  await api(`/packets/${apPacket.data.id}/cancel`, {}, 'ap-author')
+  slow = null
+  await new Promise((resolve) => setTimeout(resolve, 30))
+  console.log('PASS: unstreamed (AP) uploads are shared across levels')
 } finally {
   service.close()
   server.closeAllConnections()
@@ -644,8 +727,126 @@ const note = renderToStaticMarkup(
   }),
 )
 assert.match(note, /<img/)
+assert.match(
+  renderToStaticMarkup(
+    createElement(NoteDocument, {
+      markdown: '# Image\n\nSummary\n\n## Figure\n![Graph of f on [0, 2]](/diagrams/plot.png)',
+    }),
+  ),
+  /alt="Graph of f on \[0, 2\]"/,
+)
+assert.deepEqual(imageSources('![Graph on [0, 2]](note-asset:abc)'), ['note-asset:abc'])
 console.log(
   'PASS: conservative review agreement, ordered repeated-line diffs and safe Markdown images',
 )
+
+// Edits are applied deterministically; untouched sections are kept verbatim.
+const guide =
+  '# 1 Limits\n\nA guide.\n\n## Definition\nA limit  describes nearby behavior.\n\n```python\n## not a heading\n```\n\n## Laws\nSum law.'
+const edited = applyGuideEdits(guide, {
+  code: '1',
+  title: 'Limits',
+  edits: [
+    { action: 'replace', section: 'laws', markdown: '## Laws\nSum and product laws.' },
+    { action: 'insert', after: 'Definition', markdown: '## Example\nx + 1 tends to 3.\n# Stray title' },
+    { action: 'insert', after: '', markdown: '## Overview\nWhat follows.' },
+    { action: 'insert', markdown: '## Practice\n- **1.** Try one.' },
+  ],
+})
+assert.equal(
+  edited,
+  '# 1 Limits\n\nA guide.\n\n## Overview\nWhat follows.\n\n## Definition\nA limit  describes nearby behavior.\n\n```python\n## not a heading\n```\n\n## Example\nx + 1 tends to 3.\nStray title\n\n## Laws\nSum and product laws.\n\n## Practice\n- **1.** Try one.',
+)
+assert.equal(
+  applyGuideEdits(edited, { code: '1', title: 'Limits', edits: [{ action: 'remove', section: 'Overview' }] }).includes('Overview'),
+  false,
+)
+assert.throws(
+  () => applyGuideEdits(guide, { code: '1', title: 'Limits', edits: [{ action: 'replace', section: 'Missing', markdown: '## Missing\nx' }] }),
+  GuideEditError,
+)
+assert.throws(
+  () => applyGuideEdits(guide, { code: '1', title: 'Limits', edits: [{ action: 'insert', markdown: 'No heading.' }] }),
+  GuideEditError,
+)
+const longSource = [
+  'Page one prose. '.repeat(30).trim(),
+  '$$\n\\lim_{x\\to 0}\n\n\\frac{\\sin x}{x} = 1\n$$',
+  'Page three prose. '.repeat(40).trim(),
+].join('\n\n')
+const pieces = splitSource(longSource, 300)
+assert.ok(pieces.length > 2 && pieces.every((piece) => piece.length <= 300))
+assert.ok(pieces.some((piece) => piece.includes('\\lim_{x\\to 0}\n\n\\frac')), 'display math stays whole')
+assert.equal(pieces.join(' ').replace(/\s+/g, ' '), longSource.replace(/\s+/g, ' '))
+console.log('PASS: section edits keep untouched text, refuse unknown headings, and sources split on safe boundaries')
+
+// A long source is reviewed part by part: each draft call writes edits with
+// reasoning off, each verifier reasons, and later parts see earlier edits.
+{
+  const calls: Array<{ text: string; reasoning: boolean; maxTokens: number }> = []
+  const script: unknown[] = [
+    { ...assessment, completeness: 30, title: 'Calculus review', summary: 'Chapters 1 to 4.', edits: [{ action: 'insert', markdown: '## Part A\nAlpha content.' }] },
+    { ...assessment, completeness: 30 },
+    { ...assessment, decision: 'reject', completeness: 0, rationale: 'Duplicates Part A entirely.', edits: [] },
+    { ...assessment, decision: 'reject', completeness: 0, rationale: 'Duplicates Part A entirely.' },
+    { ...assessment, completeness: 60, edits: [{ action: 'insert', after: 'Part A', markdown: '## Part C\nGamma content.' }] },
+    { ...assessment, completeness: 60 },
+  ]
+  const call: ModelCall = async (messages, _signal, options) => {
+    const user = messages[1].content
+    calls.push({
+      text: typeof user === 'string' ? user : (user[0] as { text: string }).text,
+      ...options,
+    })
+    return JSON.stringify(script.shift())
+  }
+  const parts = ['Alpha '.repeat(10).trim(), 'Beta '.repeat(10).trim(), 'Gamma '.repeat(10).trim()]
+  const stages: string[] = []
+  const result = await reviewContribution(
+    { course: 'AP Calculus AB', title: 'Review', code: 'C1', mode: 'upload', source: parts.join('\n\n'), before: '', prior: [] },
+    [],
+    call,
+    new AbortController().signal,
+    () => {},
+    (stage) => stages.push(stage),
+    { partChars: 70 },
+  )
+  assert.equal(result.parts, 3)
+  assert.deepEqual(calls.map((item) => item.reasoning), [false, true, false, true, false, true])
+  assert.ok(calls[4].text.includes('## Part A'), 'later parts draft against earlier edits')
+  assert.equal(result.markdown, '# C1 Calculus review\n\nChapters 1 to 4.\n\n## Part A\nAlpha content.\n\n## Part C\nGamma content.')
+  assert.equal(result.assessment.decision, 'approve')
+  const weights = parts.map((part) => part.length)
+  assert.equal(result.assessment.completeness, Math.round((30 * weights[0] + 60 * weights[2]) / (weights[0] + weights[1] + weights[2])))
+  assert.match(result.assessment.rationale, /Part 2 of 3 \(reject\)/)
+  assert.ok(stages.includes('Drafting guide edits · part 3 of 3'))
+}
+const part = (decision: AgentAssessment['decision'], extra: Partial<AgentAssessment> = {}) => ({
+  assessment: { ...assessment, decision, ...extra },
+  weight: 1,
+  label: 'part',
+})
+assert.equal(combineParts([part('approve'), part('uncertain')]).decision, 'uncertain')
+assert.equal(combineParts([part('approve'), part('reject', { incorrect: true, penalty: 5 })]).decision, 'uncertain')
+const allRejected = combineParts([part('reject'), part('reject', { incorrect: true, penalty: 7 })])
+assert.equal(allRejected.decision, 'reject')
+assert.equal(allRejected.penalty, 7)
+// Every model call has its own deadline; cancelling is not reported as a timeout.
+const stuck: ModelCall = () => new Promise(() => {})
+await assert.rejects(
+  reviewContribution(
+    { course: 'c', title: 't', code: 'C1', mode: 'upload', source: 'One.\n\nTwo.', before: '', prior: [] },
+    [], stuck, new AbortController().signal, () => {}, () => {}, { partChars: 5, callTimeoutMs: 20 },
+  ),
+  (error) => error instanceof ReviewTimeoutError && /part 1 of 2/.test(error.message),
+)
+const stop = new AbortController()
+const stopped = reviewContribution(
+  { course: 'c', title: 't', code: 'C1', mode: 'upload', source: 'One.', before: '', prior: [] },
+  [], stuck, stop.signal, () => {}, () => {}, { callTimeoutMs: 60_000 },
+)
+stop.abort()
+await assert.rejects(stopped, (error) => !(error instanceof ReviewTimeoutError))
+console.log('PASS: long sources are reviewed in parts with per-call deadlines and combined scores')
 fs.rmSync(temporary, { recursive: true, force: true })
 console.log('All notes tests passed.')

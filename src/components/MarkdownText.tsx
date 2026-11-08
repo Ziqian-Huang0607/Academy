@@ -22,7 +22,7 @@ import NoteImage from './NoteImage'
 // is left alone.
 const INLINE = new RegExp(
   [
-    /!\[[^\]\n]*\]\([^\s)]+(?:\s+"[^"\n]*")?\)/.source,
+    /!\[(?:[^[\]\n]|\[[^[\]\n]*\])*\]\([^\s)]+(?:\s+"[^"\n]*")?\)/.source,
     '\\$\\$[^$]+\\$\\$', // display math
     '\\$[^$\\n]+\\$', // inline math
     '`[^`]+`', // inline code
@@ -40,7 +40,7 @@ function renderInline(text: string, keyPrefix: string): ReactNode[] {
   const parts = text.split(new RegExp(`(${INLINE.source})`, 'g'))
   return parts.filter(Boolean).map((part, index) => {
     const key = `${keyPrefix}-${index}`
-    const image = part.match(/^!\[([^\]]*)\]\(([^\s)]+)(?:\s+"[^"]*")?\)$/)
+    const image = part.match(/^!\[(.*)\]\(([^\s)]+)(?:\s+"[^"]*")?\)$/)
     if (image) return <NoteImage key={`${key}-${image[2]}`} source={image[2]} alt={image[1]} />
     if (part.startsWith('$$') && part.endsWith('$$')) {
       return (

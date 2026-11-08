@@ -37,12 +37,13 @@ export function sharedNotesBackend(env: Record<string, string>): Plugin {
         if (!response.ok) return null
         return (await response.json()) as Identity
       },
-      modelCall: async (messages, signal, maxTokens) => {
+      modelCall: async (messages, signal, { maxTokens, reasoning }) => {
         if (!env.MOONSHOT_API_KEY)
           throw new Error(
             'The indexing agent is not configured on the server. No guide changes were made.',
           )
         const base = env.MOONSHOT_BASE_URL || 'https://api.moonshot.ai/v1'
+        const model = env.VITE_LLM_MODEL || 'kimi-k3'
         const response = await fetch(
           `${base.replace(/\/$/, '')}/chat/completions`,
           {
@@ -52,11 +53,16 @@ export function sharedNotesBackend(env: Record<string, string>): Plugin {
               Authorization: `Bearer ${env.MOONSHOT_API_KEY}`,
             },
             body: JSON.stringify({
-              model: env.VITE_LLM_MODEL || 'kimi-k3',
+              model,
               messages,
               response_format: { type: 'json_object' },
-              temperature: 1,
               max_tokens: maxTokens,
+              // kimi-k3 reasons by default and counts that toward max_tokens:
+              // a long guide used to exhaust the budget before writing a word.
+              // With thinking disabled it accepts only temperature 0.6.
+              ...(!reasoning && /^kimi-k3/.test(model)
+                ? { thinking: { type: 'disabled' }, temperature: 0.6 }
+                : { temperature: 1 }),
             }),
             signal,
           },
@@ -73,7 +79,7 @@ export function sharedNotesBackend(env: Record<string, string>): Plugin {
         }
         if (result.choices?.[0]?.finish_reason === 'length')
           throw new Error(
-            'The agent response was incomplete. Split this packet into smaller notes.',
+            'The agent ran out of room before finishing its answer. Retry this packet; if it fails again, split it into smaller notes.',
           )
         return String(result.choices?.[0]?.message?.content ?? '')
       },
