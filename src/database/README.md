@@ -162,8 +162,13 @@ section-level edits (insert, replace or remove a `##` section by heading) and
 assesses its marginal coverage; the server applies the edits itself, so the
 model never rewrites the whole guide and its output grows with the change, not
 the document. A separate model call verifies each part's edits, images and
-scoring. Part scores are weighted by length; an uncertain or incorrect part
-holds the whole packet for review. Each model call has its own deadline. Uncertain,
+scoring. If the verifier objects, or the edits name a section that does not
+exist, the drafter gets one revision round (with reasoning, and the
+verifier's evidence) before the verdict stands. Part scores are weighted by
+length; an uncertain or incorrect part holds the whole packet for review.
+Each model call is streamed and has its own deadline. Finished parts are
+checkpointed on the packet, so Retry continues where an interrupted review
+stopped. Uncertain,
 invalid, timed-out or conflicting reviews never publish. Accepted packets retain
 their exact before/after snapshots and wait for the contributor to publish. A stale
 base revision queues a fresh review. Stopping a packet aborts the model request

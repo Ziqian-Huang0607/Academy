@@ -447,6 +447,14 @@ try {
       ],
     },
     { ...assessment, decision: 'uncertain', completeness: 0 },
+    // One revision round, still unconvincing: the verdict stands.
+    {
+      ...assessment,
+      edits: [
+        { action: 'insert', markdown: '## Conjecture\nThis conjecture may be true.' },
+      ],
+    },
+    { ...assessment, decision: 'uncertain', completeness: 0 },
   ]
   const uncertain = await api(
     '/packets',
@@ -894,6 +902,44 @@ console.log('PASS: long sources are reviewed in parts with per-call deadlines an
   assert.equal(resumed.assessment.decision, 'approve')
 }
 console.log('PASS: an interrupted multi-part review resumes from its last finished part')
+
+// A verifier objection (or an unappliable edit) earns one revision round with
+// reasoning on, carrying the objection; a fixed draft is then approved.
+{
+  const seen: Array<{ reasoning: boolean; text: string }> = []
+  const script: unknown[] = [
+    { ...assessment, title: 'Inverse functions', edits: [{ action: 'insert', markdown: '## Example\n$f(x) = x^2 + 2x$, so $(f^{-1})\'(3) = 1/5$.' }] },
+    { ...assessment, decision: 'reject', completeness: 0, rationale: 'The function should be x^3 + 2x; with x^2 the answer would be 1/4.' },
+    { ...assessment, title: 'Inverse functions', edits: [{ action: 'insert', markdown: '## Example\n$f(x) = x^3 + 2x$, so $(f^{-1})\'(3) = 1/5$.' }] },
+    assessment,
+  ]
+  const result = await reviewContribution(
+    { course: 'c', title: 'Review', code: 'C1', mode: 'upload', source: 'f ( x ) = x + 3 2 x ... 1 5', before: '', prior: [] },
+    [],
+    async (messages, _signal, options) => {
+      const user = messages[1].content
+      seen.push({ reasoning: options.reasoning, text: typeof user === 'string' ? user : (user[0] as { text: string }).text })
+      return JSON.stringify(script.shift())
+    },
+    new AbortController().signal,
+    () => {},
+    () => {},
+  )
+  assert.deepEqual(seen.map((item) => item.reasoning), [false, true, true, true])
+  assert.match(seen[2].text, /verifierObjection/)
+  assert.match(seen[2].text, /should be x\^3/)
+  assert.equal(result.assessment.decision, 'approve')
+  assert.match(result.markdown, /x\^3 \+ 2x/)
+}
+// Headings quoted with their markers still match; an unknown insert anchor appends.
+assert.match(
+  applyGuideEdits('# 1 T\n\n## A\na', { code: '1', title: 'T', edits: [
+    { action: 'replace', section: '## A', markdown: '## A\nb' },
+    { action: 'insert', after: '### Missing', markdown: '## C\nc' },
+  ] }),
+  /## A\nb\n\n## C\nc$/,
+)
+console.log('PASS: rejected drafts get one reasoning revision with the verifier objection')
 
 // The model call streams, so a long-reasoning verifier is not cut off by
 // fetch's 300 s header timeout. Events may split anywhere across chunks.

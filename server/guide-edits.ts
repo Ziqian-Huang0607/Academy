@@ -71,8 +71,9 @@ export function sectionsByHeading(markdown: string, headings: string[]) {
     .map((section) => section.raw.trim())
 }
 
+/** Models often quote a heading with its markers ("### 2.1 Limits"). */
 function normal(heading: string) {
-  return heading.replace(/\s+/g, ' ').trim().toLowerCase()
+  return heading.replace(/^\s*#+\s*/, '').replace(/\s+/g, ' ').trim().toLowerCase()
 }
 
 function block(markdown: string | undefined) {
@@ -92,7 +93,7 @@ function block(markdown: string | undefined) {
 
 /**
  * Apply edits in order. A brand-new guide (empty base) is headed with
- * `# <code> <title>` and the summary. Unknown headings are an error, never a
+ * `# <code> <title>` and the summary. An unknown replace/remove target is an error, never a
  * guess: the caller treats the part as not reviewed.
  */
 export function applyGuideEdits(
@@ -117,7 +118,12 @@ export function applyGuideEdits(
     if (edit.action === 'remove') sections.splice(find(edit.section), 1)
     else if (edit.action === 'replace') sections.splice(find(edit.section), 1, ...parts(edit.markdown))
     else {
-      const at = edit.after === undefined ? sections.length : edit.after === '' ? 0 : find(edit.after) + 1
+      // An unknown anchor appends: inserting cannot lose anything, and a
+      // part's anchor may name a section an earlier part failed to add.
+      const anchor = edit.after === undefined || edit.after === '' ? -1 : sections.findIndex(
+        (section) => normal(section.heading) === normal(edit.after!),
+      )
+      const at = edit.after === '' ? 0 : anchor < 0 ? sections.length : anchor + 1
       sections.splice(at, 0, ...parts(edit.markdown))
     }
   }
