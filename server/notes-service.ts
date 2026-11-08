@@ -9,6 +9,7 @@ import { NotesStore, type Contributor } from './notes-store'
 import {
   reviewContribution,
   type ModelCall,
+  type ReviewCheckpoint,
   type ReviewOptions,
 } from './review'
 import {
@@ -263,7 +264,7 @@ export class NotesService {
               packet.status === 'published' ||
               packet.ledger.length,
           )
-          .map((packet) =>
+          .map(({ checkpoint: _checkpoint, ...packet }) =>
             packet.submittedBy === actor
               ? packet
               : packet.status === 'published'
@@ -646,6 +647,17 @@ export class NotesService {
       if (packet.fromRevision > 0 && !note)
         throw new Error('Target guide could not be loaded.')
       const before = markdown(note)
+      // A retry continues after the parts already reviewed, provided the
+      // guide has not changed underneath them.
+      const saved = packet.checkpoint as
+        | (ReviewCheckpoint & { fromRevision: number; before: string })
+        | undefined
+      const resume =
+        saved &&
+        saved.fromRevision === (note?.revision ?? 0) &&
+        saved.before === before
+          ? saved
+          : undefined
       this.patch(packet.id, (row) => {
         row.status = 'indexing'
         row.stage = 'Reading the guide and checking coverage'
@@ -723,7 +735,19 @@ export class NotesService {
               row.stage = stage
           })
         },
-        this.options.review,
+        {
+          ...this.options.review,
+          resume,
+          onCheckpoint: (checkpoint) =>
+            this.patch(packet.id, (row) => {
+              if (row.attempt === attempt)
+                row.checkpoint = {
+                  ...checkpoint,
+                  fromRevision: note?.revision ?? 0,
+                  before,
+                }
+            }),
+        },
       )
       controller.signal.throwIfAborted()
       this.patch(packet.id, (row) => {
@@ -733,6 +757,7 @@ export class NotesService {
         row.model = this.options.model
         row.verified = assessment.decision === 'approve'
         row.attempt = undefined
+        row.checkpoint = undefined
         row.status =
           assessment.decision === 'approve'
             ? 'ready'
@@ -763,7 +788,11 @@ export class NotesService {
         this.patch(packet.id, (row) => {
           if (row.status === 'cancelled') return
           row.status = 'failed'
-          row.stage = 'Review interrupted — no guide change'
+          const done = (row.checkpoint as ReviewCheckpoint | undefined)
+            ?.results.length
+          row.stage = done
+            ? `Review interrupted after ${done} of ${(row.checkpoint as ReviewCheckpoint).parts} parts — Retry continues from there`
+            : 'Review interrupted — no guide change'
           row.verified = false
           row.attempt = undefined
           row.error = controller.signal.aborted

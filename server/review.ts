@@ -125,15 +125,32 @@ export type ModelCall = (
   signal: AbortSignal,
   options: { maxTokens: number; reasoning: boolean },
 ) => Promise<string>
+export interface PartResult {
+  assessment: AgentAssessment
+  weight: number
+  label: string
+}
+/** Reviewed parts so far: lets a retry continue instead of starting over. */
+export interface ReviewCheckpoint {
+  parts: number
+  results: PartResult[]
+  draft: string
+}
 export interface ReviewOptions {
   /** Longest part of a source reviewed in one call. */
   partChars?: number
   /** Budget for each model call (not for the whole review). */
   callTimeoutMs?: number
+  /** Continue after these parts (ignored if the source now splits differently). */
+  resume?: ReviewCheckpoint
+  /** Called after every reviewed part with the state needed to resume. */
+  onCheckpoint?: (checkpoint: ReviewCheckpoint) => void
 }
 export class ReviewTimeoutError extends Error {}
 const PART_CHARS = 8_000
-const CALL_TIMEOUT_MS = 300_000
+// Measured on an 18-page review PDF: drafting a part took 35–60 s, verifying it
+// 110–300+ s with up to ~11k reasoning tokens.
+const CALL_TIMEOUT_MS = 600_000
 /** Guides up to this size are shown whole; longer ones as outline + relevant sections. */
 const GUIDE_INLINE_CHARS = 24_000
 const CONTEXT_LIMIT = 180_000
@@ -215,9 +232,7 @@ const EDITS = `Return JSON with the assessment fields for THIS PART ONLY plus "e
 - {"action":"remove","section":"<exact existing heading>"}
 Reference sections only by headings that appear in guide (markdown or outline). Earlier parts have already been applied. Touch only sections this part concerns; leave everything else alone. When guide is empty, also return "title" (no course code) and "summary" (one or two sentences), and add the part's content as sections. For an upload, index the contributor's material faithfully and completely, organised under clear headings; do not invent content. If you reject or are uncertain, return "edits": [].`
 /** Fold per-part assessments into the packet's one decision and score. */
-export function combineParts(
-  parts: Array<{ assessment: AgentAssessment; weight: number; label: string }>,
-): AgentAssessment {
+export function combineParts(parts: PartResult[]): AgentAssessment {
   if (parts.length === 1) return parts[0].assessment
   const decisions = parts.map((part) => part.assessment.decision)
   const incorrect = parts.filter((part) => part.assessment.incorrect)
@@ -284,13 +299,12 @@ export async function reviewContribution(
   const parts = splitSource(context.source, options.partChars ?? PART_CHARS)
   if (!parts.length) throw new Error('The submission has no readable text.')
   const callTimeout = options.callTimeoutMs ?? CALL_TIMEOUT_MS
-  const results: Array<{
-    assessment: AgentAssessment
-    weight: number
-    label: string
-  }> = []
-  let draft = context.before
+  const resume =
+    options.resume?.parts === parts.length ? options.resume : undefined
+  const results: PartResult[] = [...(resume?.results ?? [])]
+  let draft = resume?.draft ?? context.before
   for (const [index, part] of parts.entries()) {
+    if (index < results.length) continue
     const label =
       parts.length > 1 ? `part ${index + 1} of ${parts.length}` : 'this packet'
     const where = parts.length > 1 ? ` · part ${index + 1} of ${parts.length}` : ''
@@ -396,7 +410,7 @@ export async function reviewContribution(
               },
             ],
             callSignal,
-            { maxTokens: 16_000, reasoning: true },
+            { maxTokens: 32_000, reasoning: true },
           ),
         ),
       ),
@@ -413,6 +427,7 @@ export async function reviewContribution(
       }
     if (assessment.decision === 'approve') draft = next
     results.push({ assessment, weight: part.length, label })
+    options.onCheckpoint?.({ parts: parts.length, results: [...results], draft })
   }
   const assessment = combineParts(results)
   const markdown = draft

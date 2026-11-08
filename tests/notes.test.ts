@@ -10,6 +10,7 @@ import {
   reconcileAssessments,
   reviewContribution,
   ReviewTimeoutError,
+  type ReviewCheckpoint,
 } from '../server/review'
 import {
   applyGuideEdits,
@@ -848,5 +849,49 @@ const stopped = reviewContribution(
 stop.abort()
 await assert.rejects(stopped, (error) => !(error instanceof ReviewTimeoutError))
 console.log('PASS: long sources are reviewed in parts with per-call deadlines and combined scores')
+
+// A failed part keeps the parts before it: a retry resumes, it does not restart.
+{
+  const context = { course: 'c', title: 'Review', code: 'C1', mode: 'upload', source: 'First part text.\n\nSecond part text.', before: '', prior: [] }
+  let checkpoint: ReviewCheckpoint | undefined
+  const first: unknown[] = [
+    { ...assessment, title: 'Review', edits: [{ action: 'insert', markdown: '## First\nOne.' }] },
+    assessment,
+    { ...assessment, edits: [{ action: 'insert', markdown: '## Second\nTwo.' }] },
+  ]
+  const failing: ModelCall = async () => {
+    if (!first.length) throw new Error('The review model returned 429.')
+    return JSON.stringify(first.shift())
+  }
+  await assert.rejects(
+    reviewContribution(context, [], failing, new AbortController().signal, () => {}, () => {}, {
+      partChars: 20,
+      onCheckpoint: (saved) => (checkpoint = saved),
+    }),
+    /429/,
+  )
+  assert.equal(checkpoint?.results.length, 1)
+  let calls = 0
+  const second: unknown[] = [
+    { ...assessment, edits: [{ action: 'insert', markdown: '## Second\nTwo.' }] },
+    assessment,
+  ]
+  const resumed = await reviewContribution(
+    context,
+    [],
+    async () => {
+      calls++
+      return JSON.stringify(second.shift())
+    },
+    new AbortController().signal,
+    () => {},
+    () => {},
+    { partChars: 20, resume: checkpoint },
+  )
+  assert.equal(calls, 2, 'only the unfinished part is reviewed again')
+  assert.equal(resumed.markdown, '# C1 Review\n\n## First\nOne.\n\n## Second\nTwo.')
+  assert.equal(resumed.assessment.decision, 'approve')
+}
+console.log('PASS: an interrupted multi-part review resumes from its last finished part')
 fs.rmSync(temporary, { recursive: true, force: true })
 console.log('All notes tests passed.')
