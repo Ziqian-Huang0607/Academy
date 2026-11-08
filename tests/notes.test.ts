@@ -17,6 +17,7 @@ import {
   GuideEditError,
   splitSource,
 } from '../server/guide-edits'
+import { createMoonshotCall } from '../server/moonshot'
 import { diffMarkdown } from '../src/database/notes-markdown'
 import {
   safeImageSource,
@@ -893,5 +894,55 @@ console.log('PASS: long sources are reviewed in parts with per-call deadlines an
   assert.equal(resumed.assessment.decision, 'approve')
 }
 console.log('PASS: an interrupted multi-part review resumes from its last finished part')
+
+// The model call streams, so a long-reasoning verifier is not cut off by
+// fetch's 300 s header timeout. Events may split anywhere across chunks.
+{
+  const sent: Array<Record<string, unknown>> = []
+  const streamed = (events: string[], chunkSize = 7) => {
+    const text = events.map((event) => `data: ${event}\n\n`).join('')
+    const bytes = new TextEncoder().encode(text)
+    return new Response(
+      new ReadableStream({
+        start(controller) {
+          for (let at = 0; at < bytes.length; at += chunkSize)
+            controller.enqueue(bytes.slice(at, at + chunkSize))
+          controller.close()
+        },
+      }),
+      { status: 200, headers: { 'Content-Type': 'text/event-stream' } },
+    )
+  }
+  const delta = (content: string | null, extra: Record<string, unknown> = {}) =>
+    JSON.stringify({ choices: [{ delta: { content, ...extra }, finish_reason: null }] })
+  let reply: Response
+  const moonshot = createMoonshotCall({ MOONSHOT_API_KEY: 'key', MOONSHOT_BASE_URL: 'https://example.test/v1/' }, (async (url: string, init: RequestInit) => {
+    assert.equal(url, 'https://example.test/v1/chat/completions')
+    sent.push(JSON.parse(String(init.body)))
+    return reply
+  }) as typeof fetch)
+  reply = streamed([
+    delta(null, { reasoning_content: 'Thinking about it…' }),
+    delta('{"decision":'),
+    delta('"approve"}'),
+    JSON.stringify({ choices: [{ delta: {}, finish_reason: 'stop' }] }),
+    '[DONE]',
+  ])
+  assert.equal(await moonshot([{ role: 'user', content: 'x' }], new AbortController().signal, { maxTokens: 100, reasoning: false }), '{"decision":"approve"}')
+  assert.equal(sent[0].stream, true)
+  assert.deepEqual(sent[0].thinking, { type: 'disabled' })
+  assert.equal(sent[0].temperature, 0.6)
+  reply = streamed([delta('{}'), JSON.stringify({ choices: [{ delta: {}, finish_reason: 'stop' }] })])
+  await moonshot([{ role: 'user', content: 'x' }], new AbortController().signal, { maxTokens: 100, reasoning: true })
+  assert.equal(sent[1].thinking, undefined)
+  assert.equal(sent[1].temperature, 1)
+  reply = streamed([delta('{"partial'), JSON.stringify({ choices: [{ delta: {}, finish_reason: 'length' }] })])
+  await assert.rejects(moonshot([], new AbortController().signal, { maxTokens: 1, reasoning: true }), /ran out of room/)
+  reply = streamed([delta('{"cut off')])
+  await assert.rejects(moonshot([], new AbortController().signal, { maxTokens: 1, reasoning: true }), /stopped mid-answer/)
+  reply = streamed([JSON.stringify({ error: { message: 'engine is currently overloaded' } })])
+  await assert.rejects(moonshot([], new AbortController().signal, { maxTokens: 1, reasoning: true }), /overloaded/)
+}
+console.log('PASS: the model call streams and reports truncated or failed answers')
 fs.rmSync(temporary, { recursive: true, force: true })
 console.log('All notes tests passed.')
