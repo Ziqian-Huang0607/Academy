@@ -18,6 +18,7 @@ import Page, { PageAction, PageBar, PageBody, SidePanel } from '@/components/Pag
 import GenerateSheet, { type SheetMode } from '@/components/GenerateSheet'
 import OriginTag, { SourceChip } from '@/components/OriginTag'
 import Tex from '@/components/Tex'
+import { InlineMarkdown } from '@/components/MarkdownText'
 import {
   draftsForSession,
   questionsForSession,
@@ -206,7 +207,7 @@ export default function QuestionBase() {
           : question.origin !== 'synthesized')
       const matchesQuery =
         !normalized ||
-        `${question.code} ${question.unit} ${question.topic} ${question.prompt}`
+        `${question.code} ${question.unit} ${question.topic} $<InlineMarkdown>{question.prompt}</InlineMarkdown>`
           .toLowerCase()
           .includes(normalized)
       return matchesUnit && matchesOrigin && matchesQuery
@@ -392,7 +393,7 @@ export default function QuestionBase() {
                       {question.topic}
                     </span>
                     <span className="mt-1 line-clamp-2 block text-[12px] leading-relaxed text-ink-muted">
-                      {question.prompt}
+                      <InlineMarkdown>{question.prompt}</InlineMarkdown>
                     </span>
                     <span className="mt-2 flex items-center justify-between gap-2">
                       {question.origin === 'synthesized' ? (
@@ -456,7 +457,7 @@ export default function QuestionBase() {
                   {selected.unit} · {selected.topic}
                 </div>
                 <h2 className="mt-3 text-[19px] font-medium leading-relaxed text-ink">
-                  {selected.prompt}
+                  <InlineMarkdown>{selected.prompt}</InlineMarkdown>
                 </h2>
                 {selected.tex ? (
                   <Tex display className="my-5 text-[20px] text-ink">
@@ -485,7 +486,7 @@ export default function QuestionBase() {
                             }`}
                           >
                             <span className="font-mono text-[12px] text-ink-muted">{option.id}</span>
-                            <span className="text-[13px] leading-relaxed text-ink">{option.text}</span>
+                            <span className="text-[13px] leading-relaxed text-ink"><InlineMarkdown>{option.text}</InlineMarkdown></span>
                           </button>
                         </li>
                       )
@@ -562,10 +563,15 @@ export default function QuestionBase() {
                     <span>
                       {result === 'correct'
                         ? 'Correct. This attempt has been added to your progress.'
-                        : `Not quite. The expected result is ${selected.answer}. Open the teaching steps to see why.`}
+                        : (
+                            <>
+                              Not quite. The expected result is <InlineMarkdown>{selected.answer}</InlineMarkdown>. Open the teaching
+                              steps to see why.
+                            </>
+                          )}
                       {result === 'incorrect' && selected.misconception ? (
                         <span className="mt-1 block text-[12px] leading-relaxed">
-                          This one catches: {selected.misconception}
+                          This one catches: <InlineMarkdown>{selected.misconception}</InlineMarkdown>
                         </span>
                       ) : null}
                     </span>
@@ -611,7 +617,7 @@ export default function QuestionBase() {
                         <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-board font-mono text-[11px] text-paper">
                           {index + 1}
                         </span>
-                        <p className="pt-0.5 text-[13px] leading-relaxed text-ink">{step}</p>
+                        <p className="pt-0.5 text-[13px] leading-relaxed text-ink"><InlineMarkdown>{step}</InlineMarkdown></p>
                       </li>
                     ))}
                   </ol>

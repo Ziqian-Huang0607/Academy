@@ -10,6 +10,7 @@ import {
 } from 'lucide-react'
 import CourseShell from '@/components/CourseShell'
 import Tex from '@/components/Tex'
+import { InlineMarkdown } from '@/components/MarkdownText'
 import { NumberedSegments } from '@/pages/Chat'
 
 interface SessionItem {
@@ -173,7 +174,7 @@ export default function ReviewSession() {
               </span>
               <span className="text-[14px] text-ink-muted">{item.kind}</span>
             </div>
-            <p className="text-[16px] text-ink">{item.prompt}</p>
+            <p className="text-[16px] text-ink"><InlineMarkdown>{item.prompt}</InlineMarkdown></p>
             <Tex display className="my-3 text-ink">
               {item.tex}
             </Tex>
