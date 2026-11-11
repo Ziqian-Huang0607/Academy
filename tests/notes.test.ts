@@ -13,7 +13,7 @@ import {
 } from '../src/database/note-image-markdown'
 import { renderToStaticMarkup } from 'react-dom/server'
 import { createElement } from 'react'
-import MarkdownText from '../src/components/MarkdownText'
+import MarkdownText, { InlineMarkdown } from '../src/components/MarkdownText'
 import NoteDocument from '../src/components/NoteDocument'
 import { notesRequest, requestNoteImage } from '../src/lib/notes-api'
 import type { AgentAssessment } from '../src/database/contribution-types'
@@ -647,5 +647,15 @@ assert.match(note, /<img/)
 console.log(
   'PASS: conservative review agreement, ordered repeated-line diffs and safe Markdown images',
 )
+// Synthesized question stems and options carry inline LaTeX.
+for (const text of [
+  'Which of the following statements about $\\lim_{x\\to 0} \\dfrac{x}{|x|}$ is correct?',
+  'The limit does not exist, because $\\lim_{x\\to 0^-}\\dfrac{x}{|x|}=-1$ while $\\lim_{x\\to 0^+}\\dfrac{x}{|x|}=1$.',
+]) {
+  const html = renderToStaticMarkup(createElement(InlineMarkdown, { children: text }))
+  assert.match(html, /class="katex"/)
+  assert.ok(!html.includes('$'), `raw math delimiter left in: ${html.slice(0, 120)}`)
+}
+console.log('PASS: question stems and options render their inline math')
 fs.rmSync(temporary, { recursive: true, force: true })
 console.log('All notes tests passed.')

@@ -30,6 +30,7 @@ import * as Dialog from '@radix-ui/react-dialog'
 import { PageAction, PageNotice } from '@/components/Page'
 import OriginTag from '@/components/OriginTag'
 import Tex from '@/components/Tex'
+import { InlineMarkdown } from '@/components/MarkdownText'
 import {
   SYNTHESIS,
   acceptBatch,
@@ -141,7 +142,7 @@ function DraftCard({
             <OriginTag origin={question.origin} />
             <span className="ml-auto text-[11px] text-ink-muted">{question.marks} marks</span>
           </div>
-          <p className="mt-2 text-[14px] leading-relaxed text-ink">{question.prompt}</p>
+          <p className="mt-2 text-[14px] leading-relaxed text-ink"><InlineMarkdown>{question.prompt}</InlineMarkdown></p>
           {question.tex ? (
             <Tex display className="my-3 text-[17px] text-ink">
               {question.tex}
@@ -151,7 +152,7 @@ function DraftCard({
             <ul className="mt-2 space-y-1">
               {question.options.map((option) => (
                 <li key={option.id} className="text-[12px] leading-relaxed text-ink-muted">
-                  <span className="font-mono text-[11px] text-ink">{option.id}</span> · {option.text}
+                  <span className="font-mono text-[11px] text-ink">{option.id}</span> · <InlineMarkdown>{option.text}</InlineMarkdown>
                 </li>
               ))}
             </ul>
@@ -172,11 +173,11 @@ function DraftCard({
             <div className="mt-2 space-y-2 rounded-control bg-paper px-3 py-2.5">
               <p className="text-[12px] text-ink">
                 <span className="text-ink-muted">Answer · </span>
-                {question.answer}
+                <InlineMarkdown>{question.answer}</InlineMarkdown>
               </p>
               <ol className="list-decimal space-y-1 pl-4 text-[12px] leading-relaxed text-ink-muted">
                 {question.steps.map((step) => (
-                  <li key={step}>{step}</li>
+                  <li key={step}><InlineMarkdown>{step}</InlineMarkdown></li>
                 ))}
               </ol>
               {question.misconception ? (
