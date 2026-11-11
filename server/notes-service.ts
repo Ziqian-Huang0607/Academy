@@ -200,6 +200,17 @@ export class NotesService {
       ...this.corpus.get(courseId)!.filter((note) => !ids.has(note.id)),
     ]
   }
+  /**
+   * Only HS courses are taught at S/S+/H/H+. Setup still records a level for
+   * every course, so an AP upload arrived tagged "S" and was hidden from the
+   * rest of the class; other pathways share one guide.
+   */
+  private unstreamed(courseId: string) {
+    const pathway = this.seed.courseCatalog.find(
+      (course) => course.id === courseId,
+    )?.pathway
+    return !!pathway && pathway !== 'HS'
+  }
   private target(packet: NotePacket) {
     return this.courseNotes(packet.courseId).find(
       (note) => note.id === packet.noteId && note.level === packet.level,
@@ -368,13 +379,7 @@ export class NotesService {
           JSON.parse((await body(req, 300_000)).toString()),
         )
         await this.ensureCourse(input.courseId)
-        // Only HS courses are taught at S/S+/H/H+. Setup still records a level
-        // for every course, so an AP upload arrived tagged "S" and was hidden
-        // from the rest of the class; other pathways share one guide.
-        const pathway = this.seed.courseCatalog.find(
-          (course) => course.id === input.courseId,
-        )?.pathway
-        if (pathway && pathway !== 'HS') input.level = undefined
+        if (this.unstreamed(input.courseId)) input.level = undefined
         const notes = this.courseNotes(input.courseId)
         const note = input.noteId
           ? notes.find(
@@ -637,6 +642,14 @@ export class NotesService {
       .packets.filter((row) => row.status === 'queued')
       .sort((a, b) => a.submittedAt.localeCompare(b.submittedAt))[0]
     if (!packet) return
+    // A new guide queued before that rule (or retried since) still carries
+    // the student's level; drop it so it publishes to the whole class.
+    if (packet.level && packet.fromRevision === 0 && this.unstreamed(packet.courseId)) {
+      this.patch(packet.id, (row) => {
+        delete row.level
+      })
+      delete packet.level
+    }
     this.workerError = ''
     this.processing = true
     const controller = new AbortController(),
