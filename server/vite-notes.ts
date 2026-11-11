@@ -2,6 +2,7 @@ import path from 'node:path'
 import fs from 'node:fs'
 import type { Plugin, ViteDevServer, PreviewServer } from 'vite'
 import { NotesService } from './notes-service'
+import { createMoonshotCall } from './moonshot'
 import type { Identity } from './notes-service'
 
 /** Uses Academy's existing Launchpad process and its preserved data directory. */
@@ -37,46 +38,7 @@ export function sharedNotesBackend(env: Record<string, string>): Plugin {
         if (!response.ok) return null
         return (await response.json()) as Identity
       },
-      modelCall: async (messages, signal, maxTokens) => {
-        if (!env.MOONSHOT_API_KEY)
-          throw new Error(
-            'The indexing agent is not configured on the server. No guide changes were made.',
-          )
-        const base = env.MOONSHOT_BASE_URL || 'https://api.moonshot.ai/v1'
-        const response = await fetch(
-          `${base.replace(/\/$/, '')}/chat/completions`,
-          {
-            method: 'POST',
-            headers: {
-              'Content-Type': 'application/json',
-              Authorization: `Bearer ${env.MOONSHOT_API_KEY}`,
-            },
-            body: JSON.stringify({
-              model: env.VITE_LLM_MODEL || 'kimi-k3',
-              messages,
-              response_format: { type: 'json_object' },
-              temperature: 1,
-              max_tokens: maxTokens,
-            }),
-            signal,
-          },
-        )
-        if (!response.ok)
-          throw new Error(
-            `The review model returned ${response.status}. Retry later; nothing was published.`,
-          )
-        const result = (await response.json()) as {
-          choices?: Array<{
-            finish_reason?: string
-            message?: { content?: string }
-          }>
-        }
-        if (result.choices?.[0]?.finish_reason === 'length')
-          throw new Error(
-            'The agent response was incomplete. Split this packet into smaller notes.',
-          )
-        return String(result.choices?.[0]?.message?.content ?? '')
-      },
+      modelCall: createMoonshotCall(env),
     })
     // Never allow Vite's file serving to expose durable notes or image originals.
     server.middlewares.use((req, res, next) => {

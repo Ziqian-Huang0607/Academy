@@ -37,8 +37,18 @@ export async function readNoteUpload(
         const pages: string[] = []
         for (let page = 1; page <= pdf.numPages; page++) {
           const text = await (await pdf.getPage(page)).getTextContent()
+          // Keep the PDF's own line ends. Joining every run with a space
+          // flattened a whole page into one line, which hid headings, list
+          // items and display formulas from the review agent and left it no
+          // paragraph boundaries to split a long upload on.
           pages.push(
-            text.items.map((item) => ('str' in item ? item.str : '')).join(' '),
+            text.items
+              .map((item) =>
+                'str' in item ? item.str + (item.hasEOL ? '\n' : ' ') : '',
+              )
+              .join('')
+              .replace(/[ \t]+\n/g, '\n')
+              .trim(),
           )
         }
         const text = pages.join('\n\n')
