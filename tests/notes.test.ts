@@ -638,6 +638,17 @@ try {
   assert.equal(apPacket.status, 201, JSON.stringify(apPacket.data))
   assert.equal(row(apPacket.data.id).level, undefined)
   await api(`/packets/${apPacket.data.id}/cancel`, {}, 'ap-author')
+  // A packet created before that rule keeps its level until review drops it.
+  service.store.write((state) => {
+    const legacy = state.packets.find((packet) => packet.id === apPacket.data.id)!
+    legacy.level = 'S'
+    legacy.status = 'failed'
+  })
+  assert.equal((await api(`/packets/${apPacket.data.id}/retry`, {}, 'ap-author')).status, 200)
+  for (let i = 0; i < 100 && row(apPacket.data.id).level; i++)
+    await new Promise((resolve) => setTimeout(resolve, 10))
+  assert.equal(row(apPacket.data.id).level, undefined)
+  await api(`/packets/${apPacket.data.id}/cancel`, {}, 'ap-author')
   slow = null
   await new Promise((resolve) => setTimeout(resolve, 30))
   console.log('PASS: unstreamed (AP) uploads are shared across levels')
