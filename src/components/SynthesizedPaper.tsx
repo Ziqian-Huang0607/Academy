@@ -18,6 +18,7 @@ import { Eye, EyeOff, Printer } from 'lucide-react'
 import { PageAction } from '@/components/Page'
 import OriginTag from '@/components/OriginTag'
 import Tex from '@/components/Tex'
+import { InlineMarkdown } from '@/components/MarkdownText'
 import type { IndexedQuestion, MockTest } from '@/database/types'
 
 const PRINT_ROOT = 'synonance-paper-print-root'
@@ -122,7 +123,7 @@ export default function SynthesizedPaper({
                 <div className="flex items-start gap-4">
                   <span className="mt-0.5 font-mono text-[13px] text-ink-muted">{index + 1}.</span>
                   <div className="min-w-0 flex-1">
-                    <p className="text-[15px] leading-relaxed text-ink">{question.prompt}</p>
+                    <p className="text-[15px] leading-relaxed text-ink"><InlineMarkdown>{question.prompt}</InlineMarkdown></p>
                     {question.tex ? (
                       <Tex display className="my-4 text-[18px] text-ink">
                         {question.tex}
@@ -133,7 +134,7 @@ export default function SynthesizedPaper({
                         {question.options.map((option) => (
                           <li key={option.id} className="flex gap-3 text-[13px] leading-relaxed text-ink">
                             <span className="font-mono text-[12px] text-ink-muted">{option.id}</span>
-                            <span>{option.text}</span>
+                            <span><InlineMarkdown>{option.text}</InlineMarkdown></span>
                           </li>
                         ))}
                       </ul>
@@ -145,10 +146,10 @@ export default function SynthesizedPaper({
                         <div className="font-mono text-[11px] uppercase tracking-[0.08em] text-board">
                           Mark scheme
                         </div>
-                        <p className="mt-1.5 text-[13px] text-ink">{question.answer}</p>
+                        <p className="mt-1.5 text-[13px] text-ink"><InlineMarkdown>{question.answer}</InlineMarkdown></p>
                         <ol className="mt-2 list-decimal space-y-1 pl-4 text-[12px] leading-relaxed text-ink-muted">
                           {question.steps.map((step) => (
-                            <li key={step}>{step}</li>
+                            <li key={step}><InlineMarkdown>{step}</InlineMarkdown></li>
                           ))}
                         </ol>
                         {question.rubric?.length ? (

@@ -245,6 +245,15 @@ function parseBlocks(markdown: string): Block[] {
   return blocks
 }
 
+/**
+ * One line of model text (a question stem, an option, an answer, a step) with
+ * its `$…$` math, emphasis and code rendered. Synthesized questions carry LaTeX
+ * in these strings; printed raw they show "$\dfrac{x}{|x|}$" to the student.
+ */
+export function InlineMarkdown({ children }: { children: string }) {
+  return <>{renderInline(children ?? '', 'inline')}</>
+}
+
 export default function MarkdownText({ children }: { children: string }) {
   const blocks = parseBlocks(children)
   return (
